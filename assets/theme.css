@@ -4801,3 +4801,314 @@ p, li, a, span, input, textarea, select, label {
   text-align: center;
 }
 
+
+
+/* ==========================================================================
+   70. Value Props — equal height fix
+   ========================================================================== */
+
+.value-props__grid {
+  align-items: stretch;
+}
+
+.value-prop {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   71. Kits Grid — 4-product layout
+   ========================================================================== */
+
+/* 4-column desktop */
+.kits-grid--4 {
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+}
+
+/* Featured card in 4-col: slight scale up */
+.kits-grid--4 .kit-card--featured {
+  transform: translateY(-8px);
+}
+
+.kits-grid--4 .kit-card--featured:hover {
+  transform: translateY(-16px);
+}
+
+/* Tablet: 2x2 */
+@media (max-width: 1024px) {
+  .kits-grid--4 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5);
+  }
+  .kits-grid--4 .kit-card--featured {
+    transform: none;
+  }
+  .kits-grid--4 .kit-card--featured:hover {
+    transform: translateY(-8px);
+  }
+}
+
+/* Mobile: single column */
+@media (max-width: 600px) {
+  .kits-grid--4 {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+
+
+/* ==========================================================================
+   72. Add-ons Strip
+   ========================================================================== */
+
+.addons-section {
+  background: var(--color-cream-light, #f7f5ed);
+  padding: var(--space-8) 0 var(--space-10);
+  border-top: 1px solid rgba(43,43,43,0.07);
+  border-bottom: 1px solid rgba(43,43,43,0.07);
+}
+
+/* Small header above the strip */
+.addons-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+.addons-label {
+  font-family: 'Lazy Dog', sans-serif;
+  font-size: var(--text-base, 1rem);
+  color: var(--color-charcoal, #2b2b2b);
+  white-space: nowrap;
+}
+
+.addons-subtext {
+  font-size: var(--text-sm, 0.875rem);
+  color: var(--color-gray-600, #666);
+  margin: 0;
+}
+
+.addons-header::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(43,43,43,0.10);
+}
+
+/* The horizontal strip */
+.addons-strip {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  background: #fff;
+  border-radius: var(--radius-xl, 16px);
+  border: 1px solid rgba(43,43,43,0.08);
+  box-shadow: 0 4px 20px rgba(43,43,43,0.06);
+  overflow: hidden;
+}
+
+/* Vertical dividers between cards */
+.addons-divider {
+  width: 1px;
+  background: rgba(43,43,43,0.07);
+  flex-shrink: 0;
+  align-self: stretch;
+}
+
+/* Individual add-on card */
+.addon-card {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-5) var(--space-5);
+  transition: background 0.2s ease;
+  min-width: 0;
+}
+
+.addon-card:hover {
+  background: var(--color-cream-light, #f7f5ed);
+}
+
+/* Image / icon box */
+.addon-card__img-wrap {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #e8f5d4 0%, #ceeaa8 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.addon-card__placeholder-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.addon-card__real-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Text info */
+.addon-card__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.addon-card__name {
+  font-family: 'Lazy Dog', sans-serif;
+  font-size: var(--text-sm, 0.875rem);
+  color: var(--color-charcoal, #2b2b2b);
+  margin: 0 0 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.addon-card__desc {
+  font-size: 0.75rem;
+  color: var(--color-gray-600, #666);
+  margin: 0;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Price + button column */
+.addon-card__action {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-2);
+}
+
+.addon-card__price {
+  font-family: 'Lazy Dog', sans-serif;
+  font-size: var(--text-sm, 0.875rem);
+  color: var(--color-green-dark, #3a7d1a);
+  white-space: nowrap;
+}
+
+/* Add to cart button */
+.addon-atc-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 14px;
+  border-radius: 99px;
+  border: 1.5px solid var(--color-green, #6DB83A);
+  background: transparent;
+  color: var(--color-green, #6DB83A);
+  font-size: 0.78rem;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.22s ease, color 0.22s ease, transform 0.18s ease, border-color 0.22s ease;
+  user-select: none;
+}
+
+.addon-atc-btn:hover {
+  background: var(--color-green, #6DB83A);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.addon-atc-btn:active {
+  transform: translateY(0);
+}
+
+/* Loading state */
+.addon-atc-btn--loading {
+  opacity: 0.65;
+  pointer-events: none;
+  animation: addon-pulse 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes addon-pulse {
+  from { opacity: 0.65; }
+  to   { opacity: 0.35; }
+}
+
+/* Added state */
+.addon-atc-btn--added {
+  background: var(--color-green, #6DB83A);
+  border-color: var(--color-green, #6DB83A);
+  color: #fff;
+  pointer-events: none;
+}
+
+/* Error state */
+.addon-atc-btn--error {
+  background: #e05a5a;
+  border-color: #e05a5a;
+  color: #fff;
+  pointer-events: none;
+}
+
+/* "Coming soon" pulse */
+.addon-atc-btn--no-id {
+  border-color: #aaa;
+  color: #aaa;
+  pointer-events: none;
+  animation: addon-pulse 0.8s ease-in-out infinite alternate;
+}
+
+/* Tablet: 2x2 wrap */
+@media (max-width: 900px) {
+  .addons-strip {
+    flex-wrap: wrap;
+    border-radius: var(--radius-xl, 16px);
+  }
+  .addon-card {
+    flex: 1 1 calc(50% - 1px);
+    min-width: calc(50% - 1px);
+  }
+  .addons-divider:nth-child(4) {
+    width: 100%;
+    height: 1px;
+    align-self: auto;
+  }
+  .addons-divider:nth-child(2) {
+    /* keep vertical between cards 1 and 2 */
+  }
+  .addons-divider:nth-child(6) {
+    /* keep vertical between cards 3 and 4 */
+  }
+}
+
+/* Mobile: stack vertically */
+@media (max-width: 560px) {
+  .addons-strip {
+    flex-direction: column;
+  }
+  .addons-divider {
+    width: 100%;
+    height: 1px;
+    align-self: auto;
+  }
+  .addon-card {
+    flex: none;
+    width: 100%;
+  }
+  .addons-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-1);
+  }
+  .addons-header::after { display: none; }
+}
+

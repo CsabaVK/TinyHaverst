@@ -18,6 +18,10 @@
         "heading": "Start Growing Today"
       }
     },
+    "add-ons": {
+      "type": "add-ons",
+      "settings": {}
+    },
     "value-props": {
       "type": "value-props",
       "settings": {
@@ -102,5 +106,5 @@
       }
     }
   },
-  "order": ["hero", "kits-grid", "value-props", "how-it-works", "about", "testimonials", "newsletter"]
+  "order": ["hero", "kits-grid", "add-ons", "value-props", "how-it-works", "about", "testimonials", "newsletter"]
 }
