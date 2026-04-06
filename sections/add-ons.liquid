@@ -1,161 +1,107 @@
 <section class="addons-section" id="add-ons" aria-label="Add-on products">
   <div class="container">
 
-    <div class="addons-header">
-      <span class="addons-label">{{ section.settings.label | default: 'Boost Your Grow' }}</span>
-      <p class="addons-subtext">{{ section.settings.subtext | default: 'Optional extras to level up any kit' }}</p>
-    </div>
+    <p class="addons-eyebrow">{{ section.settings.label | default: 'Boost Your Grow' }}</p>
 
-    <div class="addons-strip">
+    <div class="addons-grid">
 
       <!-- Fan -->
-      <div class="addon-card" data-variant-id="{{ section.settings.addon1_variant_id }}">
-        <div class="addon-card__img-wrap">
+      <div class="addon-tile">
+        <div class="addon-tile__img-wrap">
           {%- if section.settings.addon1_image != blank -%}
-            {{ section.settings.addon1_image | image_url: width: 300 | image_tag: loading: 'lazy', alt: section.settings.addon1_name | default: 'Mini Fan' }}
+            {{ section.settings.addon1_image | image_url: width: 400 | image_tag: loading: 'lazy', alt: section.settings.addon1_name | default: 'Mini Clip Fan' }}
           {%- else -%}
-            <svg class="addon-card__placeholder-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <circle cx="24" cy="24" r="4" fill="#6DB83A"/>
-              <path d="M24 20C24 14 28 8 34 10C32 16 28 18 24 20Z" fill="#6DB83A" opacity="0.7"/>
-              <path d="M24 20C28 16 36 16 36 22C30 22 26 22 24 20Z" fill="#6DB83A" opacity="0.5"/>
-              <path d="M24 28C24 34 20 40 14 38C16 32 20 30 24 28Z" fill="#6DB83A" opacity="0.7"/>
-              <path d="M24 28C20 32 12 32 12 26C18 26 22 26 24 28Z" fill="#6DB83A" opacity="0.5"/>
-            </svg>
+            <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=400&q=80" alt="Mini clip fan for plant ventilation" loading="lazy">
           {%- endif -%}
-        </div>
-        <div class="addon-card__info">
-          <p class="addon-card__name">{{ section.settings.addon1_name | default: 'Mini Clip Fan' }}</p>
-          <p class="addon-card__desc">{{ section.settings.addon1_desc | default: 'Gentle airflow prevents mold and strengthens stems.' }}</p>
-        </div>
-        <div class="addon-card__action">
-          <span class="addon-card__price">&euro;{{ section.settings.addon1_price | default: '7.95' }}</span>
           <button
             class="addon-atc-btn"
             data-variant-id="{{ section.settings.addon1_variant_id }}"
             data-product-name="{{ section.settings.addon1_name | default: 'Mini Clip Fan' }}"
             aria-label="Add Mini Clip Fan to cart"
           >
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" width="12" height="12" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
             <span class="addon-atc-btn__text">Add</span>
-            <span class="addon-atc-btn__icon">
-              <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" width="14" height="14" aria-hidden="true">
-                <path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </span>
           </button>
+        </div>
+        <div class="addon-tile__info">
+          <p class="addon-tile__name">{{ section.settings.addon1_name | default: 'Mini Clip Fan' }}</p>
+          <p class="addon-tile__price">&euro;{{ section.settings.addon1_price | default: '7.95' }}</p>
         </div>
       </div>
 
-      <div class="addons-divider" aria-hidden="true"></div>
-
       <!-- Light Bar -->
-      <div class="addon-card" data-variant-id="{{ section.settings.addon2_variant_id }}">
-        <div class="addon-card__img-wrap">
+      <div class="addon-tile">
+        <div class="addon-tile__img-wrap">
           {%- if section.settings.addon2_image != blank -%}
-            {{ section.settings.addon2_image | image_url: width: 300 | image_tag: loading: 'lazy', alt: section.settings.addon2_name | default: 'LED Light Bar' }}
+            {{ section.settings.addon2_image | image_url: width: 400 | image_tag: loading: 'lazy', alt: section.settings.addon2_name | default: 'LED Light Bar' }}
           {%- else -%}
-            <svg class="addon-card__placeholder-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <rect x="8" y="20" width="32" height="8" rx="4" fill="#6DB83A"/>
-              <line x1="24" y1="12" x2="24" y2="8" stroke="#e88d5d" stroke-width="2" stroke-linecap="round"/>
-              <line x1="16" y1="14" x2="13" y2="10" stroke="#e88d5d" stroke-width="2" stroke-linecap="round"/>
-              <line x1="32" y1="14" x2="35" y2="10" stroke="#e88d5d" stroke-width="2" stroke-linecap="round"/>
-              <line x1="24" y1="36" x2="24" y2="40" stroke="#6DB83A" stroke-width="2" stroke-linecap="round"/>
-            </svg>
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" alt="LED grow light bar for indoor plants" loading="lazy">
           {%- endif -%}
-        </div>
-        <div class="addon-card__info">
-          <p class="addon-card__name">{{ section.settings.addon2_name | default: 'LED Light Bar' }}</p>
-          <p class="addon-card__desc">{{ section.settings.addon2_desc | default: 'Full-spectrum grow light for low-light spaces.' }}</p>
-        </div>
-        <div class="addon-card__action">
-          <span class="addon-card__price">&euro;{{ section.settings.addon2_price | default: '12.95' }}</span>
           <button
             class="addon-atc-btn"
             data-variant-id="{{ section.settings.addon2_variant_id }}"
             data-product-name="{{ section.settings.addon2_name | default: 'LED Light Bar' }}"
             aria-label="Add LED Light Bar to cart"
           >
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" width="12" height="12" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
             <span class="addon-atc-btn__text">Add</span>
-            <span class="addon-atc-btn__icon">
-              <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" width="14" height="14" aria-hidden="true">
-                <path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </span>
           </button>
+        </div>
+        <div class="addon-tile__info">
+          <p class="addon-tile__name">{{ section.settings.addon2_name | default: 'LED Light Bar' }}</p>
+          <p class="addon-tile__price">&euro;{{ section.settings.addon2_price | default: '12.95' }}</p>
         </div>
       </div>
 
-      <div class="addons-divider" aria-hidden="true"></div>
-
       <!-- Fertilizer -->
-      <div class="addon-card" data-variant-id="{{ section.settings.addon3_variant_id }}">
-        <div class="addon-card__img-wrap">
+      <div class="addon-tile">
+        <div class="addon-tile__img-wrap">
           {%- if section.settings.addon3_image != blank -%}
-            {{ section.settings.addon3_image | image_url: width: 300 | image_tag: loading: 'lazy', alt: section.settings.addon3_name | default: 'Liquid Fertilizer' }}
+            {{ section.settings.addon3_image | image_url: width: 400 | image_tag: loading: 'lazy', alt: section.settings.addon3_name | default: 'Liquid Fertilizer' }}
           {%- else -%}
-            <svg class="addon-card__placeholder-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M18 10h12l2 6H16L18 10Z" fill="#6DB83A" opacity="0.6"/>
-              <rect x="14" y="16" width="20" height="22" rx="3" fill="#6DB83A" opacity="0.85"/>
-              <path d="M20 26c0-2 2-4 4-4s4 2 4 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-              <circle cx="24" cy="30" r="2" fill="#fff" opacity="0.7"/>
-            </svg>
+            <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&q=80" alt="Organic liquid fertilizer for microgreens" loading="lazy">
           {%- endif -%}
-        </div>
-        <div class="addon-card__info">
-          <p class="addon-card__name">{{ section.settings.addon3_name | default: 'Liquid Fertilizer' }}</p>
-          <p class="addon-card__desc">{{ section.settings.addon3_desc | default: 'Organic microgreen fertilizer for a denser, faster harvest.' }}</p>
-        </div>
-        <div class="addon-card__action">
-          <span class="addon-card__price">&euro;{{ section.settings.addon3_price | default: '6.95' }}</span>
           <button
             class="addon-atc-btn"
             data-variant-id="{{ section.settings.addon3_variant_id }}"
             data-product-name="{{ section.settings.addon3_name | default: 'Liquid Fertilizer' }}"
             aria-label="Add Liquid Fertilizer to cart"
           >
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" width="12" height="12" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
             <span class="addon-atc-btn__text">Add</span>
-            <span class="addon-atc-btn__icon">
-              <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" width="14" height="14" aria-hidden="true">
-                <path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </span>
           </button>
+        </div>
+        <div class="addon-tile__info">
+          <p class="addon-tile__name">{{ section.settings.addon3_name | default: 'Liquid Fertilizer' }}</p>
+          <p class="addon-tile__price">&euro;{{ section.settings.addon3_price | default: '6.95' }}</p>
         </div>
       </div>
 
-      <div class="addons-divider" aria-hidden="true"></div>
-
       <!-- Extra Seeds -->
-      <div class="addon-card" data-variant-id="{{ section.settings.addon4_variant_id }}">
-        <div class="addon-card__img-wrap">
+      <div class="addon-tile">
+        <div class="addon-tile__img-wrap">
           {%- if section.settings.addon4_image != blank -%}
-            {{ section.settings.addon4_image | image_url: width: 300 | image_tag: loading: 'lazy', alt: section.settings.addon4_name | default: 'Extra Seed Pack' }}
+            {{ section.settings.addon4_image | image_url: width: 400 | image_tag: loading: 'lazy', alt: section.settings.addon4_name | default: 'Extra Seed Pack' }}
           {%- else -%}
-            <img src="{{ 'addon-seeds.png' | asset_url }}" alt="Extra seed pack for microgreens" loading="lazy" class="addon-card__real-img">
+            <img src="{{ 'addon-seeds.png' | asset_url }}" alt="Extra microgreen seed pack" loading="lazy">
           {%- endif -%}
-        </div>
-        <div class="addon-card__info">
-          <p class="addon-card__name">{{ section.settings.addon4_name | default: 'Extra Seed Pack' }}</p>
-          <p class="addon-card__desc">{{ section.settings.addon4_desc | default: 'Refill your jar or tray with a fresh variety of seeds.' }}</p>
-        </div>
-        <div class="addon-card__action">
-          <span class="addon-card__price">&euro;{{ section.settings.addon4_price | default: '4.95' }}</span>
           <button
             class="addon-atc-btn"
             data-variant-id="{{ section.settings.addon4_variant_id }}"
             data-product-name="{{ section.settings.addon4_name | default: 'Extra Seed Pack' }}"
             aria-label="Add Extra Seed Pack to cart"
           >
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" width="12" height="12" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
             <span class="addon-atc-btn__text">Add</span>
-            <span class="addon-atc-btn__icon">
-              <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" width="14" height="14" aria-hidden="true">
-                <path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </span>
           </button>
+        </div>
+        <div class="addon-tile__info">
+          <p class="addon-tile__name">{{ section.settings.addon4_name | default: 'Extra Seed Pack' }}</p>
+          <p class="addon-tile__price">&euro;{{ section.settings.addon4_price | default: '4.95' }}</p>
         </div>
       </div>
 
-    </div><!-- /addons-strip -->
+    </div><!-- /addons-grid -->
 
   </div>
 </section>
@@ -166,15 +112,14 @@
     document.querySelectorAll('.addon-atc-btn').forEach(function(btn) {
       btn.addEventListener('click', function() {
         var variantId = btn.dataset.variantId;
-        var productName = btn.dataset.productName || 'Add-on';
+        var textEl = btn.querySelector('.addon-atc-btn__text');
 
         if (!variantId) {
-          // No variant ID set yet - show a gentle placeholder pulse
           btn.classList.add('addon-atc-btn--no-id');
-          btn.querySelector('.addon-atc-btn__text').textContent = 'Soon';
+          textEl.textContent = 'Soon';
           setTimeout(function() {
             btn.classList.remove('addon-atc-btn--no-id');
-            btn.querySelector('.addon-atc-btn__text').textContent = 'Add';
+            textEl.textContent = 'Add';
           }, 1800);
           return;
         }
@@ -194,29 +139,29 @@
         .then(function() {
           btn.classList.remove('addon-atc-btn--loading');
           btn.classList.add('addon-atc-btn--added');
-          btn.querySelector('.addon-atc-btn__text').textContent = 'Added!';
+          textEl.textContent = 'Added!';
 
-          // Update cart count bubble if present
           fetch('/cart.js')
             .then(function(r) { return r.json(); })
             .then(function(cart) {
-              var bubbles = document.querySelectorAll('.cart-count, .site-header__cart-count, [data-cart-count]');
-              bubbles.forEach(function(b) { b.textContent = cart.item_count; });
+              document.querySelectorAll('.cart-count, .site-header__cart-count, [data-cart-count]').forEach(function(b) {
+                b.textContent = cart.item_count;
+              });
             });
 
           setTimeout(function() {
             btn.classList.remove('addon-atc-btn--added');
-            btn.querySelector('.addon-atc-btn__text').textContent = 'Add';
+            textEl.textContent = 'Add';
             btn.disabled = false;
           }, 2200);
         })
         .catch(function() {
           btn.classList.remove('addon-atc-btn--loading');
           btn.classList.add('addon-atc-btn--error');
-          btn.querySelector('.addon-atc-btn__text').textContent = 'Error';
+          textEl.textContent = 'Error';
           setTimeout(function() {
             btn.classList.remove('addon-atc-btn--error');
-            btn.querySelector('.addon-atc-btn__text').textContent = 'Add';
+            textEl.textContent = 'Add';
             btn.disabled = false;
           }, 2000);
         });
@@ -238,32 +183,27 @@
   "tag": "div",
   "class": "addons-wrapper",
   "settings": [
-    { "type": "text", "id": "label", "label": "Strip label", "default": "Boost Your Grow" },
-    { "type": "text", "id": "subtext", "label": "Subtext", "default": "Optional extras to level up any kit" },
+    { "type": "text", "id": "label", "label": "Section label", "default": "Boost Your Grow" },
     { "type": "header", "content": "Add-on 1 - Fan" },
     { "type": "image_picker", "id": "addon1_image", "label": "Image" },
     { "type": "text", "id": "addon1_name", "label": "Name", "default": "Mini Clip Fan" },
-    { "type": "text", "id": "addon1_desc", "label": "Description", "default": "Gentle airflow prevents mold and strengthens stems." },
     { "type": "text", "id": "addon1_price", "label": "Price", "default": "7.95" },
-    { "type": "text", "id": "addon1_variant_id", "label": "Shopify Variant ID (for Add to Cart)" },
+    { "type": "text", "id": "addon1_variant_id", "label": "Shopify Variant ID" },
     { "type": "header", "content": "Add-on 2 - Light Bar" },
     { "type": "image_picker", "id": "addon2_image", "label": "Image" },
     { "type": "text", "id": "addon2_name", "label": "Name", "default": "LED Light Bar" },
-    { "type": "text", "id": "addon2_desc", "label": "Description", "default": "Full-spectrum grow light for low-light spaces." },
     { "type": "text", "id": "addon2_price", "label": "Price", "default": "12.95" },
-    { "type": "text", "id": "addon2_variant_id", "label": "Shopify Variant ID (for Add to Cart)" },
+    { "type": "text", "id": "addon2_variant_id", "label": "Shopify Variant ID" },
     { "type": "header", "content": "Add-on 3 - Fertilizer" },
     { "type": "image_picker", "id": "addon3_image", "label": "Image" },
     { "type": "text", "id": "addon3_name", "label": "Name", "default": "Liquid Fertilizer" },
-    { "type": "text", "id": "addon3_desc", "label": "Description", "default": "Organic microgreen fertilizer for a denser, faster harvest." },
     { "type": "text", "id": "addon3_price", "label": "Price", "default": "6.95" },
-    { "type": "text", "id": "addon3_variant_id", "label": "Shopify Variant ID (for Add to Cart)" },
+    { "type": "text", "id": "addon3_variant_id", "label": "Shopify Variant ID" },
     { "type": "header", "content": "Add-on 4 - Extra Seeds" },
     { "type": "image_picker", "id": "addon4_image", "label": "Image" },
     { "type": "text", "id": "addon4_name", "label": "Name", "default": "Extra Seed Pack" },
-    { "type": "text", "id": "addon4_desc", "label": "Description", "default": "Refill your jar or tray with a fresh variety of seeds." },
     { "type": "text", "id": "addon4_price", "label": "Price", "default": "4.95" },
-    { "type": "text", "id": "addon4_variant_id", "label": "Shopify Variant ID (for Add to Cart)" }
+    { "type": "text", "id": "addon4_variant_id", "label": "Shopify Variant ID" }
   ],
   "presets": [{ "name": "Add-ons Strip" }]
 }
