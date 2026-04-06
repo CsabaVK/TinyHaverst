@@ -34,11 +34,11 @@
 
 ## Social Channels
 
-| Platform | Handle |
-|----------|--------|
-| Instagram | @tinyharvest |
-| Pinterest | @tinyharvest |
-| LinkedIn | TinyHarvest |
-| Facebook | TinyHarvest |
+| Platform | Handle / URL |
+|----------|--------------|
+| Instagram | @tinyhaverst.eu *(under review)* |
+| Pinterest | https://www.pinterest.com/tinyharvesteu |
+| LinkedIn | https://www.linkedin.com/company/tinyharvest |
+| Facebook | https://www.facebook.com/tinyharvest.eu/ |
 
 **Contact:** info@tinyharvest.eu
