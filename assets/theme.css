@@ -4057,3 +4057,21 @@ p, li, a, span, input, textarea, select, label {
   ) !important;
 }
 
+
+
+/* ==========================================================================
+   60. Hero heading — revert to Playfair Display (Lazy Dog stays on rest)
+   ========================================================================== */
+
+.hero__heading,
+.hero__heading span.hero__heading-line {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+}
+
+.hero__heading em.hero__heading-line {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-weight: 700;
+}
+
