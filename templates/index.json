@@ -23,7 +23,22 @@
         "prop_3_title": "100% Natural",
         "prop_3_text": "No chemicals, no pesticides — just premium seeds, organic growing medium, and water."
       }
+    },
+    "how-it-works": {
+      "type": "how-it-works",
+      "settings": {
+        "overline": "Simple Process",
+        "heading": "As Easy as 1, 2, 3",
+        "subheading": "No experience needed. Our kit comes with everything you need to grow beautiful microgreens at home.",
+        "step_1_title": "Fill the Tray",
+        "step_1_description": "Add the included organic growing medium to your tray. Spread it evenly for the best results.",
+        "step_2_title": "Sow the Seeds",
+        "step_2_description": "Spread the premium seeds evenly across the surface and give them a gentle mist with water.",
+        "step_3_title": "Watch & Harvest",
+        "step_3_description": "In just 7-10 days your microgreens are ready. Snip just above the soil and enjoy.",
+        "cta_label": "Get Your Kit"
+      }
     }
   },
-  "order": ["hero", "value-props"]
+  "order": ["hero", "value-props", "how-it-works"]
 }
