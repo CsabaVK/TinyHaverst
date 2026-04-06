@@ -4354,3 +4354,204 @@ p, li, a, span, input, textarea, select, label {
   padding-top: 48px;
 }
 
+
+
+/* ==========================================================================
+   66. Value Props — top-edge shapes, plants growing up, roomy text
+   ========================================================================== */
+
+.value-props { background: #fff; padding: var(--space-20) 0 var(--space-20); }
+
+.value-props__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-8);
+  align-items: start;
+  padding-top: 80px; /* room for plants sticking above cards */
+}
+
+/* Card shell */
+.value-prop {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 6px 32px rgba(43,43,43,0.09);
+  overflow: visible;   /* plants can overflow above */
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s cubic-bezier(.22,1,.36,1),
+              box-shadow 0.35s ease;
+  position: relative;
+}
+
+.value-prop:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 48px rgba(43,43,43,0.13);
+}
+
+/* Colored top area — clips to rounded top corners */
+.value-prop__card-top {
+  border-radius: 20px 20px 0 0;
+  overflow: hidden;      /* keeps svg mask flush */
+  position: relative;
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Background colours */
+.vp-bg--green { background: linear-gradient(160deg, #c8e89a 0%, #a0d462 100%); }
+.vp-bg--peach { background: linear-gradient(160deg, #fde0c0 0%, #f8c090 100%); }
+.vp-bg--sage  { background: linear-gradient(160deg, #b8e48a 0%, #90cc56 100%); }
+
+/* White mask SVG — sits at top of colored area, creates the edge shape */
+.vp-top-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  line-height: 0;
+}
+
+/* Plants growing upward — sit above the card entirely */
+.vp-plant {
+  position: absolute;
+  top: -72px;          /* pokes above the card */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  pointer-events: none;
+  filter: drop-shadow(0 3px 8px rgba(0,0,0,0.12));
+}
+
+.vp-plant--pair {
+  display: flex;
+  gap: 4px;
+  align-items: flex-end;
+  top: -80px;
+}
+
+.vp-plant--trio {
+  top: -74px;
+}
+
+/* Icon circle — in the colored area */
+.value-prop__icon {
+  position: relative;
+  z-index: 3;
+  background: rgba(255,255,255,0.60);
+  backdrop-filter: blur(6px);
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  color: #3a7d1a;
+  transition: transform 0.3s ease;
+  margin-top: 36px; /* push down from the shape edge */
+}
+
+.vp-bg--peach .value-prop__icon { color: #8a4518; }
+
+.value-prop:hover .value-prop__icon {
+  transform: scale(1.08) rotate(-4deg);
+}
+
+/* Text body — roomy padding */
+.value-prop__body {
+  padding: 1.75rem 1.75rem 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.value-prop__title {
+  font-family: 'Lazy Dog', sans-serif;
+  font-size: var(--text-xl);
+  font-weight: normal;
+  color: var(--color-charcoal);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.value-prop__text {
+  font-size: var(--text-sm);
+  color: var(--color-gray-600);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ==========================================================================
+   67. Mobile centering — clean, targeted, correct
+   ========================================================================== */
+
+@media (max-width: 768px) {
+
+  /* Section headers */
+  .section__header { text-align: center; }
+  .section__header h2,
+  .section__header .overline,
+  .section__header .lead { text-align: center; margin-left: auto; margin-right: auto; }
+
+  /* Hero — center all content */
+  .hero__content {
+    align-items: center;
+    text-align: center;
+    padding-left: var(--space-5);
+    padding-right: var(--space-5);
+  }
+  .hero__heading { text-align: center; align-items: center; }
+  .hero__heading-line { text-align: center; }
+  .hero__subheading { text-align: center; }
+  .hero__ctas { justify-content: center; }
+  .hero__trust { justify-content: center; }
+
+  /* Grids — single column, centered */
+  .value-props__grid {
+    grid-template-columns: 1fr;
+    max-width: 340px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 90px;
+  }
+
+  .kits-grid {
+    grid-template-columns: 1fr;
+    max-width: 380px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .kit-card--featured { transform: none; }
+  .kit-card--featured:hover { transform: translateY(-8px); }
+
+  /* About */
+  .about__inner { display: block; }
+  .about__content { text-align: center; }
+  .about__overline,
+  .about__heading,
+  .about__text { text-align: center; }
+  .about__stats { grid-template-columns: repeat(3,1fr); }
+
+  /* Kit card body */
+  .kit-card__body { text-align: center; }
+  .kit-card__top { flex-direction: column; align-items: center; gap: var(--space-1); }
+
+  /* How it works */
+  .steps-grid { grid-template-columns: 1fr; max-width: 340px; margin: 0 auto; }
+  .step { text-align: center; }
+
+  /* Testimonials */
+  .testimonials__grid { grid-template-columns: 1fr; max-width: 380px; margin: 0 auto; }
+
+  /* Newsletter */
+  .newsletter__inner { text-align: center; }
+
+  /* Overline decorative lines too cramped on mobile */
+  .overline::before, .overline::after { display: none; }
+}
+
