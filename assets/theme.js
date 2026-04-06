@@ -308,7 +308,7 @@ const Cart = (function () {
    ========================================================================== */
 
 (function initNewsletterForms() {
-  $$('[data-newsletter-form]').forEach(form => {
+  $$('[data-newsletter] form').forEach(form => {
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
 

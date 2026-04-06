@@ -67,11 +67,8 @@
         </div>
 
         <!-- Product Form -->
-        {%- form 'product', product,
-          id: 'product-page-form',
-          data-add-to-cart-form: true,
-          data-product-form: true
-        -%}
+        <div data-add-to-cart-form data-product-form>
+        {%- form 'product', product, id: 'product-page-form' -%}
 
           {%- unless product.has_only_default_variant -%}
             <div data-variant-selector>
@@ -119,6 +116,7 @@
           </div>
 
         {%- endform -%}
+        </div>
 
         <!-- Description tabs -->
         <div class="product-tabs" data-tabs>

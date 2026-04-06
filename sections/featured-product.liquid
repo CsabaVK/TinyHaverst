@@ -63,11 +63,8 @@
           </div>
 
           <!-- Product Form -->
-          {%- form 'product', featured,
-            id: 'featured-product-form',
-            data-add-to-cart-form: true,
-            data-product-form: true
-          -%}
+          <div data-add-to-cart-form data-product-form>
+          {%- form 'product', featured, id: 'featured-product-form' -%}
 
             <!-- Variant selector -->
             {%- unless featured.has_only_default_variant -%}
@@ -130,6 +127,7 @@
             </div>
 
           {%- endform -%}
+          </div>
 
           <!-- What's Included -->
           {%- if section.settings.includes_heading != blank or section.settings.includes_items != blank -%}

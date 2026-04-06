@@ -79,11 +79,8 @@
     {%- endif -%}
 
     {%- if show_quick_add and card_product.available -%}
-      <div class="product-card__quick-add" aria-hidden="true">
-        {%- form 'product', card_product,
-          data-add-to-cart-form: true,
-          style: 'display:contents'
-        -%}
+      <div class="product-card__quick-add" aria-hidden="true" data-add-to-cart-form>
+        {%- form 'product', card_product, class: 'form-contents' -%}
           <input type="hidden" name="id" value="{{ card_product.selected_or_first_available_variant.id }}">
           <input type="hidden" name="quantity" value="1">
           <button

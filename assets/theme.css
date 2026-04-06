@@ -1789,6 +1789,8 @@ body.has-announcement .site-header {
   background-color: #E85D36;
 }
 
+.form-contents { display: contents; }
+
 .product-card__quick-add {
   position: absolute;
   bottom: var(--space-3);
