@@ -11,7 +11,7 @@
     {%- if section.settings.overline != blank -%}
       <span class="hero__overline">{{ section.settings.overline }}</span>
     {%- endif -%}
-    {%- assign _heading = section.settings.heading | default: 'Grow Something Beautiful' -%}
+    {%- assign _heading = section.settings.heading | default: 'Turn Any Corner Into a Living Garden.' -%}
     {%- assign _words = _heading | split: ' ' -%}
     <h1 class="hero__heading">{%- for _word in _words -%}{%- if forloop.last -%}<em>{{ _word }}</em>{%- else -%}{{ _word }}&nbsp;{%- endif -%}{%- endfor -%}</h1>
     <p class="hero__subheading">{{ section.settings.subheading | default: 'Microgreens kits for your home. Fresh. Simple. Rewarding.' }}</p>
@@ -55,7 +55,7 @@
   "settings": [
     { "type": "image_picker", "id": "bg_image", "label": "Background image" },
     { "type": "text", "id": "overline", "label": "Overline", "default": "100% Natural · Ready in Days" },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Grow Something Beautiful" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Turn Any Corner Into a Living Garden." },
     { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Microgreens kits for your home. Fresh. Simple. Rewarding." },
     { "type": "text", "id": "button_primary_label", "label": "Primary button", "default": "Shop Now" },
     { "type": "url", "id": "button_primary_url", "label": "Primary button link" },

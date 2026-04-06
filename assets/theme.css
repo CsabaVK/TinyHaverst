@@ -3939,3 +3939,56 @@ p, li, a, span, input, textarea, select, label {
   font-weight: normal;
 }
 
+
+
+/* ==========================================================================
+   57. Hero accent colour — #e88d5d (warm orange)
+       Applied to: em shimmer, primary button, overline pill, trust pills
+   ========================================================================== */
+
+/* --- Heading: Lazy Dog font, orange shimmer on last word --- */
+.hero__heading {
+  font-family: 'Lazy Dog', sans-serif;
+  font-weight: normal;
+}
+
+.hero__heading em {
+  font-family: 'Lazy Dog', sans-serif;
+  font-style: normal;
+  background: linear-gradient(90deg, #f0a070, #e88d5d, #f5b080, #e88d5d);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3.5s linear infinite;
+}
+
+/* --- Primary button in hero --- */
+.hero .btn--primary,
+.hero .btn--primary:visited {
+  background: #e88d5d;
+  box-shadow: 0 4px 20px rgba(232,141,93,0.38);
+  border-color: #e88d5d;
+  color: #fff;
+}
+
+.hero .btn--primary:hover {
+  background: #d97c4a;
+  box-shadow: 0 8px 28px rgba(232,141,93,0.50);
+  filter: none;
+}
+
+/* --- Overline pill --- */
+.hero__overline {
+  color: #f5b080;
+  background: rgba(232,141,93,0.14);
+  border-color: rgba(232,141,93,0.40);
+}
+
+/* --- Trust bar pills --- */
+.hero__trust span:not(.hero__trust-dot) {
+  background: rgba(232,141,93,0.13);
+  border-color: rgba(232,141,93,0.30);
+  color: rgba(255,255,255,0.92);
+}
+
