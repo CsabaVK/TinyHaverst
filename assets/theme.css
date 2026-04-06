@@ -3871,3 +3871,71 @@ body {
   );
 }
 
+
+
+/* ==========================================================================
+   56. Lazy Dog — apply to headings & display text
+   ========================================================================== */
+
+:root {
+  --font-display: 'Lazy Dog', 'Nunito', sans-serif;
+  --font-heading: 'Lazy Dog', 'Nunito', sans-serif;
+  --font-body:    'Nunito', system-ui, -apple-system, sans-serif;
+}
+
+/* Apply Lazy Dog to headings */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: normal; /* Lazy Dog is a display face — no bold variant */
+  letter-spacing: 0.01em;
+}
+
+/* Hero heading uses Lazy Dog */
+.hero__heading {
+  font-family: var(--font-display);
+  font-weight: normal;
+  letter-spacing: 0.01em;
+}
+
+/* Hero em accent — italic within Lazy Dog, fallback to Playfair italic */
+.hero__heading em {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-weight: normal;
+}
+
+/* Overline / badges keep Nunito for legibility */
+.overline,
+.kit-badge,
+.kit-card__tier-badge,
+.kit-card__popular-flag,
+.hero__trust span,
+.btn {
+  font-family: var(--font-body);
+}
+
+/* Body text stays Nunito */
+p, li, a, span, input, textarea, select, label {
+  font-family: var(--font-body);
+}
+
+/* Section headings */
+.section__header h2 {
+  font-family: var(--font-display);
+  font-weight: normal;
+  font-size: clamp(2rem, 4.5vw, 3.4rem);
+  letter-spacing: 0.01em;
+}
+
+/* Kit names */
+.kit-name {
+  font-family: var(--font-display);
+  font-weight: normal;
+}
+
+/* Value prop titles */
+.value-prop__title {
+  font-family: var(--font-display);
+  font-weight: normal;
+}
+

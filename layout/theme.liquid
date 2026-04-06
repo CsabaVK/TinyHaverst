@@ -46,6 +46,17 @@
     rel="stylesheet"
   >
 
+  <!-- Custom font -->
+  <style>
+    @font-face {
+      font-family: 'Lazy Dog';
+      src: url('{{ "lazy_dog.ttf" | asset_url }}') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+  </style>
+
   <!-- Theme CSS -->
   {{ 'theme.css' | asset_url | stylesheet_tag }}
 
