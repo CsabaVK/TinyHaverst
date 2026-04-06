@@ -4555,3 +4555,152 @@ p, li, a, span, input, textarea, select, label {
   .overline::before, .overline::after { display: none; }
 }
 
+
+
+/* ==========================================================================
+   68. Value Props — clip-path shapes the TOP of each card element
+   ========================================================================== */
+
+.value-props { background: #fff; padding: var(--space-20) 0; }
+
+/* Outer wrapper: overflow visible so plants above can show */
+.vp-outer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Plant SVG sits ABOVE the card — outside it entirely */
+.vp-plant {
+  position: relative;
+  z-index: 5;
+  align-self: center;
+  margin-bottom: -8px; /* overlap slightly with the card top */
+  pointer-events: none;
+  filter: drop-shadow(0 3px 6px rgba(0,0,0,0.13));
+}
+
+/* The actual card */
+.value-prop {
+  background: #fff;
+  border-radius: 0 0 20px 20px; /* top corners defined by clip-path */
+  box-shadow: 0 6px 32px rgba(43,43,43,0.09);
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+  transition: transform 0.35s cubic-bezier(.22,1,.36,1),
+              box-shadow 0.35s ease;
+}
+
+.vp-outer:hover .value-prop {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(43,43,43,0.13);
+}
+
+/* Colored top area — clip-path cuts the TOP edge into shape */
+.value-prop__top {
+  position: relative;
+  overflow: hidden;
+  min-height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+/* --- Card 1: Soil mound bumps at the top --- */
+.value-prop--1 .value-prop__top {
+  background: linear-gradient(160deg, #c8e89a 0%, #a0d462 100%);
+  clip-path: polygon(
+    0% 28%, 5% 0%, 10% 28%, 15% 0%, 20% 28%, 25% 0%,
+    30% 28%, 35% 0%, 40% 28%, 45% 0%, 50% 28%, 55% 0%,
+    60% 28%, 65% 0%, 70% 28%, 75% 0%, 80% 28%, 85% 0%,
+    90% 28%, 95% 0%, 100% 28%,
+    100% 100%, 0% 100%
+  );
+}
+
+/* --- Card 2: Wavy organic uneven top --- */
+.value-prop--2 .value-prop__top {
+  background: linear-gradient(160deg, #fde0c0 0%, #f8c090 100%);
+  clip-path: polygon(
+    0% 32%, 8% 8%, 16% 38%, 24% 12%, 32% 40%, 40% 18%,
+    48% 44%, 56% 20%, 64% 42%, 72% 14%, 80% 38%, 88% 10%,
+    96% 36%, 100% 22%,
+    100% 100%, 0% 100%
+  );
+}
+
+/* --- Card 3: Sharp zigzag top --- */
+.value-prop--3 .value-prop__top {
+  background: linear-gradient(160deg, #b8e48a 0%, #90cc56 100%);
+  clip-path: polygon(
+    0% 38%, 8% 0%, 16% 38%, 24% 0%, 32% 38%, 40% 0%,
+    48% 38%, 56% 0%, 64% 38%, 72% 0%, 80% 38%, 88% 0%,
+    96% 38%, 100% 12%,
+    100% 100%, 0% 100%
+  );
+}
+
+/* Icon inside the colored area */
+.value-prop__icon {
+  position: relative;
+  z-index: 2;
+  background: rgba(255,255,255,0.55);
+  backdrop-filter: blur(4px);
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.10);
+  color: #3a7d1a;
+  margin-top: 28px; /* push down below the clipped top edge */
+  transition: transform 0.3s ease;
+}
+
+.value-prop--2 .value-prop__icon { color: #8a4518; }
+
+.vp-outer:hover .value-prop__icon {
+  transform: scale(1.08) rotate(-4deg);
+}
+
+/* Text body */
+.value-prop__body {
+  padding: 1.6rem 1.75rem 2rem;
+  text-align: center;
+}
+
+.value-prop__title {
+  font-family: 'Lazy Dog', sans-serif;
+  font-size: var(--text-xl);
+  font-weight: normal;
+  color: var(--color-charcoal);
+  margin: 0 0 0.6rem;
+  line-height: 1.2;
+}
+
+.value-prop__text {
+  font-size: var(--text-sm);
+  color: var(--color-gray-600);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* Grid with room above for plants */
+.value-props__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-8);
+  padding-top: var(--space-10);
+}
+
+@media (max-width: 900px) {
+  .value-props__grid {
+    grid-template-columns: 1fr;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+}
+
