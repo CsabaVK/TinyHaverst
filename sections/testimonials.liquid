@@ -70,7 +70,7 @@
       <!-- Default testimonials when no blocks are added -->
       <div class="testimonials__grid">
 
-        {%- assign defaults = 'Sarah M.|Amsterdam|I was sceptical but this kit is genuinely idiot-proof. Harvested my first batch in 9 days. The sunflower microgreens are incredible on avocado toast.|5,Marco V.|Berlin|The quality of the seeds is outstanding. I\'ve tried other kits but TinyHarvest is on another level. Ordered three more for gifts.|5,Emma T.|London|Such a lovely gift for my mum who doesn\'t have a garden. She calls it her "tiny jungle" now. Perfect product.|5' | split: ',' -%}
+        {%- assign defaults = "Sarah M.|Amsterdam|I was sceptical but this kit is genuinely idiot-proof. Harvested my first batch in 9 days.|5,Marco V.|Berlin|The quality of the seeds is outstanding. I've tried other kits but TinyHarvest is on another level.|5,Emma T.|London|Such a lovely gift for my mum who doesn't have a garden. She calls it her tiny jungle now. Perfect product.|5" | split: ',' -%}
 
         {%- for item in defaults -%}
           {%- assign parts = item | split: '|' -%}
