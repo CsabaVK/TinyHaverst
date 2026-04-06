@@ -173,7 +173,8 @@ The file is ~5100 lines. It is **append-only** — new rules always go at the bo
 | 69 | **Value props RESET** — wipes all previous value-prop rules back to simple |
 | 70 | Value props equal height fix (`align-items: stretch`) |
 | 71 | Kits grid 4-column layout (`.kits-grid--4`) |
-| 72 | Add-ons strip full CSS |
+| 72–73 | Add-ons strip CSS (built then removed from homepage — see Parked section below) |
+| 74 | Kit cards equal height + medium kit green hover tint |
 
 **How to add new CSS:**
 1. Write a new `appendN.js` file (increment the number)
@@ -243,4 +244,25 @@ c6137e6  feat: full visual redesign — kits grid, trust bar, dark testimonials,
 
 ---
 
-*Last updated: 2026-04-06 | Commit: ddca2a0*
+---
+
+## 11. Parked Features (Built, Removed, To Be Used Later)
+
+### Add-ons Section (`sections/add-ons.liquid`)
+The section file still exists in `sections/` but is **not included in `templates/index.json`**. It will be added to a dedicated accessories/add-ons page.
+
+**The 4 add-on products:**
+| Product | Default Price | Image | Notes |
+|---|---|---|---|
+| Mini Clip Fan | €7.95 | Unsplash placeholder | For ventilation — prevents mold, strengthens stems |
+| LED Light Bar | €12.95 | Unsplash placeholder | Full-spectrum grow light for low-light spaces |
+| Liquid Fertilizer | €6.95 | Unsplash placeholder | Organic microgreen fertilizer for denser harvest |
+| Extra Seed Pack | €4.95 | `addon-seeds.png` | Refill jar/tray with fresh variety of seeds |
+
+**When adding back:** Insert `"add-ons"` into the `sections` object and `order` array in `templates/index.json`, or create a new page template and include it there.
+
+**Add to Cart:** Each button POSTs to `/cart/add.js`. Paste Shopify Variant IDs into schema fields `addon1_variant_id` through `addon4_variant_id` to activate live cart functionality.
+
+---
+
+*Last updated: 2026-04-06 | Commit: 02ea1b6 → next*

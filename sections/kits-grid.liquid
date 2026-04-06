@@ -70,8 +70,8 @@
         </div>
       </div>
 
-      <!-- Medium Kit - Featured -->
-      <div class="kit-card kit-card--featured reveal-on-scroll d3">
+      <!-- Medium Kit -->
+      <div class="kit-card kit-card--medium reveal-on-scroll d3">
         <div class="kit-card__image-wrap">
           {%- if section.settings.kit3_image != blank -%}
             {{ section.settings.kit3_image | image_url: width: 600 | image_tag: loading: 'lazy', alt: section.settings.kit3_name | default: 'Medium Kit' }}
@@ -79,7 +79,6 @@
             <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80" alt="TinyHarvest Medium Growing Kit" loading="lazy">
           {%- endif -%}
           <div class="kit-card__tier-badge">{{ section.settings.kit3_tier | default: 'Medium' }}</div>
-          <div class="kit-card__popular-flag">{{ section.settings.kit3_badge | default: '&#127807; Most Popular' }}</div>
           <div class="kit-card__overlay" aria-hidden="true">
             <p class="kit-includes-label">What's Included</p>
             <ul class="kit-includes">
@@ -94,15 +93,10 @@
         <div class="kit-card__body">
           <div class="kit-card__top">
             <h3 class="kit-name">{{ section.settings.kit3_name | default: 'Medium Kit' }}</h3>
-            <div>
-              <span class="kit-price">&euro;{{ section.settings.kit3_price | default: '34.95' }}</span>
-              {%- if section.settings.kit3_price_old != blank -%}
-                <span class="kit-price-old">&euro;{{ section.settings.kit3_price_old | default: '44.95' }}</span>
-              {%- endif -%}
-            </div>
+            <span class="kit-price">&euro;{{ section.settings.kit3_price | default: '34.95' }}</span>
           </div>
           <p class="kit-desc">{{ section.settings.kit3_desc | default: 'More variety, effortless care. Our most popular kit for the everyday grower.' }}</p>
-          <a href="{{ section.settings.kit3_url | default: '/collections/all' }}" class="btn btn--primary kit-cta">
+          <a href="{{ section.settings.kit3_url | default: '/collections/all' }}" class="btn btn--secondary kit-cta">
             {{ section.settings.kit3_cta | default: 'Get Growing' }}
           </a>
         </div>

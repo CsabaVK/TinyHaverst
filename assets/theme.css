@@ -5298,3 +5298,38 @@ p, li, a, span, input, textarea, select, label {
   }
 }
 
+
+
+/* ==========================================================================
+   74. Kit cards — all equal, medium gets green hover tint only
+   ========================================================================== */
+
+/* Strip any leftover featured-card elevation */
+.kit-card--featured,
+.kits-grid--4 .kit-card--featured {
+  transform: none !important;
+}
+
+.kit-card--featured:hover,
+.kits-grid--4 .kit-card--featured:hover {
+  transform: translateY(-8px) !important;
+}
+
+/* Hide the popular flag everywhere */
+.kit-card__popular-flag {
+  display: none;
+}
+
+/* Medium kit — subtle green glow on hover only */
+.kit-card--medium:hover {
+  border-color: rgba(109, 184, 58, 0.5);
+  box-shadow:
+    0 12px 40px rgba(109, 184, 58, 0.18),
+    0 4px 16px rgba(109, 184, 58, 0.10);
+}
+
+.kit-card--medium:hover .kit-card__tier-badge {
+  background: var(--color-green, #6DB83A);
+  color: #fff;
+}
+
