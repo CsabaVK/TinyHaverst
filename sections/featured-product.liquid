@@ -1,8 +1,6 @@
 {%- liquid
   if section.settings.product != blank
     assign featured = section.settings.product
-  elsif all_products.count > 0
-    assign featured = all_products.first
   endif
 -%}
 
