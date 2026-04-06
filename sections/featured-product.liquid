@@ -154,11 +154,50 @@
 
     {%- else -%}
 
-      <!-- Placeholder when no product is selected -->
-      <div class="featured-product__inner" style="text-align:center; padding: 4rem 0;">
-        <p style="color: var(--color-gray-400);">
-          Select a product in the theme editor to display the featured product section.
-        </p>
+      <!-- Mock-up product displayed until a real product is selected -->
+      <div class="featured-product__inner">
+
+        <div class="featured-product__media">
+          <span class="featured-product__badge">Best Seller</span>
+          <div style="width:100%;aspect-ratio:1;background:linear-gradient(135deg,#e8f5e0 0%,#c8e6b0 100%);border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;font-size:7rem;" aria-hidden="true">&#127807;</div>
+        </div>
+
+        <div class="featured-product__details">
+
+          <p class="featured-product__overline">Featured Kit</p>
+
+          <h2 class="featured-product__title">Starter Microgreens Kit</h2>
+
+          <div class="featured-product__description">
+            <p>Everything you need to grow fresh, flavourful microgreens at home — no garden, no experience required. Our all-in-one kit includes premium seeds, organic growing medium, a drainage tray, and a step-by-step guide. Ready to harvest in just 7–10 days.</p>
+          </div>
+
+          <div class="featured-product__price">
+            <span class="price price--sale">&#8364;24.95</span>
+            <span class="price price--compare">&#8364;34.95</span>
+          </div>
+
+          <div class="add-to-cart-row" style="margin-top: var(--space-6);">
+            <div class="quantity-selector" aria-label="Quantity">
+              <button class="quantity-btn" type="button" aria-label="Decrease quantity">&#8722;</button>
+              <input class="quantity-input" type="number" value="1" min="1" max="99" aria-label="Quantity">
+              <button class="quantity-btn" type="button" aria-label="Increase quantity">+</button>
+            </div>
+            <a href="/collections/all" class="btn btn--primary btn--lg btn--add-to-cart">Shop Now</a>
+          </div>
+
+          <div class="includes-list" style="margin-top: var(--space-6);">
+            <p class="includes-list__heading">What's Included</p>
+            <ul>
+              <li>Growing tray with drainage holes</li>
+              <li>Organic growing medium (coco coir)</li>
+              <li>Premium seed mix (3 varieties)</li>
+              <li>Spray bottle</li>
+              <li>Step-by-step growing guide</li>
+            </ul>
+          </div>
+
+        </div>
       </div>
 
     {%- endif -%}

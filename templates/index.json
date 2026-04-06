@@ -48,6 +48,15 @@
         "button_url": "/pages/about"
       }
     },
+    "featured-product": {
+      "type": "featured-product",
+      "settings": {
+        "overline": "Featured Kit",
+        "badge_text": "Best Seller",
+        "includes_heading": "What's Included",
+        "includes_items": "Growing tray with drainage holes, Organic growing medium (coco coir), Premium seed mix (3 varieties), Spray bottle, Step-by-step growing guide"
+      }
+    },
     "testimonials": {
       "type": "testimonials",
       "settings": {
@@ -95,5 +104,5 @@
       }
     }
   },
-  "order": ["hero", "value-props", "how-it-works", "about", "testimonials", "newsletter"]
+  "order": ["hero", "value-props", "how-it-works", "about", "featured-product", "testimonials", "newsletter"]
 }
