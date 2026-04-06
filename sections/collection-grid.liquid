@@ -1,0 +1,99 @@
+<section class="collection-grid section" aria-label="Products">
+  <div class="container">
+
+    {%- if section.settings.show_sort -%}
+      <div class="collection-toolbar">
+        <p class="collection-toolbar__count">
+          {{ 'collection.products_count' | t: count: collection.products_count }}
+        </p>
+        <div class="collection-toolbar__sort">
+          <label for="sort-by" class="sr-only">{{ 'collection.sort_by' | t }}</label>
+          <select id="sort-by" name="sort_by" onchange="window.location.search = '?sort_by=' + this.value">
+            <option value="manual"{% if collection.sort_by == 'manual' %} selected{% endif %}>{{ 'collection.sort_featured' | t }}</option>
+            <option value="price-ascending"{% if collection.sort_by == 'price-ascending' %} selected{% endif %}>{{ 'collection.sort_price_asc' | t }}</option>
+            <option value="price-descending"{% if collection.sort_by == 'price-descending' %} selected{% endif %}>{{ 'collection.sort_price_desc' | t }}</option>
+            <option value="title-ascending"{% if collection.sort_by == 'title-ascending' %} selected{% endif %}>{{ 'collection.sort_title_asc' | t }}</option>
+            <option value="title-descending"{% if collection.sort_by == 'title-descending' %} selected{% endif %}>{{ 'collection.sort_title_desc' | t }}</option>
+            <option value="created-descending"{% if collection.sort_by == 'created-descending' %} selected{% endif %}>{{ 'collection.sort_date_desc' | t }}</option>
+          </select>
+        </div>
+      </div>
+    {%- endif -%}
+
+    {%- if collection.products.size > 0 -%}
+      <div
+        class="product-grid"
+        style="--grid-cols-desktop: {{ section.settings.columns_desktop }}; --grid-cols-mobile: {{ section.settings.columns_mobile }};"
+      >
+        {%- paginate collection.products by section.settings.products_per_page -%}
+          {%- for product in collection.products -%}
+            {% render 'product-card', product: product %}
+          {%- endfor -%}
+        {%- endpaginate -%}
+      </div>
+
+      {%- if paginate.pages > 1 -%}
+        <nav class="pagination" aria-label="Pagination">
+          {%- if paginate.previous -%}
+            <a href="{{ paginate.previous.url }}" class="btn btn--ghost" aria-label="Previous page">&larr; Previous</a>
+          {%- endif -%}
+          <span>Page {{ paginate.current_page }} of {{ paginate.pages }}</span>
+          {%- if paginate.next -%}
+            <a href="{{ paginate.next.url }}" class="btn btn--ghost" aria-label="Next page">Next &rarr;</a>
+          {%- endif -%}
+        </nav>
+      {%- endif -%}
+
+    {%- else -%}
+      <div style="text-align:center; padding: 4rem 0; color: var(--color-gray-400);">
+        <p>No products found in this collection.</p>
+        <a href="{{ routes.all_products_collection_url }}" class="btn btn--primary" style="margin-top:1.5rem;">Browse all products</a>
+      </div>
+    {%- endif -%}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection Grid",
+  "tag": "div",
+  "class": "collection-grid-wrapper",
+  "settings": [
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "label": "Products per page",
+      "min": 4,
+      "max": 24,
+      "step": 4,
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "label": "Columns (desktop)",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "columns_mobile",
+      "label": "Columns (mobile)",
+      "min": 1,
+      "max": 2,
+      "step": 1,
+      "default": 2
+    },
+    {
+      "type": "checkbox",
+      "id": "show_sort",
+      "label": "Show sort dropdown",
+      "default": true
+    }
+  ],
+  "presets": [{ "name": "Collection Grid" }]
+}
+{% endschema %}

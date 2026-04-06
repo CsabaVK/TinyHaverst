@@ -1,0 +1,122 @@
+{%- comment -%}
+  Snippet: product-card.liquid
+  Usage:
+    {% render 'product-card', product: product, badge: 'New', show_quick_add: true %}
+
+  Parameters:
+    product        {Object}  required — Shopify product object
+    badge          {String}  optional — Badge text e.g. 'New', 'Bestseller', 'Sale'
+    badge_type     {String}  optional — 'default' | 'sale' (controls badge colour)
+    show_quick_add {Boolean} optional — show quick-add button on hover (default: true)
+    lazy           {Boolean} optional — lazy-load image (default: true)
+{%- endcomment -%}
+
+{%- liquid
+  assign show_quick_add = show_quick_add | default: true
+  assign lazy = lazy | default: true
+  assign loading_attr = 'lazy'
+  if lazy == false
+    assign loading_attr = 'eager'
+  endif
+
+  assign card_product = product
+
+  if card_product.available
+    if card_product.compare_at_price > card_product.price
+      assign is_sale = true
+      unless badge
+        assign badge = 'Sale'
+        assign badge_type = 'sale'
+      endunless
+    endif
+  else
+    unless badge
+      assign badge = 'Sold Out'
+    endunless
+  endif
+-%}
+
+<article
+  class="product-card"
+  aria-label="{{ card_product.title | escape }}"
+>
+  <!-- Media -->
+  <a
+    href="{{ card_product.url }}"
+    class="product-card__media"
+    aria-label="{{ card_product.title | escape }} — view product"
+    tabindex="0"
+  >
+
+    {%- if badge != blank -%}
+      <span
+        class="product-card__badge{% if badge_type == 'sale' %} product-card__badge--sale{% endif %}"
+        aria-label="{{ badge }}"
+      >
+        {{ badge }}
+      </span>
+    {%- endif -%}
+
+    {%- if card_product.featured_image -%}
+      {{
+        card_product.featured_image
+        | image_url: width: 600
+        | image_tag:
+          alt: card_product.featured_image.alt | default: card_product.title,
+          loading: loading_attr,
+          width: card_product.featured_image.width,
+          height: card_product.featured_image.height,
+          sizes: '(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw',
+          widths: '300, 400, 500, 600'
+      }}
+    {%- else -%}
+      <div
+        style="width:100%;height:100%;background:var(--color-cream);display:flex;align-items:center;justify-content:center;font-size:3rem;"
+        aria-hidden="true"
+      >
+        🌱
+      </div>
+    {%- endif -%}
+
+    {%- if show_quick_add and card_product.available -%}
+      <div class="product-card__quick-add" aria-hidden="true">
+        {%- form 'product', card_product,
+          data-add-to-cart-form: true,
+          style: 'display:contents'
+        -%}
+          <input type="hidden" name="id" value="{{ card_product.selected_or_first_available_variant.id }}">
+          <input type="hidden" name="quantity" value="1">
+          <button
+            type="submit"
+            class="btn btn--primary w-full"
+            data-add-to-cart
+            tabindex="-1"
+          >
+            {{ 'product.quick_add' | t }}
+          </button>
+        {%- endform -%}
+      </div>
+    {%- endif -%}
+
+  </a>
+
+  <!-- Info -->
+  <div class="product-card__info">
+
+    <a href="{{ card_product.url }}" class="product-card__title">
+      {{ card_product.title }}
+    </a>
+
+    <div class="product-card__price">
+      {%- if is_sale -%}
+        <span class="price price--sale">{{ card_product.price | money }}</span>
+        <span class="price price--compare">{{ card_product.compare_at_price | money }}</span>
+      {%- elsif card_product.available -%}
+        <span class="price">{{ card_product.price | money }}</span>
+      {%- else -%}
+        <span class="price" style="color: var(--color-gray-400);">{{ 'product.sold_out' | t }}</span>
+      {%- endif -%}
+    </div>
+
+  </div>
+</article>

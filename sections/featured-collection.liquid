@@ -1,0 +1,86 @@
+{%- liquid
+  if section.settings.collection != blank
+    assign featured_col = collections[section.settings.collection]
+  endif
+-%}
+
+<section class="featured-collection section" aria-label="{{ section.settings.heading | default: 'More Products' }}">
+  <div class="container">
+
+    {%- if section.settings.heading != blank -%}
+      <div class="section__header reveal">
+        <h2>{{ section.settings.heading }}</h2>
+      </div>
+    {%- endif -%}
+
+    {%- if featured_col and featured_col.products.size > 0 -%}
+      <div class="product-grid">
+        {%- for product in featured_col.products limit: section.settings.products_to_show -%}
+          {% render 'product-card', product: product %}
+        {%- endfor -%}
+      </div>
+    {%- elsif collections.all.products.size > 0 -%}
+      <div class="product-grid">
+        {%- for product in collections.all.products limit: section.settings.products_to_show -%}
+          {% render 'product-card', product: product %}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.view_all_label != blank -%}
+      <div style="text-align: center; margin-top: var(--space-12);" class="reveal">
+        <a
+          href="{{ featured_col.url | default: routes.collections_url }}"
+          class="btn btn--secondary"
+        >
+          {{ section.settings.view_all_label }}
+        </a>
+      </div>
+    {%- endif -%}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured Collection",
+  "tag": "div",
+  "class": "featured-collection-wrapper",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "You Might Also Like"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "label": "Products to show",
+      "min": 2,
+      "max": 8,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "text",
+      "id": "view_all_label",
+      "label": "View all button label (leave blank to hide)"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Collection",
+      "settings": {
+        "heading": "You Might Also Like",
+        "products_to_show": 4
+      }
+    }
+  ]
+}
+{% endschema %}

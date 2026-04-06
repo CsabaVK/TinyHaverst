@@ -1,0 +1,62 @@
+{
+  "header": {
+    "nav": {
+      "home": "Home",
+      "shop": "Shop",
+      "how_it_works": "How It Works",
+      "about": "About",
+      "contact": "Contact"
+    },
+    "cart": "Cart"
+  },
+  "footer": {
+    "shop_heading": "Shop",
+    "help_heading": "Help",
+    "contact_heading": "Get in Touch",
+    "contact_intro": "Questions? We'd love to hear from you.",
+    "all_products": "All Products",
+    "collections": "Collections",
+    "how_it_works": "How It Works",
+    "starter_kit": "Starter Kit",
+    "faq": "FAQ",
+    "shipping": "Shipping Info",
+    "returns": "Returns",
+    "contact": "Contact Us",
+    "rights": "All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  },
+  "product": {
+    "add_to_cart": "Add to Cart",
+    "sold_out": "Sold Out",
+    "quick_add": "Quick Add"
+  },
+  "featured_product": {
+    "aria_label": "Featured product",
+    "view_full": "View Full Details"
+  },
+  "newsletter": {
+    "email_label": "Email address"
+  },
+  "cart": {
+    "title": "Your Cart",
+    "empty": "Your cart is empty",
+    "empty_cta": "Start shopping",
+    "subtotal": "Subtotal",
+    "shipping_note": "Shipping and taxes calculated at checkout.",
+    "checkout": "Checkout",
+    "continue_shopping": "Continue Shopping",
+    "remove": "Remove",
+    "quantity": "Quantity"
+  },
+  "collection": {
+    "sort_by": "Sort by",
+    "sort_featured": "Featured",
+    "sort_price_asc": "Price: Low to High",
+    "sort_price_desc": "Price: High to Low",
+    "sort_title_asc": "A–Z",
+    "sort_title_desc": "Z–A",
+    "sort_date_desc": "Newest",
+    "products_count": "{{ count }} products"
+  }
+}

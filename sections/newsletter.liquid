@@ -1,0 +1,126 @@
+<section
+  class="newsletter section"
+  id="newsletter"
+  aria-label="{{ section.settings.heading | default: 'Newsletter signup' }}"
+  data-newsletter
+>
+  <div class="container">
+    <div class="newsletter__inner">
+
+      <h2 class="newsletter__heading reveal">
+        {{ section.settings.heading | default: 'Join the Growing Community' }}
+      </h2>
+
+      <p class="newsletter__subtext reveal reveal--delay-1">
+        {{ section.settings.subtext | default: 'Tips, recipes, and early access to new kits — straight to your inbox.' }}
+      </p>
+
+      <!-- Newsletter Form -->
+      {%- form 'customer',
+        id: 'newsletter-form',
+        class: 'newsletter__form',
+        data-newsletter-form: true
+      -%}
+
+        <input type="hidden" name="contact[tags]" value="newsletter">
+
+        <label for="newsletter-email" class="sr-only">
+          {{ 'newsletter.email_label' | t }}
+        </label>
+
+        <input
+          id="newsletter-email"
+          type="email"
+          name="contact[email]"
+          class="newsletter__input reveal reveal--delay-2"
+          placeholder="{{ section.settings.email_placeholder | default: 'Your email address' }}"
+          autocomplete="email"
+          required
+          aria-required="true"
+        >
+
+        <button
+          type="submit"
+          class="newsletter__btn reveal reveal--delay-3"
+          data-newsletter-btn
+        >
+          {{ section.settings.button_text | default: 'Subscribe' }}
+        </button>
+
+      {%- endform -%}
+
+      <!-- Success message (shown after submission) -->
+      <p
+        class="newsletter__success"
+        data-newsletter-success
+        aria-live="polite"
+        role="status"
+      >
+        {{ section.settings.success_message | default: '🌱 Welcome to the community! Check your inbox.' }}
+      </p>
+
+      {%- if section.settings.privacy_note != blank -%}
+        <p style="margin-top: var(--space-4); font-size: var(--text-xs); color: rgba(255,255,255,0.55);">
+          {{ section.settings.privacy_note }}
+        </p>
+      {%- endif -%}
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Newsletter",
+  "tag": "div",
+  "class": "newsletter-wrapper",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Join the Growing Community"
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "Tips, recipes, and early access to new kits — straight to your inbox."
+    },
+    {
+      "type": "text",
+      "id": "email_placeholder",
+      "label": "Email input placeholder",
+      "default": "Your email address"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Subscribe"
+    },
+    {
+      "type": "text",
+      "id": "success_message",
+      "label": "Success message",
+      "default": "🌱 Welcome to the community! Check your inbox."
+    },
+    {
+      "type": "text",
+      "id": "privacy_note",
+      "label": "Privacy note (optional)",
+      "default": "No spam. Unsubscribe any time. We respect your privacy."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Newsletter",
+      "settings": {
+        "heading": "Join the Growing Community",
+        "subtext": "Tips, recipes, and early access to new kits — straight to your inbox.",
+        "button_text": "Subscribe"
+      }
+    }
+  ]
+}
+{% endschema %}

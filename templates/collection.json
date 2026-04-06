@@ -1,0 +1,31 @@
+{
+  "sections": {
+    "collection-header": {
+      "type": "collection-header",
+      "settings": {}
+    },
+    "collection-grid": {
+      "type": "collection-grid",
+      "settings": {
+        "products_per_page": 12,
+        "columns_desktop": 4,
+        "columns_mobile": 2,
+        "show_sort": true,
+        "show_filters": true
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "heading": "Stay in the Loop",
+        "subtext": "New kits, growing tips, and seasonal recipes — delivered to your inbox.",
+        "button_text": "Subscribe"
+      }
+    }
+  },
+  "order": [
+    "collection-header",
+    "collection-grid",
+    "newsletter"
+  ]
+}

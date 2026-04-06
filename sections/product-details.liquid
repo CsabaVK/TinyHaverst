@@ -1,0 +1,199 @@
+<section class="product-page section" aria-label="{{ product.title | escape }}">
+  <div class="container">
+    <div class="product-page__inner">
+
+      <!-- Gallery -->
+      <div class="product-page__gallery reveal reveal--left">
+        {%- if product.images.size > 0 -%}
+          <div class="product-gallery">
+            <div class="product-gallery__main">
+              {%- assign featured = product.selected_or_first_available_variant.featured_image | default: product.featured_image -%}
+              {{
+                featured
+                | image_url: width: 1000
+                | image_tag:
+                  alt: featured.alt | default: product.title,
+                  loading: 'eager',
+                  id: 'product-gallery-main',
+                  sizes: '(min-width: 768px) 50vw, 100vw',
+                  widths: '500, 700, 900, 1000'
+              }}
+            </div>
+            {%- if product.images.size > 1 -%}
+              <div class="product-gallery__thumbs">
+                {%- for image in product.images limit: 6 -%}
+                  <button
+                    type="button"
+                    class="product-gallery__thumb{% if forloop.first %} is-active{% endif %}"
+                    aria-label="View image {{ forloop.index }}"
+                    data-image-url="{{ image | image_url: width: 1000 }}"
+                  >
+                    {{
+                      image
+                      | image_url: width: 120
+                      | image_tag:
+                        alt: image.alt | default: product.title,
+                        loading: 'lazy',
+                        width: 80,
+                        height: 80
+                    }}
+                  </button>
+                {%- endfor -%}
+              </div>
+            {%- endif -%}
+          </div>
+        {%- else -%}
+          <div style="width:100%;aspect-ratio:1;background:var(--color-cream);display:flex;align-items:center;justify-content:center;font-size:5rem;border-radius:var(--radius-lg);" aria-hidden="true">🌿</div>
+        {%- endif -%}
+      </div>
+
+      <!-- Details -->
+      <div class="product-page__details reveal reveal--right">
+
+        {%- if product.vendor != blank -%}
+          <p class="overline">{{ product.vendor }}</p>
+        {%- endif -%}
+
+        <h1 class="product-page__title">{{ product.title }}</h1>
+
+        <!-- Price -->
+        <div class="product-page__price">
+          {%- if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price -%}
+            <span class="price price--sale">{{ product.selected_or_first_available_variant.price | money }}</span>
+            <span class="price price--compare">{{ product.selected_or_first_available_variant.compare_at_price | money }}</span>
+          {%- else -%}
+            <span class="price" data-product-price>{{ product.selected_or_first_available_variant.price | money }}</span>
+          {%- endif -%}
+        </div>
+
+        <!-- Product Form -->
+        {%- form 'product', product,
+          id: 'product-page-form',
+          data-add-to-cart-form: true,
+          data-product-form: true
+        -%}
+
+          {%- unless product.has_only_default_variant -%}
+            <div data-variant-selector>
+              {%- for option in product.options_with_values -%}
+                <div class="variant-selector" aria-label="{{ option.name }}">
+                  <span class="variant-selector__label">{{ option.name }}</span>
+                  <div class="variant-selector__options" data-option-group>
+                    {%- for value in option.values -%}
+                      <button
+                        type="button"
+                        class="variant-btn{% if forloop.first %} is-selected{% endif %}"
+                        data-option-position="{{ option.position }}"
+                        aria-label="{{ option.name }}: {{ value }}"
+                      >
+                        {{ value }}
+                      </button>
+                    {%- endfor -%}
+                  </div>
+                </div>
+              {%- endfor -%}
+            </div>
+          {%- endunless -%}
+
+          <input
+            type="hidden"
+            name="id"
+            value="{{ product.selected_or_first_available_variant.id }}"
+            data-variant-id
+          >
+
+          <div class="add-to-cart-row">
+            <div class="quantity-selector" aria-label="{{ 'cart.quantity' | t }}">
+              <button class="quantity-btn" data-action="decrease" type="button" aria-label="Decrease">−</button>
+              <input class="quantity-input" type="number" name="quantity" value="1" min="1" max="99" aria-label="Quantity">
+              <button class="quantity-btn" data-action="increase" type="button" aria-label="Increase">+</button>
+            </div>
+            <button
+              type="submit"
+              class="btn btn--primary btn--lg btn--add-to-cart"
+              data-add-to-cart
+              {%- unless product.available -%}disabled{%- endunless -%}
+            >
+              {%- if product.available -%}{{ 'product.add_to_cart' | t }}{%- else -%}{{ 'product.sold_out' | t }}{%- endif -%}
+            </button>
+          </div>
+
+        {%- endform -%}
+
+        <!-- Description tabs -->
+        <div class="product-tabs" data-tabs>
+          <div class="product-tabs__nav" role="tablist">
+            <button class="tab-btn is-active" role="tab" aria-selected="true">Description</button>
+            <button class="tab-btn" role="tab" aria-selected="false">Growing Guide</button>
+            <button class="tab-btn" role="tab" aria-selected="false">What's Included</button>
+          </div>
+
+          <div class="tab-panel is-active">
+            <div class="rte">
+              {{ product.description }}
+            </div>
+          </div>
+
+          <div class="tab-panel">
+            <div class="rte">
+              <ol>
+                <li>Fill your tray with the included organic growing medium.</li>
+                <li>Spread seeds evenly across the surface — don't overcrowd.</li>
+                <li>Mist gently with water and cover for the first 3 days.</li>
+                <li>Uncover and place in indirect sunlight. Mist daily.</li>
+                <li>Harvest in 7–10 days by snipping just above the soil.</li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="tab-panel">
+            <div class="rte">
+              <ul>
+                <li>Growing tray with drainage holes</li>
+                <li>Organic growing medium (coco coir)</li>
+                <li>Premium seed mix (3 varieties)</li>
+                <li>Spray bottle</li>
+                <li>Step-by-step growing guide</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .product-gallery__main img { width: 100%; border-radius: var(--radius-lg); }
+  .product-gallery__thumbs { display: flex; gap: var(--space-2); margin-top: var(--space-3); flex-wrap: wrap; }
+  .product-gallery__thumb { border: 2px solid transparent; border-radius: var(--radius-md); overflow: hidden; cursor: pointer; padding: 0; background: none; transition: border-color var(--transition-fast); }
+  .product-gallery__thumb.is-active,
+  .product-gallery__thumb:hover { border-color: var(--color-green); }
+  .product-gallery__thumb img { width: 72px; height: 72px; object-fit: cover; display: block; }
+</style>
+
+<script>
+  (function() {
+    const thumbs = document.querySelectorAll('.product-gallery__thumb');
+    const main = document.getElementById('product-gallery-main');
+    if (!thumbs.length || !main) return;
+    thumbs.forEach(thumb => {
+      thumb.addEventListener('click', function() {
+        thumbs.forEach(t => t.classList.remove('is-active'));
+        this.classList.add('is-active');
+        main.src = this.dataset.imageUrl;
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Product Details",
+  "tag": "div",
+  "class": "product-page-wrapper",
+  "settings": [],
+  "presets": [{ "name": "Product Details" }]
+}
+{% endschema %}

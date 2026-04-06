@@ -1,0 +1,38 @@
+{
+  "sections": {
+    "product-hero": {
+      "type": "featured-product",
+      "settings": {
+        "overline": "Microgreens Kit",
+        "badge_text": "Best Seller",
+        "includes_heading": "What's Included",
+        "includes_items": "Growing tray with drainage holes, Organic growing medium (coco coir), Premium seed mix (3 varieties), Spray bottle, Step-by-step growing guide"
+      }
+    },
+    "product-details": {
+      "type": "product-details",
+      "settings": {}
+    },
+    "related-products": {
+      "type": "featured-collection",
+      "settings": {
+        "heading": "You Might Also Like",
+        "products_to_show": 4
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "heading": "Join the Growing Community",
+        "subtext": "Tips, recipes, and early access to new kits — straight to your inbox.",
+        "button_text": "Subscribe"
+      }
+    }
+  },
+  "order": [
+    "product-hero",
+    "product-details",
+    "related-products",
+    "newsletter"
+  ]
+}

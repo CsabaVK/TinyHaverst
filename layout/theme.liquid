@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  {%- if settings.favicon != blank -%}
+    <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32 }}">
+  {%- endif -%}
+
+  <title>
+    {%- if request.page_type == 'index' -%}
+      {{ shop.name }} — {{ shop.description | default: 'Microgreens Home Growing Kits' }}
+    {%- else -%}
+      {{ page_title }} — {{ shop.name }}
+    {%- endif -%}
+  </title>
+
+  {%- if page_description -%}
+    <meta name="description" content="{{ page_description | escape }}">
+  {%- endif -%}
+
+  <!-- Open Graph / Social -->
+  <meta property="og:site_name" content="{{ shop.name }}">
+  <meta property="og:title" content="{{ page_title | escape }}">
+  {%- if page_description -%}
+    <meta property="og:description" content="{{ page_description | escape }}">
+  {%- endif -%}
+  {%- if request.page_type == 'product' -%}
+    <meta property="og:type" content="product">
+    <meta property="og:url" content="{{ canonical_url }}">
+    {%- if product.featured_image -%}
+      <meta property="og:image" content="{{ product.featured_image | image_url: width: 1200 }}">
+    {%- endif -%}
+  {%- else -%}
+    <meta property="og:type" content="website">
+  {%- endif -%}
+
+  <link rel="canonical" href="{{ canonical_url }}">
+
+  <!-- Google Fonts: Playfair Display + DM Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Theme CSS -->
+  {{ 'theme.css' | asset_url | stylesheet_tag }}
+
+  <!-- Shopify required -->
+  {{ content_for_header }}
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": {{ shop.name | json }},
+    "url": {{ shop.url | json }},
+    "email": {{ settings.contact_email | default: 'info@tinyharvest.eu' | json }},
+    "sameAs": [
+      {{ settings.social_instagram | json }},
+      {{ settings.social_pinterest | json }},
+      {{ settings.social_facebook | json }},
+      {{ settings.social_linkedin | json }}
+    ]
+  }
+  </script>
+</head>
+
+<body
+  class="{% if request.page_type == 'index' %}template-index{% else %}template-{{ request.page_type }}{% endif %}{% if settings.announcement_text != blank %} has-announcement{% endif %}"
+  data-page-type="{{ request.page_type }}"
+>
+
+  <!-- Skip to content (accessibility) -->
+  <a href="#main-content" class="sr-only" style="position:absolute;top:var(--space-4);left:var(--space-4);background:var(--color-green);color:var(--color-white);padding:var(--space-2) var(--space-4);border-radius:var(--radius-md);z-index:9999;display:block;opacity:0;pointer-events:none;transition:opacity 0.2s" onfocus="this.style.opacity='1';this.style.pointerEvents='auto'" onblur="this.style.opacity='0';this.style.pointerEvents='none'">
+    Skip to content
+  </a>
+
+  <!-- Announcement Bar -->
+  {%- if settings.announcement_text != blank -%}
+    <div
+      class="announcement-bar"
+      data-announcement-bar
+      role="status"
+      aria-label="Site announcement"
+    >
+      <div class="container">
+        {{ settings.announcement_text }}
+        {%- if settings.announcement_link != blank -%}
+          &nbsp;<a href="{{ settings.announcement_link }}" style="color:inherit;text-decoration:underline">{{ settings.announcement_link_text | default: 'Shop now' }}</a>
+        {%- endif -%}
+      </div>
+    </div>
+  {%- endif -%}
+
+  <!-- Header -->
+  {%- section 'header' -%}
+
+  <!-- Main content -->
+  <main
+    id="main-content"
+    role="main"
+    tabindex="-1"
+    class="{% unless request.page_type == 'index' %}header-offset{% endunless %}"
+  >
+    {{ content_for_layout }}
+  </main>
+
+  <!-- Footer -->
+  {%- section 'footer' -%}
+
+  <!-- Theme JS -->
+  <script src="{{ 'theme.js' | asset_url }}" defer></script>
+
+</body>
+</html>

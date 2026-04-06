@@ -1,0 +1,169 @@
+<section class="cart-page section" aria-label="{{ 'cart.title' | t }}">
+  <div class="container container--narrow">
+
+    <h1 class="cart-page__title">{{ section.settings.heading | default: 'Your Cart' }}</h1>
+
+    {%- if cart.item_count > 0 -%}
+
+      <form action="{{ routes.cart_url }}" method="post" data-cart-form>
+
+        <div class="cart-items">
+          {%- for item in cart.items -%}
+            <div class="cart-item" data-line-item="{{ item.key }}">
+
+              <!-- Image -->
+              <a href="{{ item.url }}" class="cart-item__image" aria-label="{{ item.title | escape }}">
+                {%- if item.image -%}
+                  {{
+                    item.image
+                    | image_url: width: 200
+                    | image_tag:
+                      alt: item.image.alt | default: item.title,
+                      loading: 'lazy',
+                      width: 100,
+                      height: 100
+                  }}
+                {%- else -%}
+                  <div style="width:100%;height:100%;background:var(--color-cream);display:flex;align-items:center;justify-content:center;" aria-hidden="true">🌱</div>
+                {%- endif -%}
+              </a>
+
+              <!-- Info -->
+              <div class="cart-item__info">
+                <a href="{{ item.url }}" class="cart-item__title">{{ item.product.title }}</a>
+                {%- unless item.product.has_only_default_variant -%}
+                  <p class="cart-item__variant caption">{{ item.variant.title }}</p>
+                {%- endunless -%}
+                <p class="cart-item__price">{{ item.final_price | money }}</p>
+              </div>
+
+              <!-- Quantity -->
+              <div class="cart-item__qty">
+                <div class="quantity-selector quantity-selector--sm" aria-label="{{ 'cart.quantity' | t }}">
+                  <button class="quantity-btn" data-action="decrease" type="button" aria-label="Decrease">−</button>
+                  <input
+                    class="quantity-input"
+                    type="number"
+                    name="updates[]"
+                    value="{{ item.quantity }}"
+                    min="0"
+                    max="99"
+                    data-line-key="{{ item.key }}"
+                    aria-label="{{ 'cart.quantity' | t }}"
+                  >
+                  <button class="quantity-btn" data-action="increase" type="button" aria-label="Increase">+</button>
+                </div>
+              </div>
+
+              <!-- Line total -->
+              <p class="cart-item__total">{{ item.final_line_price | money }}</p>
+
+              <!-- Remove -->
+              <button
+                type="button"
+                class="cart-item__remove"
+                data-remove-item="{{ item.key }}"
+                aria-label="{{ 'cart.remove' | t }} {{ item.title | escape }}"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="16" height="16">
+                  <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+              </button>
+
+            </div>
+          {%- endfor -%}
+        </div>
+
+        <!-- Summary -->
+        <div class="cart-summary">
+          <div class="cart-summary__row cart-summary__subtotal">
+            <span>{{ section.settings.subtotal_label | default: 'Subtotal' }}</span>
+            <span>{{ cart.total_price | money }}</span>
+          </div>
+
+          {%- if section.settings.show_shipping_note -%}
+            <p class="caption" style="color: var(--color-gray-600); margin-bottom: var(--space-6);">
+              {{ section.settings.shipping_note | default: 'Shipping and taxes calculated at checkout.' }}
+            </p>
+          {%- endif -%}
+
+          <button type="submit" name="checkout" class="btn btn--primary btn--lg w-full">
+            {{ section.settings.checkout_label | default: 'Checkout' }}
+          </button>
+
+          {%- if section.settings.show_continue_shopping -%}
+            <a href="{{ routes.all_products_collection_url }}" class="btn btn--ghost w-full" style="margin-top: var(--space-3);">
+              {{ section.settings.continue_shopping_label | default: 'Continue Shopping' }}
+            </a>
+          {%- endif -%}
+        </div>
+
+      </form>
+
+    {%- else -%}
+
+      <div class="cart-empty" style="text-align:center; padding: 4rem 0;">
+        <p style="font-size: var(--text-xl); margin-bottom: var(--space-6);">🌱</p>
+        <p class="lead">{{ 'cart.empty' | t }}</p>
+        <a href="{{ routes.all_products_collection_url }}" class="btn btn--primary" style="margin-top: var(--space-8);">
+          {{ 'cart.empty_cta' | t }}
+        </a>
+      </div>
+
+    {%- endif -%}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Cart Items",
+  "tag": "div",
+  "class": "cart-page-wrapper",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Page heading",
+      "default": "Your Cart"
+    },
+    {
+      "type": "text",
+      "id": "subtotal_label",
+      "label": "Subtotal label",
+      "default": "Subtotal"
+    },
+    {
+      "type": "text",
+      "id": "checkout_label",
+      "label": "Checkout button label",
+      "default": "Checkout"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_continue_shopping",
+      "label": "Show continue shopping button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "continue_shopping_label",
+      "label": "Continue shopping label",
+      "default": "Continue Shopping"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_shipping_note",
+      "label": "Show shipping note",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "shipping_note",
+      "label": "Shipping note",
+      "default": "Shipping and taxes calculated at checkout."
+    }
+  ],
+  "presets": [{ "name": "Cart Items" }]
+}
+{% endschema %}

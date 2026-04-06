@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "cart-items": {
+      "type": "cart-items",
+      "settings": {
+        "heading": "Your Cart",
+        "show_continue_shopping": true,
+        "continue_shopping_label": "Continue Shopping",
+        "checkout_label": "Checkout",
+        "subtotal_label": "Subtotal",
+        "show_shipping_note": true,
+        "shipping_note": "Shipping and taxes calculated at checkout."
+      }
+    }
+  },
+  "order": [
+    "cart-items"
+  ]
+}

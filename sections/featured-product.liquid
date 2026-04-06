@@ -1,0 +1,235 @@
+{%- liquid
+  if section.settings.product != blank
+    assign featured = section.settings.product
+  elsif all_products.count > 0
+    assign featured = all_products.first
+  endif
+-%}
+
+<section
+  class="featured-product section"
+  id="featured-product"
+  aria-label="{{ 'featured_product.aria_label' | t }}"
+>
+  <div class="container">
+
+    {%- if featured != blank -%}
+
+      <div class="featured-product__inner">
+
+        <!-- Media -->
+        <div class="featured-product__media reveal reveal--left">
+          {%- if featured.featured_image -%}
+            <span class="featured-product__badge">{{ section.settings.badge_text | default: 'Best Seller' }}</span>
+            {{
+              featured.featured_image
+              | image_url: width: 900
+              | image_tag:
+                alt: featured.featured_image.alt | default: featured.title,
+                loading: 'lazy',
+                sizes: '(min-width: 768px) 50vw, 100vw',
+                widths: '400, 600, 800, 900'
+            }}
+          {%- else -%}
+            <div style="width:100%;height:100%;background:var(--color-cream);display:flex;align-items:center;justify-content:center;font-size:4rem;" aria-hidden="true">🌿</div>
+          {%- endif -%}
+        </div>
+
+        <!-- Details -->
+        <div class="featured-product__details reveal reveal--right">
+
+          <p class="featured-product__overline">
+            {{ section.settings.overline | default: 'Featured Kit' }}
+          </p>
+
+          <h2 class="featured-product__title">
+            {{ section.settings.heading_override | default: featured.title }}
+          </h2>
+
+          <div class="featured-product__description">
+            {%- if section.settings.description_override != blank -%}
+              {{ section.settings.description_override }}
+            {%- else -%}
+              {{ featured.description | strip_html | truncatewords: 60 }}
+            {%- endif -%}
+          </div>
+
+          <!-- Price -->
+          <div class="featured-product__price">
+            {%- if featured.compare_at_price > featured.price -%}
+              <span class="price price--sale">{{ featured.price | money }}</span>
+              <span class="price price--compare">{{ featured.compare_at_price | money }}</span>
+            {%- else -%}
+              <span class="price" data-product-price>{{ featured.price | money }}</span>
+            {%- endif -%}
+          </div>
+
+          <!-- Product Form -->
+          {%- form 'product', featured,
+            id: 'featured-product-form',
+            data-add-to-cart-form: true,
+            data-product-form: true
+          -%}
+
+            <!-- Variant selector -->
+            {%- unless featured.has_only_default_variant -%}
+              <div data-variant-selector>
+                {%- for option in featured.options_with_values -%}
+                  <div class="variant-selector" aria-label="{{ option.name }}">
+                    <span class="variant-selector__label">{{ option.name }}</span>
+                    <div class="variant-selector__options" data-option-group>
+                      {%- for value in option.values -%}
+                        <button
+                          type="button"
+                          class="variant-btn{% if forloop.first %} is-selected{% endif %}"
+                          data-option-position="{{ option.position }}"
+                          aria-label="{{ option.name }}: {{ value }}"
+                        >
+                          {{ value }}
+                        </button>
+                      {%- endfor -%}
+                    </div>
+                  </div>
+                {%- endfor -%}
+              </div>
+            {%- endunless -%}
+
+            <input
+              type="hidden"
+              name="id"
+              value="{{ featured.selected_or_first_available_variant.id }}"
+              data-variant-id
+            >
+
+            <!-- Add to cart row -->
+            <div class="add-to-cart-row">
+              <div class="quantity-selector" aria-label="Quantity">
+                <button class="quantity-btn" data-action="decrease" type="button" aria-label="Decrease quantity">−</button>
+                <input
+                  class="quantity-input"
+                  type="number"
+                  name="quantity"
+                  value="1"
+                  min="1"
+                  max="99"
+                  aria-label="Quantity"
+                >
+                <button class="quantity-btn" data-action="increase" type="button" aria-label="Increase quantity">+</button>
+              </div>
+
+              <button
+                type="submit"
+                class="btn btn--primary btn--lg btn--add-to-cart"
+                data-add-to-cart
+                {%- unless featured.available -%}disabled{%- endunless -%}
+              >
+                {%- if featured.available -%}
+                  {{ 'product.add_to_cart' | t }}
+                {%- else -%}
+                  {{ 'product.sold_out' | t }}
+                {%- endif -%}
+              </button>
+            </div>
+
+          {%- endform -%}
+
+          <!-- What's Included -->
+          {%- if section.settings.includes_heading != blank or section.settings.includes_items != blank -%}
+            <div class="includes-list">
+              <p class="includes-list__heading">
+                {{ section.settings.includes_heading | default: "What's Included" }}
+              </p>
+              <ul>
+                {%- assign items = section.settings.includes_items | split: ',' -%}
+                {%- for item in items -%}
+                  <li>{{ item | strip }}</li>
+                {%- endfor -%}
+              </ul>
+            </div>
+          {%- endif -%}
+
+          <!-- CTA to full product page -->
+          <a href="{{ featured.url }}" class="btn btn--ghost-green">
+            {{ 'featured_product.view_full' | t }}
+          </a>
+
+        </div>
+      </div>
+
+    {%- else -%}
+
+      <!-- Placeholder when no product is selected -->
+      <div class="featured-product__inner" style="text-align:center; padding: 4rem 0;">
+        <p style="color: var(--color-gray-400);">
+          Select a product in the theme editor to display the featured product section.
+        </p>
+      </div>
+
+    {%- endif -%}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured Product",
+  "tag": "div",
+  "class": "featured-product-wrapper",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    },
+    {
+      "type": "text",
+      "id": "overline",
+      "label": "Overline text",
+      "default": "Featured Kit"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge text",
+      "default": "Best Seller"
+    },
+    {
+      "type": "text",
+      "id": "heading_override",
+      "label": "Heading override (leave blank to use product title)"
+    },
+    {
+      "type": "richtext",
+      "id": "description_override",
+      "label": "Description override (leave blank to use product description)"
+    },
+    {
+      "type": "header",
+      "content": "What's Included"
+    },
+    {
+      "type": "text",
+      "id": "includes_heading",
+      "label": "Includes heading",
+      "default": "What's Included"
+    },
+    {
+      "type": "textarea",
+      "id": "includes_items",
+      "label": "Includes items (comma-separated)",
+      "default": "Growing tray with drainage holes, Organic growing medium (coco coir), Premium seed mix (3 varieties), Spray bottle, Step-by-step growing guide"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Product",
+      "settings": {
+        "overline": "Featured Kit",
+        "badge_text": "Best Seller",
+        "includes_heading": "What's Included",
+        "includes_items": "Growing tray with drainage holes, Organic growing medium (coco coir), Premium seed mix (3 varieties), Spray bottle, Step-by-step growing guide"
+      }
+    }
+  ]
+}
+{% endschema %}

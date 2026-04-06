@@ -1,0 +1,136 @@
+{%- liquid
+  assign nav_links = section.settings.nav_links | default: ''
+-%}
+
+<header
+  class="site-header{% if request.page_type == 'index' %} site-header--transparent{% endif %}"
+  role="banner"
+  id="site-header"
+>
+  <div class="site-header__inner">
+
+    <!-- Logo -->
+    <a
+      href="{{ routes.root_url }}"
+      class="site-header__logo"
+      aria-label="{{ shop.name }} — Back to home"
+    >
+      {%- if section.settings.logo != blank -%}
+        {{
+          section.settings.logo
+          | image_url: width: 240
+          | image_tag:
+            alt: shop.name,
+            loading: 'eager',
+            width: section.settings.logo.width,
+            height: section.settings.logo.height
+        }}
+      {%- else -%}
+        TinyHarvest
+      {%- endif -%}
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="site-header__nav" aria-label="Main navigation">
+      <ul role="list">
+        <li><a href="{{ routes.root_url }}">{{ 'header.nav.home' | t }}</a></li>
+        <li><a href="{{ routes.collections_url }}">{{ 'header.nav.shop' | t }}</a></li>
+        <li><a href="#how-it-works">{{ 'header.nav.how_it_works' | t }}</a></li>
+        <li><a href="#about">{{ 'header.nav.about' | t }}</a></li>
+        <li><a href="/pages/contact">{{ 'header.nav.contact' | t }}</a></li>
+      </ul>
+    </nav>
+
+    <!-- Actions -->
+    <div class="site-header__actions">
+
+      <!-- Cart -->
+      <a
+        href="{{ routes.cart_url }}"
+        class="site-header__cart"
+        aria-label="{{ 'header.cart' | t }} ({{ cart.item_count }} items)"
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 01-8 0"/>
+        </svg>
+        <span
+          class="cart-count{% if cart.item_count == 0 %} is-empty{% endif %}"
+          aria-hidden="true"
+        >
+          {{- cart.item_count -}}
+        </span>
+      </a>
+
+      <!-- Hamburger (mobile) -->
+      <button
+        class="site-header__hamburger"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+        type="button"
+      >
+        <span class="hamburger-line" aria-hidden="true"></span>
+        <span class="hamburger-line" aria-hidden="true"></span>
+        <span class="hamburger-line" aria-hidden="true"></span>
+      </button>
+
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Navigation Drawer -->
+<nav
+  class="mobile-nav"
+  id="mobile-nav"
+  aria-label="Mobile navigation"
+  aria-hidden="true"
+>
+  <ul role="list">
+    <li><a href="{{ routes.root_url }}">{{ 'header.nav.home' | t }}</a></li>
+    <li><a href="{{ routes.collections_url }}">{{ 'header.nav.shop' | t }}</a></li>
+    <li><a href="#how-it-works">{{ 'header.nav.how_it_works' | t }}</a></li>
+    <li><a href="#about">{{ 'header.nav.about' | t }}</a></li>
+    <li><a href="/pages/contact">{{ 'header.nav.contact' | t }}</a></li>
+  </ul>
+
+  <div style="margin-top: auto; padding-top: 2rem;">
+    <a href="{{ routes.cart_url }}" class="btn btn--primary w-full" style="justify-content: center;">
+      Cart
+      {%- if cart.item_count > 0 -%}
+        &nbsp;({{ cart.item_count }})
+      {%- endif -%}
+    </a>
+  </div>
+</nav>
+
+{% schema %}
+{
+  "name": "Header",
+  "tag": "div",
+  "class": "site-header-wrapper",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "label": "Logo width (px)",
+      "min": 80,
+      "max": 300,
+      "step": 10,
+      "default": 160,
+      "unit": "px"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Header"
+    }
+  ]
+}
+{% endschema %}

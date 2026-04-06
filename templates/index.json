@@ -1,0 +1,119 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "overline": "100% Natural · Ready in Days",
+        "heading": "Grow Something Beautiful",
+        "subheading": "Microgreens kits for your home. Fresh. Simple. Rewarding.",
+        "button_primary_label": "Shop Now",
+        "button_secondary_label": "Learn More",
+        "button_secondary_url": "#how-it-works"
+      }
+    },
+    "value-props": {
+      "type": "value-props",
+      "settings": {
+        "overline": "The TinyHarvest Difference",
+        "section_heading": "Growing Made Simple",
+        "prop_1_icon": "🌱",
+        "prop_1_title": "Ready in Days",
+        "prop_1_text": "Your kit sprouts and grows to harvest-ready microgreens in just 7–10 days. Instant gratification, guaranteed.",
+        "prop_2_icon": "🪟",
+        "prop_2_title": "No Garden Needed",
+        "prop_2_text": "Grow on any windowsill, kitchen counter, or shelf. If there's light, there's a way.",
+        "prop_3_icon": "✅",
+        "prop_3_title": "100% Natural",
+        "prop_3_text": "No chemicals, no pesticides — just premium seeds, organic growing medium, and water."
+      }
+    },
+    "featured-product": {
+      "type": "featured-product",
+      "settings": {
+        "overline": "Featured Kit",
+        "badge_text": "Best Seller",
+        "includes_heading": "What's Included",
+        "includes_items": "Growing tray with drainage holes, Organic growing medium (coco coir), Premium seed mix (3 varieties), Spray bottle, Step-by-step growing guide"
+      }
+    },
+    "how-it-works": {
+      "type": "how-it-works",
+      "settings": {
+        "overline": "Simple Process",
+        "heading": "As Easy as 1, 2, 3",
+        "subheading": "No experience needed. Our kit comes with everything you need to grow beautiful microgreens at home.",
+        "step_1_title": "Fill the Tray",
+        "step_1_description": "Add the included organic growing medium to your tray. Spread it evenly for the best results.",
+        "step_2_title": "Sow the Seeds",
+        "step_2_description": "Spread the premium seeds evenly across the surface and give them a gentle mist with water.",
+        "step_3_title": "Watch & Harvest",
+        "step_3_description": "In just 7–10 days your microgreens are ready. Snip just above the soil and enjoy straight away.",
+        "cta_label": "Get Your Kit"
+      }
+    },
+    "about": {
+      "type": "about",
+      "settings": {
+        "overline": "Our Story",
+        "heading": "Tiny Steps, Big Change",
+        "button_label": "Our Story",
+        "button_url": "/pages/about"
+      }
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "settings": {
+        "overline": "Real Reviews",
+        "heading": "What Our Growers Say"
+      },
+      "blocks": {
+        "testimonial-1": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "quote": "I was sceptical but this kit is genuinely idiot-proof. Harvested my first batch in 9 days. The sunflower microgreens are incredible on avocado toast.",
+            "author_name": "Sarah M.",
+            "author_location": "Amsterdam"
+          }
+        },
+        "testimonial-2": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "quote": "The quality of the seeds is outstanding. I've tried other kits but TinyHarvest is on another level. Ordered three more for gifts.",
+            "author_name": "Marco V.",
+            "author_location": "Berlin"
+          }
+        },
+        "testimonial-3": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "quote": "Such a lovely gift for my mum who doesn't have a garden. She calls it her 'tiny jungle' now. Perfect product.",
+            "author_name": "Emma T.",
+            "author_location": "London"
+          }
+        }
+      },
+      "blocks_order": ["testimonial-1", "testimonial-2", "testimonial-3"]
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "heading": "Join the Growing Community",
+        "subtext": "Tips, recipes, and early access to new kits — straight to your inbox.",
+        "button_text": "Subscribe",
+        "privacy_note": "No spam. Unsubscribe any time. We respect your privacy."
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "value-props",
+    "featured-product",
+    "how-it-works",
+    "about",
+    "testimonials",
+    "newsletter"
+  ]
+}
