@@ -4,7 +4,7 @@
     <div class="section__header">
       <p class="overline">{{ section.settings.overline | default: 'Choose Your Kit' }}</p>
       <h2>{{ section.settings.heading | default: 'Start Growing Today' }}</h2>
-      <p class="lead">{{ section.settings.subheading | default: 'All kits include organic, non-GMO seeds and everything you need — no experience required.' }}</p>
+      <p class="lead">{{ section.settings.subheading | default: 'All kits include organic, non-GMO seeds and everything you need - no experience required.' }}</p>
     </div>
 
     <div class="kits-grid">
@@ -15,7 +15,7 @@
           {%- if section.settings.kit1_image != blank -%}
             {{ section.settings.kit1_image | image_url: width: 700 | image_tag: loading: 'lazy', alt: section.settings.kit1_name | default: 'Sprout Starter Kit' }}
           {%- else -%}
-            <img src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=700&q=80" alt="Sprout Starter Kit — microgreens sprouting in a tray" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=700&q=80" alt="Sprout Starter Kit - microgreens sprouting in a tray" loading="lazy">
           {%- endif -%}
           <div class="kit-card__tier-badge">{{ section.settings.kit1_tier | default: 'Starter' }}</div>
           <!-- Hover reveal overlay -->
@@ -34,7 +34,7 @@
             <h3 class="kit-name">{{ section.settings.kit1_name | default: 'Sprout Starter' }}</h3>
             <span class="kit-price">&euro;{{ section.settings.kit1_price | default: '19.95' }}</span>
           </div>
-          <p class="kit-desc">{{ section.settings.kit1_desc | default: 'The perfect first step. Grow your first tray of microgreens in just 7–10 days.' }}</p>
+          <p class="kit-desc">{{ section.settings.kit1_desc | default: 'The perfect first step. Grow your first tray of microgreens in just 7-10 days.' }}</p>
           <a href="{{ section.settings.kit1_url | default: '/collections/all' }}" class="btn btn--secondary kit-cta">
             {{ section.settings.kit1_cta | default: 'Get Started' }}
           </a>
@@ -47,7 +47,7 @@
           {%- if section.settings.kit2_image != blank -%}
             {{ section.settings.kit2_image | image_url: width: 700 | image_tag: loading: 'lazy', alt: section.settings.kit2_name | default: 'Sprout Grower Kit' }}
           {%- else -%}
-            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=700&q=80" alt="Sprout Grower Kit — microgreens with spray bottle" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=700&q=80" alt="Sprout Grower Kit - microgreens with spray bottle" loading="lazy">
           {%- endif -%}
           <div class="kit-card__tier-badge">{{ section.settings.kit2_tier | default: 'Grower' }}</div>
           <div class="kit-card__popular-flag">{{ section.settings.kit2_badge | default: '&#127807; Most Popular' }}</div>
@@ -84,7 +84,7 @@
           {%- if section.settings.kit3_image != blank -%}
             {{ section.settings.kit3_image | image_url: width: 700 | image_tag: loading: 'lazy', alt: section.settings.kit3_name | default: 'Sprout Studio Kit' }}
           {%- else -%}
-            <img src="https://images.unsplash.com/photo-1585336261022-680e295ce3fe?w=700&q=80" alt="Sprout Studio Kit — full grow light setup" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1585336261022-680e295ce3fe?w=700&q=80" alt="Sprout Studio Kit - full grow light setup" loading="lazy">
           {%- endif -%}
           <div class="kit-card__tier-badge">{{ section.settings.kit3_tier | default: 'Studio' }}</div>
           <!-- Hover reveal overlay -->
@@ -134,7 +134,7 @@
     { "type": "image_picker", "id": "kit1_image", "label": "Kit image" },
     { "type": "text", "id": "kit1_tier", "label": "Tier label", "default": "Starter" },
     { "type": "text", "id": "kit1_name", "label": "Kit name", "default": "Sprout Starter" },
-    { "type": "textarea", "id": "kit1_desc", "label": "Description", "default": "The perfect first step. Grow your first tray of microgreens in 7–10 days." },
+    { "type": "textarea", "id": "kit1_desc", "label": "Description", "default": "The perfect first step. Grow your first tray of microgreens in 7-10 days." },
     { "type": "text", "id": "kit1_price", "label": "Price", "default": "19.95" },
     { "type": "text", "id": "kit1_cta", "label": "Button text", "default": "Get Started" },
     { "type": "url", "id": "kit1_url", "label": "Button link" },

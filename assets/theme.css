@@ -4090,3 +4090,267 @@ p, li, a, span, input, textarea, select, label {
   letter-spacing: -0.01em;
 }
 
+
+
+/* ==========================================================================
+   62. Overline always above heading (block, full width)
+   ========================================================================== */
+
+.section__header {
+  display: block;
+  text-align: center;
+}
+
+.section__header .overline {
+  display: block;
+  width: 100%;
+  margin-bottom: var(--space-2);
+}
+
+.section__header h2 {
+  display: block;
+  width: 100%;
+}
+
+/* ==========================================================================
+   63. Mobile — center everything
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .section__header,
+  .section__header h2,
+  .section__header .overline,
+  .section__header .lead,
+  .value-prop,
+  .value-prop__body,
+  .step,
+  .about__content,
+  .about__overline,
+  .about__heading,
+  .about__text,
+  .kit-card__body,
+  .kit-card__top,
+  .hero__content,
+  .hero__ctas,
+  .hero__trust,
+  .newsletter__inner {
+    text-align: center;
+    align-items: center;
+  }
+
+  .hero__content {
+    align-items: center;
+  }
+
+  .hero__heading {
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero__heading-line {
+    text-align: center;
+  }
+
+  .hero__ctas {
+    justify-content: center;
+  }
+
+  .hero__trust {
+    justify-content: center;
+  }
+
+  .kit-card__top {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-1);
+  }
+
+  .value-props__grid {
+    grid-template-columns: 1fr;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+
+  .about__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .about__stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .kits-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .site-header__nav { display: none; }
+
+  .overline::before,
+  .overline::after { display: none; }
+}
+
+/* ==========================================================================
+   64. Newsletter — use brand green #6DB83A
+   ========================================================================== */
+
+.newsletter {
+  background: #6DB83A !important;
+  background: linear-gradient(135deg, #559129 0%, #6DB83A 50%, #7dcc43 100%) !important;
+}
+
+.newsletter::before {
+  background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 70%);
+}
+
+.newsletter h2,
+.newsletter__heading { color: #ffffff !important; }
+
+.newsletter p,
+.newsletter__subtext { color: rgba(255,255,255,0.88) !important; }
+
+.newsletter__privacy { color: rgba(255,255,255,0.65) !important; }
+
+.newsletter__form input[type="email"] {
+  background: rgba(255,255,255,0.20) !important;
+  border-color: rgba(255,255,255,0.35) !important;
+  color: #fff !important;
+}
+
+.newsletter__form input[type="email"]::placeholder {
+  color: rgba(255,255,255,0.60) !important;
+}
+
+.newsletter__form input[type="email"]:focus {
+  background: rgba(255,255,255,0.28) !important;
+  border-color: rgba(255,255,255,0.70) !important;
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.20) !important;
+}
+
+/* ==========================================================================
+   65. Value Props — unique card shapes with sprouts
+   ========================================================================== */
+
+.value-props { background: #fff; padding: var(--space-20) 0; }
+
+.value-props__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-8);
+  align-items: start;
+}
+
+.value-prop {
+  background: #fff;
+  border-radius: 20px;
+  overflow: visible;
+  border: none;
+  box-shadow: 0 4px 28px rgba(43,43,43,0.08);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s cubic-bezier(.22,1,.36,1),
+              box-shadow 0.35s ease;
+  padding: 0;
+}
+
+.value-prop:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 48px rgba(43,43,43,0.13);
+}
+
+/* Colored top area for each card */
+.value-prop__top {
+  position: relative;
+  border-radius: 20px 20px 0 0;
+  padding: 2.5rem 1.5rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  overflow: visible;
+}
+
+/* Card 1 - green */
+.vp-top--green {
+  background: linear-gradient(160deg, #d4efb4 0%, #b8e08a 100%);
+  color: #2B5A10;
+}
+
+/* Card 2 - peach/orange */
+.vp-top--peach {
+  background: linear-gradient(160deg, #fde8d4 0%, #f8cca8 100%);
+  color: #8a4518;
+}
+
+/* Card 3 - sage green */
+.vp-top--sage {
+  background: linear-gradient(160deg, #c8e8a4 0%, #a0d470 100%);
+  color: #2B5A10;
+}
+
+/* Icon circle in colored top */
+.value-prop__icon {
+  background: rgba(255,255,255,0.55);
+  backdrop-filter: blur(4px);
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  transition: transform 0.3s ease;
+  z-index: 1;
+}
+
+.value-prop:hover .value-prop__icon {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+/* Sprout growing from top edge — sits above colored area */
+.vp-sprout {
+  position: absolute;
+  top: -38px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  pointer-events: none;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.12));
+}
+
+/* Bottom shape edge — sits at bottom of colored area */
+.vp-edge {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  line-height: 0;
+}
+
+/* Card body (text area) */
+.value-prop__body {
+  padding: var(--space-5) var(--space-6) var(--space-7);
+  text-align: center;
+}
+
+.value-prop__title {
+  font-family: 'Lazy Dog', sans-serif;
+  font-size: var(--text-xl);
+  font-weight: normal;
+  color: var(--color-charcoal);
+  margin: 0 0 var(--space-3);
+}
+
+.value-prop__text {
+  font-size: var(--text-sm);
+  color: var(--color-gray-600);
+  line-height: var(--leading-relaxed);
+  margin: 0;
+}
+
+/* Extra top padding on the grid to make room for sprouts */
+.value-props__grid {
+  padding-top: 48px;
+}
+

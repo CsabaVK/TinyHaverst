@@ -28,7 +28,7 @@
         "prop_2_title": "No Garden Needed",
         "prop_2_text": "Grow on any windowsill, kitchen counter, or shelf.",
         "prop_3_title": "100% Natural",
-        "prop_3_text": "No chemicals, no pesticides — just premium seeds, organic growing medium, and water."
+        "prop_3_text": "No chemicals, no pesticides - just premium seeds, organic growing medium, and water."
       }
     },
     "how-it-works": {
@@ -96,7 +96,7 @@
       "type": "newsletter",
       "settings": {
         "heading": "Join the Growing Community",
-        "subtext": "Tips, recipes, and early access to new kits — straight to your inbox.",
+        "subtext": "Tips, recipes, and early access to new kits - straight to your inbox.",
         "button_text": "Subscribe",
         "privacy_note": "No spam. Unsubscribe any time. We respect your privacy."
       }
