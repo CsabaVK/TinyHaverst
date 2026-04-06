@@ -11,9 +11,10 @@
     {%- if section.settings.overline != blank -%}
       <span class="hero__overline">{{ section.settings.overline }}</span>
     {%- endif -%}
-    {%- assign _heading = section.settings.heading | default: 'Turn Any Corner Into a Living Garden.' -%}
-    {%- assign _words = _heading | split: ' ' -%}
-    <h1 class="hero__heading">{%- for _word in _words -%}{%- if forloop.last -%}<em>{{ _word }}</em>{%- else -%}{{ _word }}&nbsp;{%- endif -%}{%- endfor -%}</h1>
+    <h1 class="hero__heading">
+      <span class="hero__heading-line">Turn Any Corner</span>
+      <em class="hero__heading-line">Into a Living Garden.</em>
+    </h1>
     <p class="hero__subheading">{{ section.settings.subheading | default: 'Microgreens kits for your home. Fresh. Simple. Rewarding.' }}</p>
     <div class="hero__ctas">
       {%- if section.settings.button_primary_label != blank -%}

@@ -4007,3 +4007,53 @@ p, li, a, span, input, textarea, select, label {
   ) !important;
 }
 
+
+
+/* ==========================================================================
+   59. Hero heading — two explicit lines + darker overlay
+   ========================================================================== */
+
+/* Stack the two lines vertically */
+.hero__heading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.05em;
+}
+
+.hero__heading-line {
+  display: block;
+  line-height: 1.05;
+}
+
+/* Line 1 — plain white */
+.hero__heading span.hero__heading-line {
+  color: #ffffff;
+  font-family: 'Lazy Dog', sans-serif;
+  font-style: normal;
+  -webkit-text-fill-color: #ffffff;
+  background: none;
+}
+
+/* Line 2 — orange shimmer, Lazy Dog */
+.hero__heading em.hero__heading-line {
+  font-family: 'Lazy Dog', sans-serif;
+  font-style: normal;
+  background: linear-gradient(90deg, #f0a070, #e88d5d, #f5b080, #e88d5d);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3.5s linear infinite;
+}
+
+/* Darker overlay */
+.hero__overlay {
+  background: linear-gradient(
+    160deg,
+    rgba(8, 18, 4, 0.88) 0%,
+    rgba(12, 26, 6, 0.82) 50%,
+    rgba(18, 36, 9, 0.72) 100%
+  ) !important;
+}
+
