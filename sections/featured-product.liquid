@@ -16,7 +16,7 @@
       <div class="featured-product__inner">
 
         <!-- Media -->
-        <div class="featured-product__media reveal reveal--left">
+        <div class="featured-product__media">
           {%- if featured.featured_image -%}
             <span class="featured-product__badge">{{ section.settings.badge_text | default: 'Best Seller' }}</span>
             {{
@@ -34,7 +34,7 @@
         </div>
 
         <!-- Details -->
-        <div class="featured-product__details reveal reveal--right">
+        <div class="featured-product__details">
 
           <p class="featured-product__overline">
             {{ section.settings.overline | default: 'Featured Kit' }}

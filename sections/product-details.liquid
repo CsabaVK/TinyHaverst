@@ -3,7 +3,7 @@
     <div class="product-page__inner">
 
       <!-- Gallery -->
-      <div class="product-page__gallery reveal reveal--left">
+      <div class="product-page__gallery">
         {%- if product.images.size > 0 -%}
           <div class="product-gallery">
             <div class="product-gallery__main">
@@ -48,7 +48,7 @@
       </div>
 
       <!-- Details -->
-      <div class="product-page__details reveal reveal--right">
+      <div class="product-page__details">
 
         {%- if product.vendor != blank -%}
           <p class="overline">{{ product.vendor }}</p>

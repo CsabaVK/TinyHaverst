@@ -5,7 +5,7 @@
 >
   <div class="container">
 
-    <div class="section__header reveal">
+    <div class="section__header">
       {%- if section.settings.overline != blank -%}
         <p class="overline">{{ section.settings.overline }}</p>
       {%- endif -%}
@@ -35,7 +35,7 @@
           assign desc_key  = 'step_' | append: i | append: '_description'
         -%}
 
-        <div class="step reveal reveal--delay-{{ i }}">
+        <div class="step">
           <div class="step__number" aria-hidden="true">{{ i }}</div>
           <h3 class="step__title">
             {{ section.settings[title_key] | default: default_title }}
@@ -50,7 +50,7 @@
     </div>
 
     {%- if section.settings.cta_label != blank -%}
-      <div style="text-align: center; margin-top: var(--space-12);" class="reveal">
+      <div style="text-align: center; margin-top: var(--space-12);">
         <a
           href="{{ section.settings.cta_url | default: routes.all_products_collection_url }}"
           class="btn btn--primary btn--lg"

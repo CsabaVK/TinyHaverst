@@ -5,7 +5,7 @@
 >
   <div class="container">
 
-    <div class="section__header reveal">
+    <div class="section__header">
       {%- if section.settings.overline != blank -%}
         <p class="overline">{{ section.settings.overline }}</p>
       {%- endif -%}
@@ -23,7 +23,7 @@
           {%- assign delay = forloop.index | modulo: 4 -%}
 
           <article
-            class="testimonial-card reveal reveal--delay-{{ delay }}"
+            class="testimonial-card"
             {{ block.shopify_attributes }}
             aria-label="Review by {{ block.settings.author_name }}"
           >
@@ -74,7 +74,7 @@
 
         {%- for item in defaults -%}
           {%- assign parts = item | split: '|' -%}
-          <article class="testimonial-card reveal reveal--delay-{{ forloop.index }}">
+          <article class="testimonial-card">
             <div class="testimonial-card__stars" aria-hidden="true">★★★★★</div>
             <blockquote class="testimonial-card__quote">{{ parts[2] }}</blockquote>
             <div class="testimonial-card__author">

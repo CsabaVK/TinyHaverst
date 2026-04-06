@@ -7,11 +7,11 @@
   <div class="container">
     <div class="newsletter__inner">
 
-      <h2 class="newsletter__heading reveal">
+      <h2 class="newsletter__heading">
         {{ section.settings.heading | default: 'Join the Growing Community' }}
       </h2>
 
-      <p class="newsletter__subtext reveal reveal--delay-1">
+      <p class="newsletter__subtext">
         {{ section.settings.subtext | default: 'Tips, recipes, and early access to new kits — straight to your inbox.' }}
       </p>
 
@@ -31,7 +31,7 @@
           id="newsletter-email"
           type="email"
           name="contact[email]"
-          class="newsletter__input reveal reveal--delay-2"
+          class="newsletter__input"
           placeholder="{{ section.settings.email_placeholder | default: 'Your email address' }}"
           autocomplete="email"
           required
@@ -40,7 +40,7 @@
 
         <button
           type="submit"
-          class="newsletter__btn reveal reveal--delay-3"
+          class="newsletter__btn"
           data-newsletter-btn
         >
           {{ section.settings.button_text | default: 'Subscribe' }}
