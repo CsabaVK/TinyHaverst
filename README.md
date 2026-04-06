@@ -1,13 +1,28 @@
 # TinyHarvest
 
-A Shopify-powered store for TinyHarvest.
+A premium, design-forward e-commerce brand built on Shopify.
 
-## Overview
+## Brand
 
-This repository contains the website assets and code for TinyHarvest.
+- **Email:** info@tinyharvest.eu
+- **Aesthetic:** Clean botanical minimalism — earthy greens, cream whites, warm natural tones
+- **Inspiration:** [Modern Sprout](https://modernsprout.com/)
+- **Audience:** Design-conscious, sustainability-minded consumers
 
-## Structure
+## Socials
+
+- Instagram
+- Pinterest
+- LinkedIn
+- Facebook
+
+## Repository Structure
 
 - `/theme` — Shopify theme files
 - `/assets` — Images, fonts, and static assets
-- `/docs` — Documentation and notes
+- `/docs` — Brand guidelines and notes
+
+## Tech
+
+- Platform: Shopify
+- Repo: https://github.com/CsabaVK/TinyHaverst
