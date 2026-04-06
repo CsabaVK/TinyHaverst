@@ -8,92 +8,38 @@
 
     <div class="value-props__grid">
 
-      <!-- Card 1: Soil mound top (clip-path) + seedling above -->
-      <div class="vp-outer reveal-on-scroll d1">
-        <div class="vp-plant" aria-hidden="true">
-          <svg viewBox="0 0 48 72" width="48" height="72" fill="none">
-            <line x1="24" y1="72" x2="24" y2="28" stroke="#3a7d1a" stroke-width="2.5" stroke-linecap="round"/>
-            <path d="M24,52 C16,44 8,42 6,32 C14,28 22,36 24,46Z" fill="#6DB83A"/>
-            <path d="M24,42 C32,34 40,32 42,22 C34,18 26,26 24,36Z" fill="#a8e070"/>
-            <ellipse cx="24" cy="22" rx="5" ry="8" fill="#6DB83A"/>
+      <div class="value-prop">
+        <div class="value-prop__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="32" height="32" aria-hidden="true">
+            <line x1="12" y1="22" x2="12" y2="12"/>
+            <path d="M12 12C12 8 9.5 5 5 5C5 9 7.5 12 12 12Z"/>
+            <path d="M12 12C12 8 14.5 5 19 5C19 9 16.5 12 12 12Z"/>
           </svg>
         </div>
-        <div class="value-prop value-prop--1">
-          <div class="value-prop__top vp-bg--green">
-            <div class="value-prop__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="28" height="28" aria-hidden="true">
-                <line x1="12" y1="22" x2="12" y2="12"/>
-                <path d="M12 12C12 8 9.5 5 5 5C5 9 7.5 12 12 12Z"/>
-                <path d="M12 12C12 8 14.5 5 19 5C19 9 16.5 12 12 12Z"/>
-              </svg>
-            </div>
-          </div>
-          <div class="value-prop__body">
-            <h3 class="value-prop__title">{{ section.settings.prop_1_title | default: 'Ready in Days' }}</h3>
-            <p class="value-prop__text">{{ section.settings.prop_1_text | default: 'Your kit sprouts and grows to harvest-ready microgreens in just 7-10 days. Instant gratification, guaranteed.' }}</p>
-          </div>
-        </div>
+        <h3 class="value-prop__title">{{ section.settings.prop_1_title | default: 'Ready in Days' }}</h3>
+        <p class="value-prop__text">{{ section.settings.prop_1_text | default: 'Your kit sprouts and grows to harvest-ready microgreens in just 7-10 days. Instant gratification, guaranteed.' }}</p>
       </div>
 
-      <!-- Card 2: Wavy uneven top (clip-path) + two sprouts above -->
-      <div class="vp-outer reveal-on-scroll d2">
-        <div class="vp-plant" aria-hidden="true">
-          <svg viewBox="0 0 64 80" width="64" height="80" fill="none">
-            <line x1="18" y1="80" x2="18" y2="36" stroke="#c07040" stroke-width="2" stroke-linecap="round"/>
-            <path d="M18,58 C10,50 4,48 2,38 C10,34 18,42 18,52Z" fill="#e88d5d"/>
-            <ellipse cx="18" cy="30" rx="5" ry="8" fill="#e88d5d"/>
-            <line x1="46" y1="80" x2="46" y2="28" stroke="#c07040" stroke-width="2" stroke-linecap="round"/>
-            <path d="M46,52 C54,44 60,42 62,32 C54,28 46,36 46,46Z" fill="#f5b080"/>
-            <path d="M46,44 C38,36 32,34 30,24 C38,20 46,28 46,38Z" fill="#e88d5d"/>
-            <ellipse cx="46" cy="22" rx="5" ry="8" fill="#e88d5d"/>
+      <div class="value-prop">
+        <div class="value-prop__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="32" height="32" aria-hidden="true">
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+            <path d="M9 22V12h6v10"/>
           </svg>
         </div>
-        <div class="value-prop value-prop--2">
-          <div class="value-prop__top vp-bg--peach">
-            <div class="value-prop__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="28" height="28" aria-hidden="true">
-                <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
-                <path d="M9 22V12h6v10"/>
-              </svg>
-            </div>
-          </div>
-          <div class="value-prop__body">
-            <h3 class="value-prop__title">{{ section.settings.prop_2_title | default: 'No Garden Needed' }}</h3>
-            <p class="value-prop__text">{{ section.settings.prop_2_text | default: "Grow on any windowsill, kitchen counter, or shelf. If there's light, there's a way." }}</p>
-          </div>
-        </div>
+        <h3 class="value-prop__title">{{ section.settings.prop_2_title | default: 'No Garden Needed' }}</h3>
+        <p class="value-prop__text">{{ section.settings.prop_2_text | default: "Grow on any windowsill, kitchen counter, or shelf. If there's light, there's a way." }}</p>
       </div>
 
-      <!-- Card 3: Zigzag top (clip-path) + herb cluster above -->
-      <div class="vp-outer reveal-on-scroll d3">
-        <div class="vp-plant" aria-hidden="true">
-          <svg viewBox="0 0 72 78" width="72" height="78" fill="none">
-            <line x1="18" y1="78" x2="18" y2="38" stroke="#3a7d1a" stroke-width="2" stroke-linecap="round"/>
-            <ellipse cx="14" cy="32" rx="5" ry="8" fill="#6DB83A" transform="rotate(-20 14 32)"/>
-            <ellipse cx="18" cy="24" rx="4" ry="7" fill="#a8e070"/>
-            <line x1="36" y1="78" x2="36" y2="26" stroke="#3a7d1a" stroke-width="2.5" stroke-linecap="round"/>
-            <path d="M36,50 C28,42 22,40 20,30 C28,26 36,34 36,44Z" fill="#6DB83A"/>
-            <path d="M36,40 C44,32 50,30 52,20 C44,16 36,24 36,34Z" fill="#a8e070"/>
-            <ellipse cx="36" cy="18" rx="6" ry="9" fill="#6DB83A"/>
-            <line x1="54" y1="78" x2="54" y2="36" stroke="#3a7d1a" stroke-width="2" stroke-linecap="round"/>
-            <ellipse cx="58" cy="30" rx="5" ry="8" fill="#a8e070" transform="rotate(20 58 30)"/>
-            <ellipse cx="54" cy="22" rx="4" ry="7" fill="#6DB83A"/>
+      <div class="value-prop">
+        <div class="value-prop__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="32" height="32" aria-hidden="true">
+            <path d="M17 8C8 10 5.9 16.17 3.82 22"/>
+            <path d="M9.5 4.5C11.5 2.5 15 2 18 3.5 20.5 5.5 21 9 20 12.5 18.5 17.5 14 19L9.5 4.5Z"/>
           </svg>
         </div>
-        <div class="value-prop value-prop--3">
-          <div class="value-prop__top vp-bg--sage">
-            <div class="value-prop__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="28" height="28" aria-hidden="true">
-                <path d="M17 8C8 10 5.9 16.17 3.82 22"/>
-                <path d="M9.5 4.5C11.5 2.5 15 2 18 3.5 20.5 5.5 21 9 20 12.5 18.5 17.5 14 19L9.5 4.5Z"/>
-              </svg>
-            </div>
-          </div>
-          <div class="value-prop__body">
-            <h3 class="value-prop__title">{{ section.settings.prop_3_title | default: '100% Natural' }}</h3>
-            <p class="value-prop__text">{{ section.settings.prop_3_text | default: 'No chemicals, no pesticides - just premium seeds, organic growing medium, and water.' }}</p>
-          </div>
-        </div>
+        <h3 class="value-prop__title">{{ section.settings.prop_3_title | default: '100% Natural' }}</h3>
+        <p class="value-prop__text">{{ section.settings.prop_3_text | default: 'No chemicals, no pesticides — just premium seeds, organic growing medium, and water.' }}</p>
       </div>
 
     </div>
@@ -116,7 +62,7 @@
     { "type": "textarea", "id": "prop_2_text", "label": "Description", "default": "Grow on any windowsill, kitchen counter, or shelf." },
     { "type": "header", "content": "Prop 3" },
     { "type": "text", "id": "prop_3_title", "label": "Title", "default": "100% Natural" },
-    { "type": "textarea", "id": "prop_3_text", "label": "Description", "default": "No chemicals, no pesticides - just premium seeds, organic growing medium, and water." }
+    { "type": "textarea", "id": "prop_3_text", "label": "Description", "default": "No chemicals, no pesticides — just premium seeds, organic growing medium, and water." }
   ],
   "presets": [{ "name": "Value Props" }]
 }

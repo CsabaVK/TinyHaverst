@@ -4704,3 +4704,100 @@ p, li, a, span, input, textarea, select, label {
   }
 }
 
+
+
+/* ==========================================================================
+   69. Value Props — RESET to original simple style
+   ========================================================================== */
+
+.vp-outer, .vp-plant, .vp-top-mask, .vp-edge,
+.vp-bg--green, .vp-bg--peach, .vp-bg--sage,
+.value-prop__card-top, .value-prop__top,
+.value-prop--1 .value-prop__top,
+.value-prop--2 .value-prop__top,
+.value-prop--3 .value-prop__top { all: unset; }
+
+.value-props { background: #fff; padding: var(--space-20) 0; }
+
+.value-props__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+  padding-top: 0;
+}
+
+@media (max-width: 768px) {
+  .value-props__grid {
+    grid-template-columns: 1fr;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+}
+
+.value-prop {
+  background: var(--color-cream-light);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8) var(--space-6);
+  text-align: center;
+  clip-path: none;
+  box-shadow: none;
+  transition: transform 0.35s cubic-bezier(.22,1,.36,1),
+              box-shadow 0.35s ease,
+              border-color 0.35s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: visible;
+}
+
+.value-prop:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(43,43,43,0.09);
+  border-color: rgba(109,184,58,0.4);
+}
+
+.value-prop__icon {
+  background: linear-gradient(135deg, #e8f5d4 0%, #ceeaa8 100%);
+  color: var(--color-green-dark);
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-5);
+  transition: transform 0.35s cubic-bezier(.22,1,.36,1),
+              box-shadow 0.35s ease;
+  box-shadow: none;
+  backdrop-filter: none;
+  clip-path: none;
+  margin-top: 0;
+}
+
+.value-prop:hover .value-prop__icon {
+  transform: scale(1.12);
+  box-shadow: 0 8px 24px rgba(109,184,58,0.28);
+}
+
+.value-prop__title {
+  font-family: 'Lazy Dog', sans-serif;
+  font-size: var(--text-xl);
+  font-weight: normal;
+  color: var(--color-charcoal);
+  margin: 0 0 var(--space-3);
+  line-height: 1.2;
+}
+
+.value-prop__text {
+  font-size: var(--text-sm);
+  color: var(--color-gray-600);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.value-prop__body {
+  padding: 0;
+  text-align: center;
+}
+
