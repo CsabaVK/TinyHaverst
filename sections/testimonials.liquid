@@ -23,7 +23,7 @@
           {%- assign delay = forloop.index | modulo: 4 -%}
 
           <article
-            class="testimonial-card"
+            class="testimonial-card reveal-on-scroll d{{ forloop.index }}"
             {{ block.shopify_attributes }}
             aria-label="Review by {{ block.settings.author_name }}"
           >
@@ -74,7 +74,7 @@
 
         {%- for item in defaults -%}
           {%- assign parts = item | split: '|' -%}
-          <article class="testimonial-card">
+          <article class="testimonial-card reveal-on-scroll">
             <div class="testimonial-card__stars" aria-hidden="true">★★★★★</div>
             <blockquote class="testimonial-card__quote">{{ parts[2] }}</blockquote>
             <div class="testimonial-card__author">

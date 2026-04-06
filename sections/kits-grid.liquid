@@ -14,7 +14,7 @@
     <div class="kits-grid">
 
       <!-- Starter Kit -->
-      <div class="kit-card">
+      <div class="kit-card reveal-on-scroll d1">
         <p class="kit-tier">{{ section.settings.kit1_tier | default: 'Starter' }}</p>
         <h3 class="kit-name">{{ section.settings.kit1_name | default: 'Sprout Starter' }}</h3>
         <p class="kit-desc">{{ section.settings.kit1_desc | default: 'The perfect first step. Everything you need to grow your first tray of microgreens in 7-10 days.' }}</p>
@@ -35,7 +35,7 @@
       </div>
 
       <!-- Grower Kit - Featured -->
-      <div class="kit-card kit-card--featured">
+      <div class="kit-card kit-card--featured reveal-on-scroll d2">
         <span class="kit-badge">{{ section.settings.kit2_badge | default: 'Most Popular' }}</span>
         <p class="kit-tier">{{ section.settings.kit2_tier | default: 'Grower' }}</p>
         <h3 class="kit-name">{{ section.settings.kit2_name | default: 'Sprout Grower' }}</h3>
@@ -63,7 +63,7 @@
       </div>
 
       <!-- Studio Kit -->
-      <div class="kit-card">
+      <div class="kit-card reveal-on-scroll d3">
         <p class="kit-tier">{{ section.settings.kit3_tier | default: 'Studio' }}</p>
         <h3 class="kit-name">{{ section.settings.kit3_name | default: 'Sprout Studio' }}</h3>
         <p class="kit-desc">{{ section.settings.kit3_desc | default: 'For the serious grower. Grow year-round with optimal light and airflow — regardless of season.' }}</p>

@@ -3,7 +3,7 @@
     {%- if section.settings.bg_image != blank -%}
       {{ section.settings.bg_image | image_url: width: 2000 | image_tag: alt: '', loading: 'eager' }}
     {%- else -%}
-      <div style="width:100%;height:100%;background:linear-gradient(135deg,#2B2B2B 0%,#3d5a28 50%,#6DB83A 100%);"></div>
+      <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=2000&q=80" alt="Fresh microgreens growing at home" loading="eager" style="width:100%;height:100%;object-fit:cover;object-position:center;">
     {%- endif -%}
   </div>
   <div class="hero__overlay"></div>
@@ -11,7 +11,9 @@
     {%- if section.settings.overline != blank -%}
       <span class="hero__overline">{{ section.settings.overline }}</span>
     {%- endif -%}
-    <h1 class="hero__heading">{{ section.settings.heading | default: 'Grow Something Beautiful' }}</h1>
+    {%- assign _heading = section.settings.heading | default: 'Grow Something Beautiful' -%}
+    {%- assign _words = _heading | split: ' ' -%}
+    <h1 class="hero__heading">{%- for _word in _words -%}{%- if forloop.last -%}<em>{{ _word }}</em>{%- else -%}{{ _word }}&nbsp;{%- endif -%}{%- endfor -%}</h1>
     <p class="hero__subheading">{{ section.settings.subheading | default: 'Microgreens kits for your home. Fresh. Simple. Rewarding.' }}</p>
     <div class="hero__ctas">
       {%- if section.settings.button_primary_label != blank -%}
@@ -31,6 +33,18 @@
     </div>
 
   </div>
+
+  <!-- Scroll cue -->
+  <div class="hero__scroll-cue" onclick="document.getElementById('kits')?.scrollIntoView({behavior:'smooth'})" aria-hidden="true">scroll</div>
+
+  <!-- Floating botanical decoration -->
+  <div class="hero__decor" aria-hidden="true">
+    <svg width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="110" cy="110" r="108" stroke="white" stroke-width="1" stroke-dasharray="6 4"/>
+      <path d="M110 180 C110 140 80 110 40 100 C80 92 110 60 110 20 C110 60 140 92 180 100 C140 110 110 140 110 180Z" fill="white" opacity="0.6"/>
+    </svg>
+  </div>
+
 </section>
 
 {% schema %}

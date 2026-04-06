@@ -366,7 +366,7 @@ const Cart = (function () {
   // Skip if reduced motion is preferred
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  const revealEls = $$('.reveal, .reveal--left, .reveal--right');
+  const revealEls = $$('.reveal, .reveal--left, .reveal--right, .reveal-on-scroll');
   if (!revealEls.length) return;
 
   const observer = new IntersectionObserver(
@@ -374,15 +374,11 @@ const Cart = (function () {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
-          // Unobserve after revealing (one-time animation)
           observer.unobserve(entry.target);
         }
       });
     },
-    {
-      threshold: 0.12,
-      rootMargin: '0px 0px -40px 0px'
-    }
+    { threshold: 0.1, rootMargin: '0px 0px -32px 0px' }
   );
 
   revealEls.forEach(el => observer.observe(el));
