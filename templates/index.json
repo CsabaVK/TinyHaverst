@@ -10,7 +10,20 @@
         "button_secondary_label": "Learn More",
         "button_secondary_url": "#how-it-works"
       }
+    },
+    "value-props": {
+      "type": "value-props",
+      "settings": {
+        "overline": "The TinyHarvest Difference",
+        "section_heading": "Growing Made Simple",
+        "prop_1_title": "Ready in Days",
+        "prop_1_text": "Your kit sprouts and grows to harvest-ready microgreens in just 7-10 days.",
+        "prop_2_title": "No Garden Needed",
+        "prop_2_text": "Grow on any windowsill, kitchen counter, or shelf.",
+        "prop_3_title": "100% Natural",
+        "prop_3_text": "No chemicals, no pesticides — just premium seeds, organic growing medium, and water."
+      }
     }
   },
-  "order": ["hero"]
+  "order": ["hero", "value-props"]
 }
