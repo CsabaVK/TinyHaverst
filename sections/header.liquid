@@ -1,106 +1,66 @@
-{%- liquid
-  assign nav_links = section.settings.nav_links | default: ''
--%}
-
-<header
-  class="site-header{% if request.page_type == 'index' %} site-header--transparent{% endif %}"
-  role="banner"
-  id="site-header"
->
+<header class="site-header" role="banner" id="site-header">
   <div class="site-header__inner">
 
-    <!-- Logo -->
-    <a
-      href="{{ routes.root_url }}"
-      class="site-header__logo"
-      aria-label="{{ shop.name }} — Back to home"
-    >
-      {%- if section.settings.logo != blank -%}
-        {{
-          section.settings.logo
-          | image_url: width: 240
-          | image_tag:
-            alt: shop.name,
-            loading: 'eager',
-            width: section.settings.logo.width,
-            height: section.settings.logo.height
-        }}
-      {%- else -%}
-        <img src="{{ 'logo-wide.png' | asset_url }}" alt="{{ shop.name }}" height="64" style="width:auto;display:block;max-width:200px;" loading="eager">
-      {%- endif -%}
-    </a>
-
-    <!-- Desktop Navigation -->
-    <nav class="site-header__nav" aria-label="Main navigation">
+    <!-- Left navigation -->
+    <nav class="site-header__nav site-header__nav--left" aria-label="Main navigation left">
       <ul role="list">
-        <li><a href="{{ routes.root_url }}">{{ 'header.nav.home' | t }}</a></li>
-        <li><a href="{{ routes.collections_url }}">{{ 'header.nav.shop' | t }}</a></li>
-        <li><a href="#how-it-works">{{ 'header.nav.how_it_works' | t }}</a></li>
-        <li><a href="#about">{{ 'header.nav.about' | t }}</a></li>
-        <li><a href="/pages/contact">{{ 'header.nav.contact' | t }}</a></li>
+        <li><a href="{{ routes.collections_url }}">Shop</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
       </ul>
     </nav>
 
-    <!-- Actions -->
-    <div class="site-header__actions">
+    <!-- Centered logo -->
+    <a href="{{ routes.root_url }}" class="site-header__logo" aria-label="{{ shop.name }} — home">
+      {%- if section.settings.logo != blank -%}
+        {{
+          section.settings.logo
+          | image_url: width: 280
+          | image_tag: alt: shop.name, loading: 'eager', height: 64, width: section.settings.logo.width
+        }}
+      {%- else -%}
+        <img src="{{ 'logo-wide.png' | asset_url }}" alt="{{ shop.name }}" height="64" style="width:auto;max-width:200px;display:block;" loading="eager">
+      {%- endif -%}
+    </a>
 
-      <!-- Cart -->
-      <a
-        href="{{ routes.cart_url }}"
-        class="site-header__cart"
-        aria-label="{{ 'header.cart' | t }} ({{ cart.item_count }} items)"
-      >
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
-          <line x1="3" y1="6" x2="21" y2="6"/>
-          <path d="M16 10a4 4 0 01-8 0"/>
-        </svg>
-        <span
-          class="cart-count{% if cart.item_count == 0 %} is-empty{% endif %}"
-          aria-hidden="true"
-        >
-          {{- cart.item_count -}}
-        </span>
-      </a>
+    <!-- Right navigation -->
+    <nav class="site-header__nav site-header__nav--right" aria-label="Main navigation right">
+      <ul role="list">
+        <li><a href="#about">About Us</a></li>
+        <li><a href="/pages/faq">FAQ</a></li>
+        <li>
+          <a href="{{ routes.cart_url }}" class="site-header__cart" aria-label="Cart ({{ cart.item_count }} items)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+              <line x1="3" y1="6" x2="21" y2="6"/>
+              <path d="M16 10a4 4 0 01-8 0"/>
+            </svg>
+            <span class="cart-count{% if cart.item_count == 0 %} is-empty{% endif %}" aria-hidden="true">{{- cart.item_count -}}</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
 
-      <!-- Hamburger (mobile) -->
-      <button
-        class="site-header__hamburger"
-        aria-label="Toggle navigation menu"
-        aria-expanded="false"
-        aria-controls="mobile-nav"
-        type="button"
-      >
-        <span class="hamburger-line" aria-hidden="true"></span>
-        <span class="hamburger-line" aria-hidden="true"></span>
-        <span class="hamburger-line" aria-hidden="true"></span>
-      </button>
+    <!-- Mobile hamburger -->
+    <button class="site-header__hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav" type="button">
+      <span class="hamburger-line" aria-hidden="true"></span>
+      <span class="hamburger-line" aria-hidden="true"></span>
+      <span class="hamburger-line" aria-hidden="true"></span>
+    </button>
 
-    </div>
   </div>
 </header>
 
-<!-- Mobile Navigation Drawer -->
-<nav
-  class="mobile-nav"
-  id="mobile-nav"
-  aria-label="Mobile navigation"
-  aria-hidden="true"
->
+<!-- Mobile drawer -->
+<nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" aria-hidden="true">
   <ul role="list">
-    <li><a href="{{ routes.root_url }}">{{ 'header.nav.home' | t }}</a></li>
-    <li><a href="{{ routes.collections_url }}">{{ 'header.nav.shop' | t }}</a></li>
-    <li><a href="#how-it-works">{{ 'header.nav.how_it_works' | t }}</a></li>
-    <li><a href="#about">{{ 'header.nav.about' | t }}</a></li>
-    <li><a href="/pages/contact">{{ 'header.nav.contact' | t }}</a></li>
+    <li><a href="{{ routes.collections_url }}">Shop</a></li>
+    <li><a href="#how-it-works">How It Works</a></li>
+    <li><a href="#about">About Us</a></li>
+    <li><a href="/pages/faq">FAQ</a></li>
   </ul>
-
-  <div style="margin-top: auto; padding-top: 2rem;">
-    <a href="{{ routes.cart_url }}" class="btn btn--primary w-full" style="justify-content: center;">
-      Cart
-      {%- if cart.item_count > 0 -%}
-        &nbsp;({{ cart.item_count }})
-      {%- endif -%}
+  <div style="margin-top:auto;padding-top:2rem;">
+    <a href="{{ routes.cart_url }}" class="btn btn--primary" style="width:100%;justify-content:center;">
+      Cart{% if cart.item_count > 0 %} ({{ cart.item_count }}){% endif %}
     </a>
   </div>
 </nav>
@@ -111,26 +71,8 @@
   "tag": "div",
   "class": "site-header-wrapper",
   "settings": [
-    {
-      "type": "image_picker",
-      "id": "logo",
-      "label": "Logo image"
-    },
-    {
-      "type": "range",
-      "id": "logo_width",
-      "label": "Logo width (px)",
-      "min": 80,
-      "max": 300,
-      "step": 10,
-      "default": 160,
-      "unit": "px"
-    }
+    { "type": "image_picker", "id": "logo", "label": "Logo image" }
   ],
-  "presets": [
-    {
-      "name": "Header"
-    }
-  ]
+  "presets": [{ "name": "Header" }]
 }
 {% endschema %}
