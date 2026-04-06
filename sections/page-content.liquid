@@ -1,0 +1,20 @@
+<section class="page-content section" aria-label="{{ page.title | escape }}">
+  <div class="container container--narrow">
+    <div class="section__header" style="text-align:left;">
+      <h1>{{ page.title }}</h1>
+    </div>
+    <div class="rte">
+      {{ page.content }}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Page Content",
+  "tag": "div",
+  "class": "page-content-wrapper",
+  "settings": [],
+  "presets": [{ "name": "Page Content" }]
+}
+{% endschema %}
