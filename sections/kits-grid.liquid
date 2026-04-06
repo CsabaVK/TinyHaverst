@@ -4,89 +4,119 @@
     <div class="section__header">
       <p class="overline">{{ section.settings.overline | default: 'Choose Your Kit' }}</p>
       <h2>{{ section.settings.heading | default: 'Start Growing Today' }}</h2>
-      {%- if section.settings.subheading != blank -%}
-        <p class="lead">{{ section.settings.subheading }}</p>
-      {%- else -%}
-        <p class="lead">All kits include organic, non-GMO seeds and everything you need to grow fresh microgreens at home — no experience required.</p>
-      {%- endif -%}
+      <p class="lead">{{ section.settings.subheading | default: 'All kits include organic, non-GMO seeds and everything you need — no experience required.' }}</p>
     </div>
 
     <div class="kits-grid">
 
       <!-- Starter Kit -->
       <div class="kit-card reveal-on-scroll d1">
-        <p class="kit-tier">{{ section.settings.kit1_tier | default: 'Starter' }}</p>
-        <h3 class="kit-name">{{ section.settings.kit1_name | default: 'Sprout Starter' }}</h3>
-        <p class="kit-desc">{{ section.settings.kit1_desc | default: 'The perfect first step. Everything you need to grow your first tray of microgreens in 7-10 days.' }}</p>
-        <div class="kit-price-block">
-          <span class="kit-price">&euro;{{ section.settings.kit1_price | default: '19.95' }}</span>
+        <div class="kit-card__image-wrap">
+          {%- if section.settings.kit1_image != blank -%}
+            {{ section.settings.kit1_image | image_url: width: 700 | image_tag: loading: 'lazy', alt: section.settings.kit1_name | default: 'Sprout Starter Kit' }}
+          {%- else -%}
+            <img src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=700&q=80" alt="Sprout Starter Kit — microgreens sprouting in a tray" loading="lazy">
+          {%- endif -%}
+          <div class="kit-card__tier-badge">{{ section.settings.kit1_tier | default: 'Starter' }}</div>
+          <!-- Hover reveal overlay -->
+          <div class="kit-card__overlay" aria-hidden="true">
+            <p class="kit-includes-label">What&rsquo;s Included</p>
+            <ul class="kit-includes">
+              <li>Premium seed mix (1 variety)</li>
+              <li>Organic coco coir medium</li>
+              <li>Natural bamboo germination mat</li>
+              <li>Step-by-step growing guide</li>
+            </ul>
+          </div>
         </div>
-        <hr class="kit-divider">
-        <p class="kit-includes-label">What's Included</p>
-        <ul class="kit-includes">
-          <li>Premium seed mix (1 variety)</li>
-          <li>Organic coco coir growing medium</li>
-          <li>Natural bamboo germination mat</li>
-          <li>Step-by-step growing guide</li>
-        </ul>
-        <a href="{{ section.settings.kit1_url | default: '/collections/all' }}" class="btn btn--secondary kit-cta">
-          {{ section.settings.kit1_cta | default: 'Shop Starter' }}
-        </a>
+        <div class="kit-card__body">
+          <div class="kit-card__top">
+            <h3 class="kit-name">{{ section.settings.kit1_name | default: 'Sprout Starter' }}</h3>
+            <span class="kit-price">&euro;{{ section.settings.kit1_price | default: '19.95' }}</span>
+          </div>
+          <p class="kit-desc">{{ section.settings.kit1_desc | default: 'The perfect first step. Grow your first tray of microgreens in just 7–10 days.' }}</p>
+          <a href="{{ section.settings.kit1_url | default: '/collections/all' }}" class="btn btn--secondary kit-cta">
+            {{ section.settings.kit1_cta | default: 'Get Started' }}
+          </a>
+        </div>
       </div>
 
       <!-- Grower Kit - Featured -->
       <div class="kit-card kit-card--featured reveal-on-scroll d2">
-        <span class="kit-badge">{{ section.settings.kit2_badge | default: 'Most Popular' }}</span>
-        <p class="kit-tier">{{ section.settings.kit2_tier | default: 'Grower' }}</p>
-        <h3 class="kit-name">{{ section.settings.kit2_name | default: 'Sprout Grower' }}</h3>
-        <p class="kit-desc">{{ section.settings.kit2_desc | default: 'Our most popular kit. More variety, a spray bottle for effortless care, and everything from Starter.' }}</p>
-        <div class="kit-price-block">
-          <span class="kit-price">&euro;{{ section.settings.kit2_price | default: '34.95' }}</span>
-          {%- if section.settings.kit2_price_old != blank -%}
-            <span class="kit-price-old">&euro;{{ section.settings.kit2_price_old }}</span>
+        <div class="kit-card__image-wrap">
+          {%- if section.settings.kit2_image != blank -%}
+            {{ section.settings.kit2_image | image_url: width: 700 | image_tag: loading: 'lazy', alt: section.settings.kit2_name | default: 'Sprout Grower Kit' }}
           {%- else -%}
-            <span class="kit-price-old">&euro;44.95</span>
+            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=700&q=80" alt="Sprout Grower Kit — microgreens with spray bottle" loading="lazy">
           {%- endif -%}
+          <div class="kit-card__tier-badge">{{ section.settings.kit2_tier | default: 'Grower' }}</div>
+          <div class="kit-card__popular-flag">{{ section.settings.kit2_badge | default: '&#127807; Most Popular' }}</div>
+          <!-- Hover reveal overlay -->
+          <div class="kit-card__overlay" aria-hidden="true">
+            <p class="kit-includes-label">What&rsquo;s Included</p>
+            <ul class="kit-includes">
+              <li>Premium seed mix (2 varieties)</li>
+              <li>Organic coco coir medium</li>
+              <li>Natural bamboo germination mat</li>
+              <li>Dedicated spray bottle</li>
+              <li>Step-by-step growing guide</li>
+            </ul>
+          </div>
         </div>
-        <hr class="kit-divider">
-        <p class="kit-includes-label">What's Included</p>
-        <ul class="kit-includes">
-          <li>Premium seed mix (2 varieties)</li>
-          <li>Organic coco coir growing medium</li>
-          <li>Natural bamboo germination mat</li>
-          <li>Dedicated spray bottle</li>
-          <li>Step-by-step growing guide</li>
-        </ul>
-        <a href="{{ section.settings.kit2_url | default: '/collections/all' }}" class="btn btn--primary kit-cta">
-          {{ section.settings.kit2_cta | default: 'Shop Grower' }}
-        </a>
+        <div class="kit-card__body">
+          <div class="kit-card__top">
+            <h3 class="kit-name">{{ section.settings.kit2_name | default: 'Sprout Grower' }}</h3>
+            <div>
+              <span class="kit-price">&euro;{{ section.settings.kit2_price | default: '34.95' }}</span>
+              <span class="kit-price-old">&euro;{{ section.settings.kit2_price_old | default: '44.95' }}</span>
+            </div>
+          </div>
+          <p class="kit-desc">{{ section.settings.kit2_desc | default: 'More variety, effortless care. Everything from Starter plus a dedicated spray bottle.' }}</p>
+          <a href="{{ section.settings.kit2_url | default: '/collections/all' }}" class="btn btn--primary kit-cta">
+            {{ section.settings.kit2_cta | default: 'Get Growing' }}
+          </a>
+        </div>
       </div>
 
       <!-- Studio Kit -->
       <div class="kit-card reveal-on-scroll d3">
-        <p class="kit-tier">{{ section.settings.kit3_tier | default: 'Studio' }}</p>
-        <h3 class="kit-name">{{ section.settings.kit3_name | default: 'Sprout Studio' }}</h3>
-        <p class="kit-desc">{{ section.settings.kit3_desc | default: 'For the serious grower. Grow year-round with optimal light and airflow — regardless of season.' }}</p>
-        <div class="kit-price-block">
-          <span class="kit-price">&euro;{{ section.settings.kit3_price | default: '64.95' }}</span>
+        <div class="kit-card__image-wrap">
+          {%- if section.settings.kit3_image != blank -%}
+            {{ section.settings.kit3_image | image_url: width: 700 | image_tag: loading: 'lazy', alt: section.settings.kit3_name | default: 'Sprout Studio Kit' }}
+          {%- else -%}
+            <img src="https://images.unsplash.com/photo-1585336261022-680e295ce3fe?w=700&q=80" alt="Sprout Studio Kit — full grow light setup" loading="lazy">
+          {%- endif -%}
+          <div class="kit-card__tier-badge">{{ section.settings.kit3_tier | default: 'Studio' }}</div>
+          <!-- Hover reveal overlay -->
+          <div class="kit-card__overlay" aria-hidden="true">
+            <p class="kit-includes-label">What&rsquo;s Included</p>
+            <ul class="kit-includes">
+              <li>Premium seed mix (3 varieties)</li>
+              <li>Organic coco coir medium</li>
+              <li>Natural bamboo germination mat</li>
+              <li>Dedicated spray bottle</li>
+              <li>Full-spectrum grow light</li>
+              <li>Clip fan for airflow</li>
+              <li>Step-by-step growing guide</li>
+            </ul>
+          </div>
         </div>
-        <hr class="kit-divider">
-        <p class="kit-includes-label">What's Included</p>
-        <ul class="kit-includes">
-          <li>Premium seed mix (3 varieties)</li>
-          <li>Organic coco coir growing medium</li>
-          <li>Natural bamboo germination mat</li>
-          <li>Dedicated spray bottle</li>
-          <li>Full-spectrum grow light</li>
-          <li>Clip fan for optimal airflow</li>
-          <li>Step-by-step growing guide</li>
-        </ul>
-        <a href="{{ section.settings.kit3_url | default: '/collections/all' }}" class="btn btn--secondary kit-cta">
-          {{ section.settings.kit3_cta | default: 'Shop Studio' }}
-        </a>
+        <div class="kit-card__body">
+          <div class="kit-card__top">
+            <h3 class="kit-name">{{ section.settings.kit3_name | default: 'Sprout Studio' }}</h3>
+            <span class="kit-price">&euro;{{ section.settings.kit3_price | default: '64.95' }}</span>
+          </div>
+          <p class="kit-desc">{{ section.settings.kit3_desc | default: 'Grow year-round. Optimal light and airflow, regardless of season or window.' }}</p>
+          <a href="{{ section.settings.kit3_url | default: '/collections/all' }}" class="btn btn--secondary kit-cta">
+            {{ section.settings.kit3_cta | default: 'Go Pro' }}
+          </a>
+        </div>
       </div>
 
-    </div>
+    </div><!-- /kits-grid -->
+
+    <!-- Hover hint -->
+    <p class="kits-hint" aria-hidden="true">&#9900; hover a card to see what&rsquo;s inside</p>
 
   </div>
 </section>
@@ -101,27 +131,30 @@
     { "type": "text", "id": "heading", "label": "Heading", "default": "Start Growing Today" },
     { "type": "textarea", "id": "subheading", "label": "Subheading" },
     { "type": "header", "content": "Starter Kit" },
+    { "type": "image_picker", "id": "kit1_image", "label": "Kit image" },
     { "type": "text", "id": "kit1_tier", "label": "Tier label", "default": "Starter" },
     { "type": "text", "id": "kit1_name", "label": "Kit name", "default": "Sprout Starter" },
-    { "type": "textarea", "id": "kit1_desc", "label": "Description", "default": "The perfect first step. Everything you need to grow your first tray of microgreens." },
-    { "type": "text", "id": "kit1_price", "label": "Price number", "default": "19.95" },
-    { "type": "text", "id": "kit1_cta", "label": "Button text", "default": "Shop Starter" },
+    { "type": "textarea", "id": "kit1_desc", "label": "Description", "default": "The perfect first step. Grow your first tray of microgreens in 7–10 days." },
+    { "type": "text", "id": "kit1_price", "label": "Price", "default": "19.95" },
+    { "type": "text", "id": "kit1_cta", "label": "Button text", "default": "Get Started" },
     { "type": "url", "id": "kit1_url", "label": "Button link" },
     { "type": "header", "content": "Grower Kit (Featured)" },
+    { "type": "image_picker", "id": "kit2_image", "label": "Kit image" },
     { "type": "text", "id": "kit2_tier", "label": "Tier label", "default": "Grower" },
     { "type": "text", "id": "kit2_name", "label": "Kit name", "default": "Sprout Grower" },
-    { "type": "textarea", "id": "kit2_desc", "label": "Description", "default": "Our most popular kit. More variety, spray bottle, and everything from Starter." },
-    { "type": "text", "id": "kit2_badge", "label": "Badge text", "default": "Most Popular" },
-    { "type": "text", "id": "kit2_price", "label": "Price number", "default": "34.95" },
-    { "type": "text", "id": "kit2_price_old", "label": "Old price number (optional)" },
-    { "type": "text", "id": "kit2_cta", "label": "Button text", "default": "Shop Grower" },
+    { "type": "textarea", "id": "kit2_desc", "label": "Description", "default": "More variety, effortless care. Everything from Starter plus a dedicated spray bottle." },
+    { "type": "text", "id": "kit2_badge", "label": "Badge", "default": "Most Popular" },
+    { "type": "text", "id": "kit2_price", "label": "Price", "default": "34.95" },
+    { "type": "text", "id": "kit2_price_old", "label": "Old price", "default": "44.95" },
+    { "type": "text", "id": "kit2_cta", "label": "Button text", "default": "Get Growing" },
     { "type": "url", "id": "kit2_url", "label": "Button link" },
     { "type": "header", "content": "Studio Kit" },
+    { "type": "image_picker", "id": "kit3_image", "label": "Kit image" },
     { "type": "text", "id": "kit3_tier", "label": "Tier label", "default": "Studio" },
     { "type": "text", "id": "kit3_name", "label": "Kit name", "default": "Sprout Studio" },
-    { "type": "textarea", "id": "kit3_desc", "label": "Description", "default": "For the serious grower. Grow year-round with optimal light and airflow." },
-    { "type": "text", "id": "kit3_price", "label": "Price number", "default": "64.95" },
-    { "type": "text", "id": "kit3_cta", "label": "Button text", "default": "Shop Studio" },
+    { "type": "textarea", "id": "kit3_desc", "label": "Description", "default": "Grow year-round with optimal light and airflow, regardless of season." },
+    { "type": "text", "id": "kit3_price", "label": "Price", "default": "64.95" },
+    { "type": "text", "id": "kit3_cta", "label": "Button text", "default": "Go Pro" },
     { "type": "url", "id": "kit3_url", "label": "Button link" }
   ],
   "presets": [{ "name": "Kits Grid" }]

@@ -26,7 +26,7 @@
             height: section.settings.logo.height
         }}
       {%- else -%}
-        <img src="{{ 'logo-wide.png' | asset_url }}" alt="{{ shop.name }}" height="44" style="width:auto;display:block;" loading="eager">
+        <img src="{{ 'logo-wide.png' | asset_url }}" alt="{{ shop.name }}" height="64" style="width:auto;display:block;max-width:200px;" loading="eager">
       {%- endif -%}
     </a>
 
