@@ -4075,3 +4075,18 @@ p, li, a, span, input, textarea, select, label {
   font-weight: 700;
 }
 
+
+
+/* ==========================================================================
+   61. Hero heading — Nunito (simple, rounded, already loaded)
+   ========================================================================== */
+
+.hero__heading,
+.hero__heading span.hero__heading-line,
+.hero__heading em.hero__heading-line {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-style: normal;
+  letter-spacing: -0.01em;
+}
+
