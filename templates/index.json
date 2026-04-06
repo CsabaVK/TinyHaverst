@@ -38,7 +38,16 @@
         "step_3_description": "In just 7-10 days your microgreens are ready. Snip just above the soil and enjoy.",
         "cta_label": "Get Your Kit"
       }
+    },
+    "about": {
+      "type": "about",
+      "settings": {
+        "overline": "Our Story",
+        "heading": "Tiny Steps, Big Change",
+        "button_label": "Our Story",
+        "button_url": "/pages/about"
+      }
     }
   },
-  "order": ["hero", "value-props", "how-it-works"]
+  "order": ["hero", "value-props", "how-it-works", "about"]
 }
