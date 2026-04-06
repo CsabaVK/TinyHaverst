@@ -47,7 +47,16 @@
         "button_label": "Our Story",
         "button_url": "/pages/about"
       }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "heading": "Join the Growing Community",
+        "subtext": "Tips, recipes, and early access to new kits — straight to your inbox.",
+        "button_text": "Subscribe",
+        "privacy_note": "No spam. Unsubscribe any time. We respect your privacy."
+      }
     }
   },
-  "order": ["hero", "value-props", "how-it-works", "about"]
+  "order": ["hero", "value-props", "how-it-works", "about", "newsletter"]
 }
