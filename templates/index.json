@@ -68,25 +68,28 @@
             "rating": 5,
             "quote": "I was sceptical but this kit is genuinely idiot-proof. Harvested my first batch in 9 days. The sunflower microgreens are incredible on avocado toast.",
             "author_name": "Sarah M.",
-            "author_location": "Amsterdam"
+            "author_location": "Amsterdam",
+            "author_photo_url": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&q=80"
           }
         },
         "testimonial-2": {
           "type": "testimonial",
           "settings": {
             "rating": 5,
-            "quote": "The quality of the seeds is outstanding. I've tried other kits but TinyHarvest is on another level. Ordered three more for gifts.",
+            "quote": "The quality of the seeds is outstanding. I have tried other kits but TinyHarvest is on another level. Ordered three more for gifts.",
             "author_name": "Marco V.",
-            "author_location": "Berlin"
+            "author_location": "Berlin",
+            "author_photo_url": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&q=80"
           }
         },
         "testimonial-3": {
           "type": "testimonial",
           "settings": {
             "rating": 5,
-            "quote": "Such a lovely gift for my mum who doesn't have a garden. She calls it her tiny jungle now. Perfect product.",
+            "quote": "Such a lovely gift for my mum who does not have a garden. She calls it her tiny jungle now. Perfect product.",
             "author_name": "Emma T.",
-            "author_location": "London"
+            "author_location": "London",
+            "author_photo_url": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=120&q=80"
           }
         }
       },

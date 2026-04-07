@@ -5333,3 +5333,231 @@ p, li, a, span, input, textarea, select, label {
   color: #fff;
 }
 
+
+
+/* ==========================================================================
+   75. Kit cards — uniform height, equal card sizing
+   ========================================================================== */
+
+.kits-grid--4 {
+  align-items: stretch;
+}
+
+.kit-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.kit-card__image-wrap {
+  flex-shrink: 0;
+}
+
+.kit-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.kit-desc {
+  flex: 1;
+}
+
+.kit-cta {
+  margin-top: var(--space-4);
+  align-self: stretch;
+  text-align: center;
+}
+
+/* ==========================================================================
+   76. How It Works — visual photo steps
+   ========================================================================== */
+
+.how-it-works__steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-8);
+  align-items: start;
+}
+
+/* Remove old number circle style */
+.step__number {
+  display: none;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* Photo area */
+.step__img-wrap {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-xl, 16px);
+  overflow: hidden;
+  background: var(--color-cream-light, #f2f0e4);
+}
+
+.step__img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(.22,1,.36,1);
+}
+
+.step:hover .step__img-wrap img {
+  transform: scale(1.04);
+}
+
+/* Number badge overlaid bottom-left of image */
+.step__number-badge {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-green, #6DB83A);
+  color: #fff;
+  font-family: 'Lazy Dog', sans-serif;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+
+.step__body {
+  padding: 0 4px;
+}
+
+.step__title {
+  font-family: 'Lazy Dog', sans-serif;
+  font-size: var(--text-lg, 1.125rem);
+  color: var(--color-charcoal, #2b2b2b);
+  margin: 0 0 var(--space-2);
+}
+
+.step__description {
+  font-size: var(--text-sm, 0.875rem);
+  color: var(--color-gray-600, #555);
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .how-it-works__steps {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    max-width: 440px;
+    margin: 0 auto;
+  }
+}
+
+/* ==========================================================================
+   77. Newsletter — lighter green
+   ========================================================================== */
+
+.newsletter {
+  background: #e8f5d0 !important;
+  background-image: none !important;
+}
+
+.newsletter__heading {
+  color: var(--color-charcoal, #2b2b2b) !important;
+}
+
+.newsletter__subtext {
+  color: #3a5c1a !important;
+}
+
+.newsletter__input {
+  background: #fff !important;
+  color: var(--color-charcoal, #2b2b2b) !important;
+  border: 1.5px solid rgba(109,184,58,0.4) !important;
+}
+
+.newsletter__input::placeholder {
+  color: #aaa !important;
+}
+
+.newsletter__btn {
+  background: var(--color-green, #6DB83A) !important;
+  color: #fff !important;
+}
+
+.newsletter__btn:hover {
+  background: #559129 !important;
+}
+
+.newsletter [style*="rgba(255,255,255,0.55)"] {
+  color: #5a8a2a !important;
+}
+
+/* ==========================================================================
+   78. Testimonials — with real photos
+   ========================================================================== */
+
+.testimonial-card__avatar-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 2px solid rgba(109,184,58,0.3);
+}
+
+.testimonial-card__avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.testimonial-card__avatar-initials {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #6DB83A, #3a7d1a);
+  color: #fff;
+  font-family: 'Lazy Dog', sans-serif;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Old single-letter avatar — hide it so new wrap takes over */
+.testimonial-card__avatar {
+  display: none;
+}
+
+.testimonial-card__author {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: auto;
+  padding-top: var(--space-4);
+}
+
+.testimonial-card__author-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.testimonial-card__name {
+  font-weight: 700;
+  font-size: var(--text-sm, 0.875rem);
+  color: var(--color-charcoal, #2b2b2b);
+  margin: 0;
+}
+
+.testimonial-card__location {
+  font-size: 0.75rem;
+  color: var(--color-gray-600, #888);
+  margin: 0;
+}
+
