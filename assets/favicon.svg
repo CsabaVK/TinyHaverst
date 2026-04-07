@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- stem -->
+  <line x1="50" y1="92" x2="50" y2="36" stroke="#6DB83A" stroke-width="5" stroke-linecap="round"/>
+  <!-- left leaf -->
+  <path d="M50 68C50 68 26 54 20 30C37 25 56 42 50 68Z" fill="#6DB83A"/>
+  <!-- right leaf -->
+  <path d="M50 48C50 48 74 34 80 10C63 5 44 22 50 48Z" fill="#6DB83A"/>
+  <!-- seed -->
+  <ellipse cx="44" cy="90" rx="11" ry="8" fill="#2B2B2B"/>
+</svg>

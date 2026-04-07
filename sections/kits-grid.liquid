@@ -15,7 +15,7 @@
           {%- if section.settings.kit1_image != blank -%}
             {{ section.settings.kit1_image | image_url: width: 600 | image_tag: loading: 'lazy', alt: section.settings.kit1_name | default: 'Seed Jar' }}
           {%- else -%}
-            <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&q=80" alt="Glass jar filled with microgreen seeds" loading="lazy">
+            <img src="{{ 'kit-jar.png' | asset_url }}" alt="TinyHarvest Seed Jar" loading="lazy">
           {%- endif -%}
           <div class="kit-card__tier-badge">{{ section.settings.kit1_tier | default: 'Seeds' }}</div>
           <div class="kit-card__overlay" aria-hidden="true">
@@ -30,12 +30,23 @@
         <div class="kit-card__body">
           <div class="kit-card__top">
             <h3 class="kit-name">{{ section.settings.kit1_name | default: 'Seed Jar' }}</h3>
-            <span class="kit-price">&euro;{{ section.settings.kit1_price | default: '9.95' }}</span>
           </div>
           <p class="kit-desc">{{ section.settings.kit1_desc | default: 'Just the seeds, your way. A single jar of premium microgreen seeds to grow in any container you have at home.' }}</p>
-          <a href="{{ section.settings.kit1_url | default: '/collections/all' }}" class="btn btn--secondary kit-cta">
-            {{ section.settings.kit1_cta | default: 'Add to Cart' }}
-          </a>
+          <button
+            class="kit-atc-btn"
+            data-variant-id="{{ section.settings.kit1_variant_id }}"
+            data-product-url="{{ section.settings.kit1_url | default: '/collections/all' }}"
+            data-product-name="{{ section.settings.kit1_name | default: 'Seed Jar' }}"
+            aria-label="Add Seed Jar to cart"
+          >
+            <svg class="kit-atc-btn__icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" width="16" height="16" aria-hidden="true">
+              <path d="M1 1h2.5l1.6 8h9.4l1.5-6H5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="8" cy="17" r="1.5" fill="currentColor"/>
+              <circle cx="14" cy="17" r="1.5" fill="currentColor"/>
+            </svg>
+            <span class="kit-atc-btn__label">Add to Cart</span>
+            <span class="kit-atc-btn__price">&euro;{{ section.settings.kit1_price | default: '9.95' }}</span>
+          </button>
         </div>
       </div>
 
@@ -61,12 +72,23 @@
         <div class="kit-card__body">
           <div class="kit-card__top">
             <h3 class="kit-name">{{ section.settings.kit2_name | default: 'Small Kit' }}</h3>
-            <span class="kit-price">&euro;{{ section.settings.kit2_price | default: '19.95' }}</span>
           </div>
           <p class="kit-desc">{{ section.settings.kit2_desc | default: 'Your first growing kit. Everything you need to harvest fresh microgreens in 7-10 days.' }}</p>
-          <a href="{{ section.settings.kit2_url | default: '/collections/all' }}" class="btn btn--secondary kit-cta">
-            {{ section.settings.kit2_cta | default: 'Get Started' }}
-          </a>
+          <button
+            class="kit-atc-btn"
+            data-variant-id="{{ section.settings.kit2_variant_id }}"
+            data-product-url="{{ section.settings.kit2_url | default: '/collections/all' }}"
+            data-product-name="{{ section.settings.kit2_name | default: 'Small Kit' }}"
+            aria-label="Add Small Kit to cart"
+          >
+            <svg class="kit-atc-btn__icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" width="16" height="16" aria-hidden="true">
+              <path d="M1 1h2.5l1.6 8h9.4l1.5-6H5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="8" cy="17" r="1.5" fill="currentColor"/>
+              <circle cx="14" cy="17" r="1.5" fill="currentColor"/>
+            </svg>
+            <span class="kit-atc-btn__label">Add to Cart</span>
+            <span class="kit-atc-btn__price">&euro;{{ section.settings.kit2_price | default: '19.95' }}</span>
+          </button>
         </div>
       </div>
 
@@ -76,7 +98,7 @@
           {%- if section.settings.kit3_image != blank -%}
             {{ section.settings.kit3_image | image_url: width: 600 | image_tag: loading: 'lazy', alt: section.settings.kit3_name | default: 'Medium Kit' }}
           {%- else -%}
-            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80" alt="TinyHarvest Medium Growing Kit" loading="lazy">
+            <img src="{{ 'kit-medium.png' | asset_url }}" alt="TinyHarvest Medium Growing Kit" loading="lazy">
           {%- endif -%}
           <div class="kit-card__tier-badge">{{ section.settings.kit3_tier | default: 'Medium' }}</div>
           <div class="kit-card__overlay" aria-hidden="true">
@@ -93,12 +115,23 @@
         <div class="kit-card__body">
           <div class="kit-card__top">
             <h3 class="kit-name">{{ section.settings.kit3_name | default: 'Medium Kit' }}</h3>
-            <span class="kit-price">&euro;{{ section.settings.kit3_price | default: '34.95' }}</span>
           </div>
           <p class="kit-desc">{{ section.settings.kit3_desc | default: 'More variety, effortless care. Our most popular kit for the everyday grower.' }}</p>
-          <a href="{{ section.settings.kit3_url | default: '/collections/all' }}" class="btn btn--secondary kit-cta">
-            {{ section.settings.kit3_cta | default: 'Get Growing' }}
-          </a>
+          <button
+            class="kit-atc-btn"
+            data-variant-id="{{ section.settings.kit3_variant_id }}"
+            data-product-url="{{ section.settings.kit3_url | default: '/collections/all' }}"
+            data-product-name="{{ section.settings.kit3_name | default: 'Medium Kit' }}"
+            aria-label="Add Medium Kit to cart"
+          >
+            <svg class="kit-atc-btn__icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" width="16" height="16" aria-hidden="true">
+              <path d="M1 1h2.5l1.6 8h9.4l1.5-6H5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="8" cy="17" r="1.5" fill="currentColor"/>
+              <circle cx="14" cy="17" r="1.5" fill="currentColor"/>
+            </svg>
+            <span class="kit-atc-btn__label">Add to Cart</span>
+            <span class="kit-atc-btn__price">&euro;{{ section.settings.kit3_price | default: '34.95' }}</span>
+          </button>
         </div>
       </div>
 
@@ -126,12 +159,23 @@
         <div class="kit-card__body">
           <div class="kit-card__top">
             <h3 class="kit-name">{{ section.settings.kit4_name | default: 'Large Kit' }}</h3>
-            <span class="kit-price">&euro;{{ section.settings.kit4_price | default: '64.95' }}</span>
           </div>
           <p class="kit-desc">{{ section.settings.kit4_desc | default: 'Go big. A full growing setup for serious growers who want maximum yield and variety.' }}</p>
-          <a href="{{ section.settings.kit4_url | default: '/collections/all' }}" class="btn btn--secondary kit-cta">
-            {{ section.settings.kit4_cta | default: 'Shop Large Kit' }}
-          </a>
+          <button
+            class="kit-atc-btn"
+            data-variant-id="{{ section.settings.kit4_variant_id }}"
+            data-product-url="{{ section.settings.kit4_url | default: '/collections/all' }}"
+            data-product-name="{{ section.settings.kit4_name | default: 'Large Kit' }}"
+            aria-label="Add Large Kit to cart"
+          >
+            <svg class="kit-atc-btn__icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" width="16" height="16" aria-hidden="true">
+              <path d="M1 1h2.5l1.6 8h9.4l1.5-6H5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="8" cy="17" r="1.5" fill="currentColor"/>
+              <circle cx="14" cy="17" r="1.5" fill="currentColor"/>
+            </svg>
+            <span class="kit-atc-btn__label">Add to Cart</span>
+            <span class="kit-atc-btn__price">&euro;{{ section.settings.kit4_price | default: '64.95' }}</span>
+          </button>
         </div>
       </div>
 
@@ -141,6 +185,77 @@
 
   </div>
 </section>
+
+<script>
+(function() {
+  function initKitButtons() {
+    document.querySelectorAll('.kit-atc-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var variantId = btn.dataset.variantId;
+        var productUrl = btn.dataset.productUrl;
+        var productName = btn.dataset.productName || 'Kit';
+        var labelEl = btn.querySelector('.kit-atc-btn__label');
+
+        if (!variantId) {
+          // No variant ID — navigate to product page
+          if (productUrl) window.location.href = productUrl;
+          return;
+        }
+
+        btn.disabled = true;
+        btn.classList.add('kit-atc-btn--loading');
+        if (labelEl) labelEl.textContent = 'Adding...';
+
+        fetch('/cart/add.js', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ items: [{ id: parseInt(variantId, 10), quantity: 1 }] })
+        })
+        .then(function(res) {
+          if (!res.ok) throw new Error('Cart error');
+          return res.json();
+        })
+        .then(function() {
+          btn.classList.remove('kit-atc-btn--loading');
+          btn.classList.add('kit-atc-btn--added');
+          if (labelEl) labelEl.textContent = 'Added!';
+
+          // Update cart count
+          fetch('/cart.js')
+            .then(function(r) { return r.json(); })
+            .then(function(cart) {
+              document.querySelectorAll('.cart-count, [data-cart-count]').forEach(function(el) {
+                el.textContent = cart.item_count;
+              });
+            });
+
+          setTimeout(function() {
+            btn.classList.remove('kit-atc-btn--added');
+            if (labelEl) labelEl.textContent = 'Add to Cart';
+            btn.disabled = false;
+          }, 2400);
+        })
+        .catch(function() {
+          btn.classList.remove('kit-atc-btn--loading');
+          btn.classList.add('kit-atc-btn--error');
+          if (labelEl) labelEl.textContent = 'Error - try again';
+          setTimeout(function() {
+            btn.classList.remove('kit-atc-btn--error');
+            if (labelEl) labelEl.textContent = 'Add to Cart';
+            btn.disabled = false;
+          }, 2200);
+        });
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initKitButtons);
+  } else {
+    initKitButtons();
+  }
+})();
+</script>
 
 {% schema %}
 {
@@ -157,52 +272,50 @@
     { "type": "text", "id": "kit1_name", "label": "Kit name", "default": "Seed Jar" },
     { "type": "textarea", "id": "kit1_desc", "label": "Description", "default": "Just the seeds, your way. A single jar of premium microgreen seeds." },
     { "type": "text", "id": "kit1_price", "label": "Price", "default": "9.95" },
+    { "type": "text", "id": "kit1_variant_id", "label": "Shopify Variant ID" },
     { "type": "text", "id": "kit1_inc1", "label": "Includes 1", "default": "Premium seed jar (1 variety)" },
     { "type": "text", "id": "kit1_inc2", "label": "Includes 2", "default": "Grow-at-home instructions" },
     { "type": "text", "id": "kit1_inc3", "label": "Includes 3", "default": "QR guide to getting started" },
-    { "type": "text", "id": "kit1_cta", "label": "Button text", "default": "Add to Cart" },
-    { "type": "url", "id": "kit1_url", "label": "Button link" },
+    { "type": "url", "id": "kit1_url", "label": "Product link (fallback)" },
     { "type": "header", "content": "Small Kit" },
     { "type": "image_picker", "id": "kit2_image", "label": "Kit image" },
     { "type": "text", "id": "kit2_tier", "label": "Tier label", "default": "Small" },
     { "type": "text", "id": "kit2_name", "label": "Kit name", "default": "Small Kit" },
     { "type": "textarea", "id": "kit2_desc", "label": "Description", "default": "Your first growing kit. Everything you need to harvest in 7-10 days." },
     { "type": "text", "id": "kit2_price", "label": "Price", "default": "19.95" },
+    { "type": "text", "id": "kit2_variant_id", "label": "Shopify Variant ID" },
     { "type": "text", "id": "kit2_inc1", "label": "Includes 1", "default": "Premium seed mix (1 variety)" },
     { "type": "text", "id": "kit2_inc2", "label": "Includes 2", "default": "Organic coco coir medium" },
     { "type": "text", "id": "kit2_inc3", "label": "Includes 3", "default": "Compact grow tray" },
     { "type": "text", "id": "kit2_inc4", "label": "Includes 4", "default": "Step-by-step growing guide" },
-    { "type": "text", "id": "kit2_cta", "label": "Button text", "default": "Get Started" },
-    { "type": "url", "id": "kit2_url", "label": "Button link" },
-    { "type": "header", "content": "Medium Kit (Featured)" },
+    { "type": "url", "id": "kit2_url", "label": "Product link (fallback)" },
+    { "type": "header", "content": "Medium Kit" },
     { "type": "image_picker", "id": "kit3_image", "label": "Kit image" },
     { "type": "text", "id": "kit3_tier", "label": "Tier label", "default": "Medium" },
     { "type": "text", "id": "kit3_name", "label": "Kit name", "default": "Medium Kit" },
     { "type": "textarea", "id": "kit3_desc", "label": "Description", "default": "More variety, effortless care. Our most popular kit for the everyday grower." },
-    { "type": "text", "id": "kit3_badge", "label": "Badge", "default": "Most Popular" },
     { "type": "text", "id": "kit3_price", "label": "Price", "default": "34.95" },
-    { "type": "text", "id": "kit3_price_old", "label": "Old price (optional)", "default": "44.95" },
+    { "type": "text", "id": "kit3_variant_id", "label": "Shopify Variant ID" },
     { "type": "text", "id": "kit3_inc1", "label": "Includes 1", "default": "Premium seed mix (2 varieties)" },
     { "type": "text", "id": "kit3_inc2", "label": "Includes 2", "default": "Organic coco coir medium" },
     { "type": "text", "id": "kit3_inc3", "label": "Includes 3", "default": "Medium grow tray + lid" },
     { "type": "text", "id": "kit3_inc4", "label": "Includes 4", "default": "Dedicated spray bottle" },
     { "type": "text", "id": "kit3_inc5", "label": "Includes 5", "default": "Step-by-step growing guide" },
-    { "type": "text", "id": "kit3_cta", "label": "Button text", "default": "Get Growing" },
-    { "type": "url", "id": "kit3_url", "label": "Button link" },
+    { "type": "url", "id": "kit3_url", "label": "Product link (fallback)" },
     { "type": "header", "content": "Large Kit" },
     { "type": "image_picker", "id": "kit4_image", "label": "Kit image" },
     { "type": "text", "id": "kit4_tier", "label": "Tier label", "default": "Large" },
     { "type": "text", "id": "kit4_name", "label": "Kit name", "default": "Large Kit" },
     { "type": "textarea", "id": "kit4_desc", "label": "Description", "default": "Go big. A full growing setup for serious growers who want maximum yield." },
     { "type": "text", "id": "kit4_price", "label": "Price", "default": "64.95" },
+    { "type": "text", "id": "kit4_variant_id", "label": "Shopify Variant ID" },
     { "type": "text", "id": "kit4_inc1", "label": "Includes 1", "default": "Premium seed mix (3 varieties)" },
     { "type": "text", "id": "kit4_inc2", "label": "Includes 2", "default": "Organic coco coir medium (x2)" },
     { "type": "text", "id": "kit4_inc3", "label": "Includes 3", "default": "Large grow tray + blackout dome" },
     { "type": "text", "id": "kit4_inc4", "label": "Includes 4", "default": "Dedicated spray bottle" },
     { "type": "text", "id": "kit4_inc5", "label": "Includes 5", "default": "Full-spectrum grow light" },
     { "type": "text", "id": "kit4_inc6", "label": "Includes 6", "default": "Step-by-step growing guide" },
-    { "type": "text", "id": "kit4_cta", "label": "Button text", "default": "Shop Large Kit" },
-    { "type": "url", "id": "kit4_url", "label": "Button link" }
+    { "type": "url", "id": "kit4_url", "label": "Product link (fallback)" }
   ],
   "presets": [{ "name": "Kits Grid" }]
 }
