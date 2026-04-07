@@ -1,71 +1,86 @@
 <section
-  class="newsletter section"
+  class="newsletter"
   id="newsletter"
   aria-label="{{ section.settings.heading | default: 'Newsletter signup' }}"
   data-newsletter
 >
-  <div class="container">
-    <div class="newsletter__inner">
+  <!-- Left panel — dark green with big headline -->
+  <div class="newsletter__panel newsletter__panel--left">
+    <div class="newsletter__panel-inner">
+      <svg class="newsletter__leaf-bg" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M150 20C80 20 20 80 20 150C20 220 80 280 150 280C220 280 280 220 280 150C280 80 220 20 150 20Z" fill="white" opacity="0.03"/>
+        <path d="M150 10C70 10 10 70 10 150C10 230 70 290 150 290" stroke="white" stroke-width="1" opacity="0.06" fill="none"/>
+        <path d="M60 260C80 200 120 160 180 140C220 128 260 132 280 150" stroke="white" stroke-width="1.5" opacity="0.08" fill="none"/>
+        <path d="M150 50C150 50 90 90 80 150C70 210 110 250 150 260C190 250 230 210 220 150C210 90 150 50 150 50Z" stroke="white" stroke-width="1" opacity="0.05" fill="none"/>
+      </svg>
+      <p class="newsletter__eyebrow">{{ section.settings.eyebrow | default: 'Stay in the loop' }}</p>
+      <h2 class="newsletter__heading">{{ section.settings.heading | default: 'Join the Growing Community' }}</h2>
+      <p class="newsletter__subtext">{{ section.settings.subtext | default: 'Tips, harvest ideas, and early access to new kits - straight to your inbox.' }}</p>
+      <div class="newsletter__stat-row">
+        <span class="newsletter__stat">
+          <strong>1,200+</strong> home growers
+        </span>
+        <span class="newsletter__stat-dot" aria-hidden="true"></span>
+        <span class="newsletter__stat">
+          Weekly tips
+        </span>
+        <span class="newsletter__stat-dot" aria-hidden="true"></span>
+        <span class="newsletter__stat">
+          No spam, ever
+        </span>
+      </div>
+    </div>
+  </div>
 
-      <h2 class="newsletter__heading">
-        {{ section.settings.heading | default: 'Join the Growing Community' }}
-      </h2>
+  <!-- Right panel — cream with form -->
+  <div class="newsletter__panel newsletter__panel--right">
+    <div class="newsletter__panel-inner">
 
-      <p class="newsletter__subtext">
-        {{ section.settings.subtext | default: 'Tips, recipes, and early access to new kits - straight to your inbox.' }}
-      </p>
+      <div class="newsletter__form-wrap">
+        <p class="newsletter__form-label">Your email address</p>
 
-      <!-- Newsletter Form -->
-      {%- form 'customer',
-        id: 'newsletter-form',
-        class: 'newsletter__form'
-      -%}
+        {%- form 'customer', id: 'newsletter-form', class: 'newsletter__form' -%}
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <label for="newsletter-email" class="sr-only">Email address</label>
+          <input
+            id="newsletter-email"
+            type="email"
+            name="contact[email]"
+            class="newsletter__input"
+            placeholder="{{ section.settings.email_placeholder | default: 'you@example.com' }}"
+            autocomplete="email"
+            required
+            aria-required="true"
+          >
+          <button type="submit" class="newsletter__btn" data-newsletter-btn>
+            {{ section.settings.button_text | default: 'Subscribe' }}
+            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" width="16" height="16" aria-hidden="true">
+              <path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        {%- endform -%}
 
-        <input type="hidden" name="contact[tags]" value="newsletter">
-
-        <label for="newsletter-email" class="sr-only">
-          {{ 'newsletter.email_label' | t }}
-        </label>
-
-        <input
-          id="newsletter-email"
-          type="email"
-          name="contact[email]"
-          class="newsletter__input"
-          placeholder="{{ section.settings.email_placeholder | default: 'Your email address' }}"
-          autocomplete="email"
-          required
-          aria-required="true"
-        >
-
-        <button
-          type="submit"
-          class="newsletter__btn"
-          data-newsletter-btn
-        >
-          {{ section.settings.button_text | default: 'Subscribe' }}
-        </button>
-
-      {%- endform -%}
-
-      <!-- Success message (shown after submission) -->
-      <p
-        class="newsletter__success"
-        data-newsletter-success
-        aria-live="polite"
-        role="status"
-      >
-        {{ section.settings.success_message | default: '🌱 Welcome to the community! Check your inbox.' }}
-      </p>
-
-      {%- if section.settings.privacy_note != blank -%}
-        <p style="margin-top: var(--space-4); font-size: var(--text-xs); color: rgba(255,255,255,0.55);">
-          {{ section.settings.privacy_note }}
+        <p class="newsletter__success" data-newsletter-success aria-live="polite" role="status">
+          {{ section.settings.success_message | default: 'Welcome! Check your inbox for a confirmation.' }}
         </p>
-      {%- endif -%}
+
+        <p class="newsletter__privacy">
+          {{ section.settings.privacy_note | default: 'No spam. Unsubscribe any time.' }}
+        </p>
+      </div>
+
+      <!-- Decorative plant illustration -->
+      <svg class="newsletter__plant-deco" viewBox="0 0 120 160" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <line x1="60" y1="155" x2="60" y2="60" stroke="#6DB83A" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M60 100C60 100 38 85 30 65C44 60 62 72 60 100Z" fill="#6DB83A" opacity="0.7"/>
+        <path d="M60 80C60 80 82 65 90 45C76 40 58 52 60 80Z" fill="#6DB83A" opacity="0.9"/>
+        <path d="M60 120C60 120 42 108 36 90C48 86 62 96 60 120Z" fill="#6DB83A" opacity="0.5"/>
+        <ellipse cx="60" cy="157" rx="12" ry="4" fill="#2B2B2B" opacity="0.08"/>
+      </svg>
 
     </div>
   </div>
+
 </section>
 
 {% schema %}
@@ -74,52 +89,14 @@
   "tag": "div",
   "class": "newsletter-wrapper",
   "settings": [
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "Join the Growing Community"
-    },
-    {
-      "type": "textarea",
-      "id": "subtext",
-      "label": "Subtext",
-      "default": "Tips, recipes, and early access to new kits - straight to your inbox."
-    },
-    {
-      "type": "text",
-      "id": "email_placeholder",
-      "label": "Email input placeholder",
-      "default": "Your email address"
-    },
-    {
-      "type": "text",
-      "id": "button_text",
-      "label": "Button text",
-      "default": "Subscribe"
-    },
-    {
-      "type": "text",
-      "id": "success_message",
-      "label": "Success message",
-      "default": "Welcome to the community! Check your inbox."
-    },
-    {
-      "type": "text",
-      "id": "privacy_note",
-      "label": "Privacy note (optional)",
-      "default": "No spam. Unsubscribe any time. We respect your privacy."
-    }
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow text", "default": "Stay in the loop" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Join the Growing Community" },
+    { "type": "textarea", "id": "subtext", "label": "Subtext", "default": "Tips, harvest ideas, and early access to new kits - straight to your inbox." },
+    { "type": "text", "id": "email_placeholder", "label": "Email placeholder", "default": "you@example.com" },
+    { "type": "text", "id": "button_text", "label": "Button text", "default": "Subscribe" },
+    { "type": "text", "id": "success_message", "label": "Success message", "default": "Welcome! Check your inbox for a confirmation." },
+    { "type": "text", "id": "privacy_note", "label": "Privacy note", "default": "No spam. Unsubscribe any time." }
   ],
-  "presets": [
-    {
-      "name": "Newsletter",
-      "settings": {
-        "heading": "Join the Growing Community",
-        "subtext": "Tips, recipes, and early access to new kits - straight to your inbox.",
-        "button_text": "Subscribe"
-      }
-    }
-  ]
+  "presets": [{ "name": "Newsletter" }]
 }
 {% endschema %}

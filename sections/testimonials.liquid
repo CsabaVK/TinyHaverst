@@ -13,50 +13,91 @@
     </div>
 
     <div class="testimonials__grid">
-      {%- for block in section.blocks -%}
 
-        <article
-          class="testimonial-card reveal-on-scroll d{{ forloop.index }}"
-          {{ block.shopify_attributes }}
-          aria-label="Review by {{ block.settings.author_name }}"
-        >
-          <!-- Stars -->
-          <div class="testimonial-card__stars" aria-label="{{ block.settings.rating | default: 5 }} out of 5 stars">
-            {%- assign rating = block.settings.rating | default: 5 | plus: 0 -%}
-            {%- for i in (1..5) -%}
-              {%- if i <= rating -%}<span aria-hidden="true">&#9733;</span>{%- else -%}<span aria-hidden="true" style="opacity:0.25">&#9733;</span>{%- endif -%}
-            {%- endfor -%}
-          </div>
+      {%- if section.blocks.size > 0 -%}
 
-          <!-- Quote -->
-          <blockquote class="testimonial-card__quote">
-            {{ block.settings.quote | default: 'Amazing product - harvesting in under 10 days!' }}
-          </blockquote>
+        {%- for block in section.blocks -%}
+          <article
+            class="testimonial-card reveal-on-scroll d{{ forloop.index }}"
+            {{ block.shopify_attributes }}
+            aria-label="Review by {{ block.settings.author_name | default: 'Customer' }}"
+          >
+            <div class="testimonial-card__stars" aria-label="{{ block.settings.rating | default: 5 }} out of 5 stars">
+              {%- assign rating = block.settings.rating | default: 5 | plus: 0 -%}
+              {%- for i in (1..5) -%}
+                {%- if i <= rating -%}<span aria-hidden="true">&#9733;</span>{%- else -%}<span aria-hidden="true" class="star--empty">&#9733;</span>{%- endif -%}
+              {%- endfor -%}
+            </div>
+            <blockquote class="testimonial-card__quote">
+              {{ block.settings.quote | default: 'Amazing product - harvesting in under 10 days!' }}
+            </blockquote>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar-wrap">
+                {%- if block.settings.author_photo != blank -%}
+                  {{ block.settings.author_photo | image_url: width: 120 | image_tag: loading: 'lazy', alt: block.settings.author_name, class: 'testimonial-card__avatar-img' }}
+                {%- elsif block.settings.author_photo_url != blank -%}
+                  <img src="{{ block.settings.author_photo_url }}" alt="{{ block.settings.author_name | default: 'Customer' }}" loading="lazy" class="testimonial-card__avatar-img">
+                {%- else -%}
+                  <div class="testimonial-card__avatar-initials" aria-hidden="true">{{ block.settings.author_name | default: '?' | slice: 0 | upcase }}</div>
+                {%- endif -%}
+              </div>
+              <div class="testimonial-card__author-info">
+                <p class="testimonial-card__name">{{ block.settings.author_name | default: 'Happy Grower' }}</p>
+                {%- if block.settings.author_location != blank -%}
+                  <p class="testimonial-card__location">{{ block.settings.author_location }}</p>
+                {%- endif -%}
+              </div>
+            </div>
+          </article>
+        {%- endfor -%}
 
-          <!-- Author with photo -->
+      {%- else -%}
+
+        <!-- Fallback hardcoded testimonials when no blocks are configured -->
+        <article class="testimonial-card reveal-on-scroll d1">
+          <div class="testimonial-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote class="testimonial-card__quote">I was sceptical but this kit is genuinely idiot-proof. Harvested my first batch in 9 days. The sunflower microgreens are incredible on avocado toast.</blockquote>
           <div class="testimonial-card__author">
             <div class="testimonial-card__avatar-wrap">
-              {%- if block.settings.author_photo != blank -%}
-                {{ block.settings.author_photo | image_url: width: 120 | image_tag: loading: 'lazy', alt: block.settings.author_name | default: 'Customer', class: 'testimonial-card__avatar-img' }}
-              {%- elsif block.settings.author_photo_url != blank -%}
-                <img src="{{ block.settings.author_photo_url }}" alt="{{ block.settings.author_name | default: 'Customer' }}" loading="lazy" class="testimonial-card__avatar-img">
-              {%- else -%}
-                <div class="testimonial-card__avatar-initials" aria-hidden="true">
-                  {{ block.settings.author_name | default: '?' | slice: 0 | upcase }}
-                </div>
-              {%- endif -%}
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&q=80" alt="Sarah M." loading="lazy" class="testimonial-card__avatar-img">
             </div>
             <div class="testimonial-card__author-info">
-              <p class="testimonial-card__name">{{ block.settings.author_name | default: 'Happy Grower' }}</p>
-              {%- if block.settings.author_location != blank -%}
-                <p class="testimonial-card__location">{{ block.settings.author_location }}</p>
-              {%- endif -%}
+              <p class="testimonial-card__name">Sarah M.</p>
+              <p class="testimonial-card__location">Amsterdam</p>
             </div>
           </div>
-
         </article>
 
-      {%- endfor -%}
+        <article class="testimonial-card reveal-on-scroll d2">
+          <div class="testimonial-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote class="testimonial-card__quote">The quality of the seeds is outstanding. I have tried other kits but TinyHarvest is on another level. Ordered three more for gifts.</blockquote>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar-wrap">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&q=80" alt="Marco V." loading="lazy" class="testimonial-card__avatar-img">
+            </div>
+            <div class="testimonial-card__author-info">
+              <p class="testimonial-card__name">Marco V.</p>
+              <p class="testimonial-card__location">Berlin</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial-card reveal-on-scroll d3">
+          <div class="testimonial-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote class="testimonial-card__quote">Such a lovely gift for my mum who does not have a garden. She calls it her tiny jungle now. Perfect product.</blockquote>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar-wrap">
+              <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=120&q=80" alt="Emma T." loading="lazy" class="testimonial-card__avatar-img">
+            </div>
+            <div class="testimonial-card__author-info">
+              <p class="testimonial-card__name">Emma T.</p>
+              <p class="testimonial-card__location">London</p>
+            </div>
+          </div>
+        </article>
+
+      {%- endif -%}
+
     </div>
 
   </div>
@@ -81,7 +122,7 @@
         { "type": "text", "id": "author_name", "label": "Customer name" },
         { "type": "text", "id": "author_location", "label": "City / location (optional)" },
         { "type": "image_picker", "id": "author_photo", "label": "Customer photo (upload)" },
-        { "type": "text", "id": "author_photo_url", "label": "Or paste photo URL" }
+        { "type": "text", "id": "author_photo_url", "label": "Or paste Unsplash / photo URL" }
       ]
     }
   ],
