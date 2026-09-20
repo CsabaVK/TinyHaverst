@@ -2,112 +2,233 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="TinyHarvest home growing kits for fresh microgreens.">
-<title>TinyHarvest | Grow Something Good</title>
-<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-<link rel="icon" type="image/png" sizes="96x96" href="assets/favicon.png">
-<link rel="apple-touch-icon" href="assets/logo-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TinyHarvest - Sow tonight, eat next week. Microgreens kits for your windowsill</title>
+<meta name="description" content="Microgreens kits for the windowsill: organic seeds, coco coir, tray and guide. Snip fresh greens onto your plate 7 to 10 days after sowing. Four kits from EUR 9.95, prices include VAT.">
+<meta property="og:title" content="TinyHarvest - Sow tonight. Eat next week.">
+<meta property="og:description" content="Microgreens kits for the windowsill. Fresh greens on your plate in 7 to 10 days, no garden needed.">
+<meta property="og:image" content="https://tinyharvest.eu/assets/kit-medium.png">
+<meta property="og:url" content="https://tinyharvest.eu/">
+<meta name="theme-color" content="#0B2320">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon.png" sizes="any">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
-<style>
-@font-face{font-family:LazyDog;src:url('assets/lazy_dog.ttf') format('truetype');font-display:swap}
-:root{--ink:#203027;--muted:#68736c;--paper:#f4f0e4;--paper2:#fcfaf4;--green:#4c8b45;--lime:#c7dd72;--orange:#ee9264;--line:rgba(32,48,39,.14);--shadow:0 22px 65px rgba(24,40,30,.12);--max:1220px}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper2);color:var(--ink);font-family:'DM Sans',system-ui,sans-serif;line-height:1.55}a{color:inherit;text-decoration:none}button{font:inherit}img{display:block;max-width:100%}.wrap{width:min(var(--max),calc(100% - 40px));margin:auto}.eyebrow{text-transform:uppercase;letter-spacing:.16em;font-weight:700;font-size:11px;color:var(--green)}.display{font-family:LazyDog,Fraunces,serif;font-weight:400;letter-spacing:-.035em}
-.nav{position:fixed;z-index:50;top:16px;left:50%;transform:translateX(-50%);width:min(1180px,calc(100% - 28px));height:64px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 16px 0 22px;border:1px solid rgba(255,255,255,.25);background:rgba(30,48,39,.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-radius:19px;color:#fff;transition:top .3s ease,background .3s ease,color .3s ease,box-shadow .3s ease,border-color .3s ease}.nav.scrolled{top:10px;background:rgba(252,250,244,.96);color:var(--ink);border-color:var(--line);box-shadow:0 12px 35px rgba(20,35,27,.12)}.nav__links{display:flex;gap:25px;align-items:center}.nav__links a{font-size:13px;font-weight:600;opacity:.88;position:relative}.nav__links a:after{content:'';position:absolute;left:0;right:100%;bottom:-7px;height:2px;background:currentColor;transition:right .25s}.nav__links a:hover:after{right:0}.nav__right{justify-content:flex-end}.nav__shop,.nav__cart{padding:10px 15px;border-radius:999px;background:#fff;color:var(--ink);transition:transform .22s,background .22s,color .22s}.nav__cart{border:0;cursor:pointer;display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700}.nav.scrolled .nav__shop,.nav.scrolled .nav__cart{background:var(--ink);color:#fff}.nav__shop:hover,.nav__cart:hover{transform:translateY(-2px)}.cart-count{min-width:20px;height:20px;padding:0 6px;border-radius:999px;display:inline-grid;place-items:center;background:var(--lime);color:var(--ink);font-size:11px;font-weight:800;line-height:1}.nav__logo img{height:42px;width:auto;margin:auto;filter:brightness(0) invert(1);transition:filter .25s}.nav.scrolled .nav__logo img{filter:none}.menu{display:none;border:0;background:none;color:currentColor;padding:7px}.menu span{display:block;width:22px;height:2px;background:currentColor;margin:4px 0;transition:transform .25s,opacity .25s}.nav.menu-open .menu span:first-child{transform:translateY(6px) rotate(45deg)}.nav.menu-open .menu span:nth-child(2){opacity:0}.nav.menu-open .menu span:last-child{transform:translateY(-6px) rotate(-45deg)}
-.mobile-menu{display:none;position:fixed;z-index:49;top:89px;left:14px;right:14px;padding:10px;background:rgba(252,250,244,.98);color:var(--ink);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}.mobile-menu.open{display:grid;animation:menuIn .25s ease both}.mobile-menu a{padding:14px;border-radius:10px;font-size:14px;font-weight:700}.mobile-menu a:hover{background:var(--paper)}
-.cart-toast{position:fixed;z-index:95;right:22px;bottom:22px;max-width:min(360px,calc(100vw - 44px));padding:13px 15px;border:1px solid rgba(32,48,39,.12);border-radius:16px;background:rgba(252,250,244,.97);box-shadow:var(--shadow);color:var(--ink);font-size:13px;font-weight:700;opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity .24s ease,transform .24s ease}.cart-toast.show{opacity:1;transform:none}.cart-overlay{position:fixed;inset:0;z-index:88;background:rgba(15,25,19,.45);opacity:0;pointer-events:none;transition:opacity .3s ease}.cart-overlay.open{opacity:1;pointer-events:auto}.cart-drawer{position:fixed;z-index:90;top:0;right:0;width:min(468px,100%);height:100svh;background:var(--paper2);box-shadow:-24px 0 70px rgba(15,25,19,.18);transform:translateX(100%);transition:transform .36s cubic-bezier(.2,.7,.2,1);display:grid;grid-template-rows:auto 1fr auto;color:var(--ink)}.cart-drawer.open{transform:none}.cart-drawer__head{padding:24px 24px 18px;border-bottom:1px solid var(--line);display:flex;align-items:flex-start;justify-content:space-between;gap:18px}.cart-drawer__head h2{font-family:LazyDog,Fraunces,serif;font-size:42px;line-height:.9;margin:4px 0 8px;letter-spacing:-.035em}.cart-drawer__head p{margin:0;color:var(--muted);font-size:12px}.cart-close{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;font-size:24px;line-height:1;transition:background .2s,color .2s,transform .2s}.cart-close:hover{background:var(--ink);color:#fff;transform:rotate(8deg)}.cart-items{padding:16px 20px;overflow:auto}.cart-empty{height:100%;display:grid;place-items:center;text-align:center;padding:36px 26px;color:var(--muted)}.cart-empty strong{display:block;font-family:LazyDog,Fraunces,serif;font-size:36px;line-height:1;color:var(--ink);margin-bottom:9px}.cart-line{display:grid;grid-template-columns:86px 1fr;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}.cart-line__image{width:86px;height:86px;border-radius:16px;background:#e9e6d9;object-fit:cover}.cart-line__top{display:flex;justify-content:space-between;gap:12px}.cart-line__name{font-weight:800;font-size:14px}.cart-line__price{font-weight:800;font-size:13px;white-space:nowrap}.cart-line__desc{font-size:12px;color:var(--muted);margin:4px 0 12px}.cart-line__controls{display:flex;align-items:center;justify-content:space-between;gap:10px}.qty{display:inline-grid;grid-template-columns:34px 38px 34px;align-items:center;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:rgba(255,255,255,.35)}.qty button{width:34px;height:34px;border:0;background:transparent;color:var(--ink);cursor:pointer;font-weight:900}.qty button:hover{background:var(--paper)}.qty span{text-align:center;font-size:13px;font-weight:800}.cart-remove{border:0;background:transparent;color:var(--muted);cursor:pointer;font-size:12px;font-weight:800;text-decoration:underline;text-underline-offset:4px}.cart-drawer__foot{padding:18px 24px 24px;border-top:1px solid var(--line);background:rgba(244,240,228,.75)}.cart-summary-line{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:10px;font-size:13px;color:var(--muted)}.cart-summary-line strong{font-size:20px;color:var(--ink)}.cart-note{padding:12px 13px;margin:14px 0;border:1px solid rgba(76,139,69,.22);border-radius:14px;background:rgba(199,221,114,.13);font-size:12px;color:var(--muted)}.cart-checkout{width:100%;border:0;cursor:pointer;background:var(--ink);color:#fff}.cart-checkout[disabled]{cursor:not-allowed;opacity:.48}.cart-secondary{width:100%;margin-top:10px;border:1px solid var(--line);background:transparent;color:var(--ink)}
-.hero{min-height:100svh;position:relative;overflow:hidden;background:#24382a;color:#fff}.hero__media{position:absolute;inset:0}.hero__media img{width:100%;height:100%;object-fit:cover;object-position:center;transform:scale(1.04);animation:heroZoom 12s ease-out forwards}.hero__veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,35,27,.9) 0%,rgba(20,35,27,.6) 42%,rgba(20,35,27,.16) 100%),linear-gradient(0deg,rgba(20,35,27,.48),transparent 38%)}.hero__content{min-height:100svh;display:flex;align-items:flex-end;padding:155px 0 82px;position:relative;z-index:2}.hero__copy{max-width:720px}.pill{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.1);border-radius:999px;font-size:11px;text-transform:uppercase;letter-spacing:.13em;font-weight:700}.dot{width:7px;height:7px;border-radius:50%;background:var(--lime);flex:none}.hero h1{font-size:clamp(4rem,8vw,8.5rem);line-height:.82;margin:23px 0 26px}.hero h1 i{font-style:normal;color:var(--lime)}.hero__lede{font-size:18px;max-width:560px;color:rgba(255,255,255,.84);margin:0 0 30px}.hero__actions{display:flex;gap:12px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:52px;padding:0 21px;border-radius:999px;border:1px solid transparent;font-size:13px;font-weight:700;transition:transform .23s,box-shadow .23s,background .23s}.btn:hover{transform:translateY(-3px)}.btn--lime{background:var(--lime);color:var(--ink);box-shadow:0 12px 32px rgba(199,221,114,.2)}.btn--ghost{border-color:rgba(255,255,255,.38);color:#fff;background:rgba(255,255,255,.07)}.hero__aside{position:absolute;right:0;bottom:80px;display:grid;gap:8px;max-width:245px}.hero__aside-card{padding:16px 18px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);border-radius:15px;backdrop-filter:blur(9px)}.hero__aside-card strong{display:block;font-size:18px}.hero__aside-card span{display:block;font-size:11px;opacity:.68;margin-top:3px}
-.marquee{overflow:hidden;background:var(--ink);color:#fff}.marquee__track{display:flex;width:max-content;animation:marquee 29s linear infinite}.marquee__item{display:flex;align-items:center;gap:26px;padding:17px 28px;text-transform:uppercase;letter-spacing:.14em;font-size:11px;font-weight:700;white-space:nowrap}
-.intro{padding:125px 0 105px;background:var(--paper)}.intro__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:80px;align-items:end}.intro h2{font-size:clamp(3rem,5vw,6rem);line-height:.88;margin:15px 0 0}.intro__copy{max-width:510px;font-size:17px;color:var(--muted)}.intro__copy p{margin:0}.link-arrow{display:inline-flex;gap:9px;align-items:center;margin-top:24px;font-size:13px;font-weight:700;border-bottom:1px solid var(--ink);padding-bottom:7px}.link-arrow span{transition:transform .23s}.link-arrow:hover span{transform:translateX(5px)}
-.products{padding:35px 0 125px;background:var(--paper)}.products__head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:32px}.products__head h2{font-size:clamp(3rem,5vw,5.3rem);line-height:.86;margin:12px 0 0}.products__head p{max-width:380px;color:var(--muted);font-size:14px}.product-stage{display:grid;grid-template-columns:1.08fr .92fr;min-height:650px;background:#e9e6d9;border-radius:32px;overflow:hidden}.product-stage__visual{position:relative;min-height:600px;background:linear-gradient(135deg,#dfe4d2,#f6f1e5)}.product-stage__visual:before{content:'';position:absolute;inset:10% 7% 7%;border:1px solid rgba(32,48,39,.11);border-radius:28px;transform:rotate(-4deg)}.product-stage__image{position:absolute;inset:5% 4% 0;display:flex;align-items:center;justify-content:center}.product-stage__image img{width:min(88%,650px);filter:drop-shadow(0 32px 28px rgba(26,43,33,.19));transform:rotate(-2deg);transition:opacity .25s,transform .5s cubic-bezier(.2,.7,.2,1)}.product-stage__visual:hover .product-stage__image img{transform:rotate(2deg) scale(1.04) translateY(-8px)}.product-stage__tag{position:absolute;left:28px;top:28px;padding:8px 11px;border-radius:999px;background:var(--ink);color:#fff;text-transform:uppercase;font-size:10px;letter-spacing:.12em;font-weight:700;z-index:2}.product-stage__stamp{position:absolute;right:27px;bottom:27px;width:88px;height:88px;display:grid;place-items:center;text-align:center;border-radius:50%;background:var(--orange);color:#fff;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;transform:rotate(10deg);z-index:2}.product-stage__info{padding:60px 55px 48px;display:flex;flex-direction:column;justify-content:space-between}.product-stage__info h3{font-size:clamp(3.1rem,5vw,5.6rem);line-height:.86;margin:10px 0 18px}.description{color:var(--muted);max-width:420px}.facts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:28px 0}.fact{padding:14px 15px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.3)}.fact b{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.07em}.fact span{display:block;margin-top:5px;color:var(--muted);font-size:12px}.selector{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0}.selector button{cursor:pointer;border:1px solid var(--line);background:transparent;padding:10px 13px;border-radius:999px;font-size:12px;font-weight:700;transition:.25s}.selector button:hover,.selector button.active{background:var(--ink);color:#fff;border-color:var(--ink)}.price-row{display:flex;align-items:center;justify-content:space-between;gap:15px;padding-top:18px;border-top:1px solid var(--line)}.price{font-size:22px;font-weight:700}.price small{font-size:11px;color:var(--muted);font-weight:500}.product-rail{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-top:15px}.mini-product{border:1px solid var(--line);background:#fbfaf5;border-radius:18px;padding:11px;cursor:pointer;transition:transform .3s,box-shadow .3s,border-color .3s;position:relative}.mini-product:hover,.mini-product.active{transform:translateY(-5px);box-shadow:var(--shadow);border-color:rgba(76,139,69,.3)}.mini-product img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:13px;background:#eee8d9}.mini-product__body{padding:13px 3px 5px}.mini-product__name{font-family:LazyDog,Fraunces,serif;font-size:24px;line-height:1}.mini-product__price{font-size:12px;color:var(--muted);margin-top:6px}.mini-product__arrow{position:absolute;right:15px;bottom:17px;width:26px;height:26px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-size:14px}
-.story{padding:125px 0;background:var(--paper2)}.story__grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:68px;align-items:center}.story__image{position:relative;min-height:620px;border-radius:30px;overflow:hidden;background:#d8dfcf}.story__image img{width:100%;height:100%;min-height:620px;object-fit:cover}.story__image:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 52%,rgba(25,43,31,.35))}.story__badge{position:absolute;z-index:2;left:22px;bottom:22px;padding:16px 18px;border-radius:16px;background:rgba(255,255,255,.9);backdrop-filter:blur(10px)}.story__badge strong{font-size:19px;display:block}.story__badge span{font-size:11px;color:var(--muted)}.story__copy h2{font-size:clamp(3.1rem,5.4vw,6.1rem);line-height:.86;margin:13px 0 23px}.story__copy>p{color:var(--muted);max-width:520px;font-size:16px}.story__points{margin-top:30px;border-top:1px solid var(--line)}.point{display:grid;grid-template-columns:42px 1fr;gap:15px;padding:19px 0;border-bottom:1px solid var(--line)}.point__num{font-size:11px;color:var(--green);font-weight:800;padding-top:3px}.point h3{margin:0 0 5px;font-size:14px}.point p{font-size:13px;color:var(--muted);margin:0}
-.how{padding:120px 0;background:#e5ebdb}.how__head{text-align:center;max-width:720px;margin:0 auto 55px}.how__head h2{font-size:clamp(3.1rem,5.3vw,5.8rem);line-height:.86;margin:12px 0 16px}.how__head p{color:var(--muted);max-width:540px;margin:auto}.how__steps{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.step{background:#f8f7ef;border-radius:27px;padding:11px;overflow:hidden;transition:transform .35s,box-shadow .35s}.step:hover{transform:translateY(-7px);box-shadow:0 18px 42px rgba(32,48,39,.09)}.step__photo{aspect-ratio:1/.91;border-radius:20px;overflow:hidden;background:#d8ded1}.step__photo img{width:100%;height:100%;object-fit:cover;transition:transform .65s}.step:hover .step__photo img{transform:scale(1.06)}.step__body{padding:20px 14px 18px}.step__number{font-size:10px;color:var(--green);letter-spacing:.12em;text-transform:uppercase;font-weight:800}.step h3{font-family:LazyDog,Fraunces,serif;font-size:30px;line-height:.95;margin:7px 0 8px}.step p{font-size:12px;color:var(--muted);margin:0}
-.trust{padding:120px 0;background:var(--ink);color:#fff}.trust__head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:50px}.trust__head h2{font-size:clamp(3rem,5vw,5.5rem);line-height:.9;margin:12px 0 0}.trust__head p{max-width:400px;color:rgba(255,255,255,.62);font-size:13px}.proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.proof{padding:28px;border:1px solid rgba(255,255,255,.13);background:rgba(255,255,255,.045);border-radius:22px}.proof__mark{font-size:13px;color:var(--lime);letter-spacing:.12em}.proof p{font-family:LazyDog,Fraunces,serif;font-size:25px;line-height:1.08;margin:20px 0 25px}.proof small{color:rgba(255,255,255,.52);font-size:11px}
-.faq{padding:120px 0;background:var(--paper)}.faq__grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:90px}.faq h2{font-size:clamp(3rem,5vw,5.5rem);line-height:.88;margin:13px 0}.faq__intro{color:var(--muted);max-width:350px;font-size:14px}.faq-list{border-top:1px solid var(--line)}.faq-item{border-bottom:1px solid var(--line)}.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:25px;padding:23px 0;background:none;border:0;text-align:left;cursor:pointer;color:var(--ink);font-size:14px;font-weight:700}.faq-q span{width:27px;height:27px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;transition:.3s;flex:none}.faq-item.open .faq-q span{transform:rotate(45deg);background:var(--ink);color:#fff}.faq-a{max-height:0;overflow:hidden;transition:max-height .45s ease}.faq-a p{margin:0;padding:0 55px 22px 0;color:var(--muted);font-size:13px}
-.footer{position:relative;overflow:hidden;background:#17251d;color:#fff;padding:76px 0 26px}.footer:before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 82% 35%,rgba(199,221,114,.05),transparent 25%),radial-gradient(circle at 15% 95%,rgba(76,139,69,.09),transparent 28%);pointer-events:none}.footer__inner{position:relative;z-index:1}.footer__top{display:grid;grid-template-columns:1.2fr 1fr .45fr;gap:70px;align-items:start;padding-bottom:58px}.footer__brand{max-width:400px}.footer__brand-lockup{display:flex;align-items:center;gap:13px}.footer__brand-mark{width:42px;height:42px;display:block;flex:none}.footer__brand-name{font-family:LazyDog,Fraunces,serif;font-size:33px;line-height:1;color:#fff;letter-spacing:-.03em}.footer__brand p{max-width:320px;color:rgba(255,255,255,.56);font-size:13px;line-height:1.7;margin:18px 0 0}.footer__links{display:grid;grid-template-columns:1fr 1fr;gap:44px}.footer__group h4{font-size:10px;text-transform:uppercase;letter-spacing:.15em;color:rgba(255,255,255,.4);margin:0 0 16px}.footer__group a{display:block;font-size:13px;color:rgba(255,255,255,.82);margin:0 0 11px;transition:color .2s,transform .2s}.footer__group a:hover{color:var(--lime);transform:translateX(3px)}.footer__plant-wrap{justify-self:end;width:128px;padding-top:2px;display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(255,255,255,.38);font-size:9px;text-transform:uppercase;letter-spacing:.16em}.footer-plant{width:104px;height:124px;overflow:visible}.plant-stem{fill:none;stroke:#78a95c;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:120;stroke-dashoffset:120;animation:stemGrow 3.2s cubic-bezier(.2,.7,.2,1) infinite}.plant-branch{fill:none;stroke:#78a95c;stroke-width:2.5;stroke-linecap:round;stroke-dasharray:55;stroke-dashoffset:55;animation:branchGrow 3.2s .35s cubic-bezier(.2,.7,.2,1) infinite}.plant-leaf{fill:#80b864;opacity:0;transform-box:fill-box;transform-origin:center bottom}.plant-leaf.one{animation:leafOne 3.2s .65s ease-in-out infinite}.plant-leaf.two{animation:leafTwo 3.2s .9s ease-in-out infinite}.plant-leaf.three{animation:leafThree 3.2s 1.15s ease-in-out infinite}.plant-leaf.four{animation:leafFour 3.2s 1.4s ease-in-out infinite}.plant-new{fill:var(--lime);opacity:0;transform-box:fill-box;transform-origin:center bottom;animation:newLeaf 3.2s 1.55s ease-in-out infinite}.plant-pot{fill:#30483a}.plant-soil{fill:#6e5842}.footer__bottom{padding-top:21px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;gap:25px;color:rgba(255,255,255,.38);font-size:10px}.reveal{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s cubic-bezier(.2,.7,.2,1)}.reveal.is-visible{opacity:1;transform:none}.delay-1{transition-delay:.08s}.delay-2{transition-delay:.16s}.delay-3{transition-delay:.24s}@keyframes heroZoom{to{transform:scale(1)}}@keyframes marquee{to{transform:translateX(-50%)}}@keyframes menuIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}@keyframes stemGrow{0%,12%{stroke-dashoffset:120}44%,100%{stroke-dashoffset:0}}@keyframes branchGrow{0%,18%{stroke-dashoffset:55}48%,100%{stroke-dashoffset:0}}@keyframes leafOne{0%,25%{opacity:0;transform:scale(.4) rotate(-18deg)}42%,100%{opacity:1;transform:scale(1) rotate(0)}}@keyframes leafTwo{0%,30%{opacity:0;transform:scale(.4) rotate(18deg)}47%,100%{opacity:1;transform:scale(1) rotate(0)}}@keyframes leafThree{0%,35%{opacity:0;transform:scale(.35) rotate(-15deg)}52%,100%{opacity:1;transform:scale(1) rotate(0)}}@keyframes leafFour{0%,40%{opacity:0;transform:scale(.35) rotate(18deg)}57%,100%{opacity:1;transform:scale(1) rotate(0)}}@keyframes newLeaf{0%,45%{opacity:0;transform:scale(.25) translateY(5px)}62%,100%{opacity:1;transform:scale(1) translateY(0)}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition-duration:.01ms!important}.reveal{opacity:1!important;transform:none!important}}
-@media(max-width:980px){.nav{grid-template-columns:auto 1fr auto}.nav__links{display:none}.nav__logo{grid-column:2}.menu{display:block}.hero__aside{display:none}.intro__grid,.story__grid,.product-stage,.faq__grid{grid-template-columns:1fr}.intro__grid{gap:35px}.product-stage__info{padding:46px 35px}.story__image,.story__image img{min-height:530px}.how__steps,.proof-grid{grid-template-columns:1fr 1fr}.footer__top{grid-template-columns:1fr 1fr;gap:45px}.footer__plant-wrap{grid-column:2;grid-row:1;align-self:start}.product-rail{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:640px){.wrap{width:min(var(--max),calc(100% - 28px))}.nav{height:59px;top:10px;border-radius:17px}.nav__logo img{height:39px}.hero__content{padding:125px 0 54px}.hero h1{font-size:clamp(3.6rem,16vw,6rem)}.hero__lede{font-size:15px}.hero__actions .btn{width:100%}.intro{padding:85px 0}.intro h2,.products__head h2,.story__copy h2,.trust__head h2,.faq h2{font-size:3.2rem}.products{padding:10px 0 85px}.products__head{display:block}.products__head p{margin-top:18px}.product-stage{border-radius:24px;min-height:0}.product-stage__visual{min-height:360px}.product-stage__image img{width:92%}.product-stage__info{padding:35px 20px 27px}.product-stage__info h3{font-size:3.6rem}.facts{grid-template-columns:1fr}.price-row{align-items:end;flex-direction:column;align-items:stretch}.price{font-size:20px}.product-rail{grid-template-columns:repeat(2,1fr)}.mini-product__name{font-size:22px}.story{padding:85px 0}.story__image,.story__image img{min-height:390px}.how{padding:85px 0}.how__steps,.proof-grid{grid-template-columns:1fr}.trust{padding:85px 0}.trust__head,.footer__bottom{display:block}.trust__head p{margin-top:18px}.faq{padding:85px 0}.faq__grid{gap:45px}.footer{padding:58px 0 22px}.footer__top{grid-template-columns:1fr;gap:38px;padding-bottom:45px}.footer__links{width:100%;gap:30px}.footer__plant-wrap{grid-column:auto;grid-row:auto;justify-self:start;margin-top:-2px}.footer-plant{width:86px;height:104px}.footer__brand-name{font-size:30px}.footer__bottom>*{margin-top:8px}}
-.nav__cart--mobile{display:none}@media(max-width:980px){.nav__cart--mobile{display:inline-flex;justify-self:end;padding:9px 12px}}@media(max-width:640px){.nav__cart--mobile{font-size:0;gap:0}.nav__cart--mobile:before{content:'Cart';font-size:12px;margin-right:7px}.cart-drawer__head{padding:22px 18px 16px}.cart-drawer__head h2{font-size:36px}.cart-items{padding:12px 16px}.cart-line{grid-template-columns:72px 1fr;gap:12px}.cart-line__image{width:72px;height:72px}.cart-line__controls{align-items:flex-start;flex-direction:column}.cart-drawer__foot{padding:16px 18px 20px}.cart-toast{right:14px;bottom:14px;max-width:calc(100vw - 28px)}}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css?v=5">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.min.js"}}</script>
 </head>
 <body>
-<nav class="nav" id="nav">
-<button class="menu" id="menu" aria-label="Open navigation" aria-expanded="false"><span></span><span></span><span></span></button>
-<div class="nav__links"><a href="#kits">Kits</a><a href="#story">Our approach</a><a href="#how">How it works</a></div>
-<a href="#top" class="nav__logo" aria-label="TinyHarvest home"><img src="assets/middle-logo.png" alt="TinyHarvest"></a>
-<button class="nav__cart nav__cart--mobile" type="button" data-cart-open aria-label="Open cart">Cart <span class="cart-count" data-cart-count>0</span></button>
-<div class="nav__links nav__right"><a href="#faq">FAQ</a><a class="nav__shop" href="#kits">Shop kits <span>↗</span></a><button class="nav__cart" type="button" data-cart-open aria-label="Open cart">Cart <span class="cart-count" data-cart-count>0</span></button></div>
-</nav>
-<div class="mobile-menu" id="mobileMenu"><a href="#kits">Kits</a><a href="#story">Our approach</a><a href="#how">How it works</a><a href="#faq">FAQ</a><a href="#cart" data-cart-open>Cart (<span data-cart-count>0</span>)</a></div>
-<header class="hero" id="top"><div class="hero__media"><img src="assets/header.jpg" alt="TinyHarvest microgreens growing at home"></div><div class="hero__veil"></div><div class="wrap hero__content"><div class="hero__copy reveal"><span class="pill"><span class="dot"></span> 100% natural · ready in days</span><h1 class="display">Grow something <i>good.</i></h1><p class="hero__lede">Fresh microgreens grown at home, without needing a garden. Pick a kit, plant the seeds and watch your little crop come to life.</p><div class="hero__actions"><a class="btn btn--lime" href="#kits">Explore the kits <span>↗</span></a><a class="btn btn--ghost" href="#how">See how it works <span>↓</span></a></div></div><div class="hero__aside"><div class="hero__aside-card"><strong>7 to 10 days</strong><span>from sowing to harvest</span></div><div class="hero__aside-card"><strong>Plastic-free</strong><span>packaging</span></div></div></div></header>
-<div class="marquee" aria-hidden="true"><div class="marquee__track"><div class="marquee__item"><span class="dot"></span> fresh at home</div><div class="marquee__item"><span class="dot"></span> no garden needed</div><div class="marquee__item"><span class="dot"></span> 100% natural</div><div class="marquee__item"><span class="dot"></span> plastic-free</div><div class="marquee__item"><span class="dot"></span> grow in 7 to 10 days</div><div class="marquee__item"><span class="dot"></span> fresh at home</div><div class="marquee__item"><span class="dot"></span> no garden needed</div><div class="marquee__item"><span class="dot"></span> 100% natural</div><div class="marquee__item"><span class="dot"></span> plastic-free</div><div class="marquee__item"><span class="dot"></span> grow in 7 to 10 days</div></div></div>
-<section class="intro"><div class="wrap intro__grid"><div class="reveal"><span class="eyebrow">A garden, scaled down</span><h2 class="display">Small space.<br>Real harvest.</h2></div><div class="intro__copy reveal delay-1"><p>A windowsill, kitchen corner or shelf is enough to get started. TinyHarvest makes the setup simple so you can spend less time figuring things out and more time watching the greens grow.</p><a class="link-arrow" href="#how">How TinyHarvest works <span>→</span></a></div></div></section>
-<section class="products" id="kits"><div class="wrap"><div class="products__head reveal"><div><span class="eyebrow">The collection</span><h2 class="display">Choose your<br>way to grow.</h2></div><p>Four options, from a jar of seeds to the full setup. Start with the one that suits your space and how much you want to grow.</p></div><div class="product-stage reveal delay-1"><div class="product-stage__visual"><span class="product-stage__tag" id="stageTag">Seeds</span><div class="product-stage__image"><img id="stageImage" src="assets/kit-jar.png" alt="TinyHarvest Seed Jar"></div><div class="product-stage__stamp">fresh<br>from<br>your home</div></div><div class="product-stage__info"><div><span class="eyebrow" id="stageEyebrow">Start small</span><h3 class="display" id="stageName">Seed Jar</h3><p class="description" id="stageDesc">Just the seeds, your way. A jar of premium microgreen seeds for growing in a container you already have at home.</p><div class="selector"><button class="active" data-product="0">Seed Jar</button><button data-product="1">Small Kit</button><button data-product="2">Medium Kit</button><button data-product="3">Large Kit</button></div><div class="facts"><div class="fact"><b id="fact1">1 variety</b><span>seed selection</span></div><div class="fact"><b id="fact2">Guide included</b><span>easy to follow</span></div><div class="fact"><b id="fact3">Home growing</b><span>made for small spaces</span></div><div class="fact"><b id="fact4">7 to 10 days</b><span>typical growing window</span></div></div></div><div><div class="price-row"><span class="price" id="stagePrice">€9.95 <small>incl. VAT</small></span><a class="btn" style="background:var(--ink);color:#fff" href="#faq">View details <span>→</span></a></div></div></div></div><div class="product-rail"><article class="mini-product active reveal" data-product="0"><img src="assets/kit-jar.png" alt="Seed Jar"><div class="mini-product__body"><div class="mini-product__name">Seed Jar</div><div class="mini-product__price">€9.95</div></div><span class="mini-product__arrow">↗</span></article><article class="mini-product reveal delay-1" data-product="1"><img src="assets/kit-small.png" alt="Small Kit"><div class="mini-product__body"><div class="mini-product__name">Small Kit</div><div class="mini-product__price">€19.95</div></div><span class="mini-product__arrow">↗</span></article><article class="mini-product reveal delay-2" data-product="2"><img src="assets/kit-medium.png" alt="Medium Kit"><div class="mini-product__body"><div class="mini-product__name">Medium Kit</div><div class="mini-product__price">€34.95</div></div><span class="mini-product__arrow">↗</span></article><article class="mini-product reveal delay-3" data-product="3"><img src="assets/kit-large.png" alt="Large Kit"><div class="mini-product__body"><div class="mini-product__name">Large Kit</div><div class="mini-product__price">€64.95</div></div><span class="mini-product__arrow">↗</span></article></div></div></section>
-<section class="story" id="story"><div class="wrap story__grid"><div class="story__image reveal"><img src="assets/header.jpg" alt="Growing fresh microgreens at home"><div class="story__badge"><strong>Made for real homes.</strong><span>Windowsills, kitchens and shelves.</span></div></div><div class="story__copy reveal delay-1"><span class="eyebrow">Why TinyHarvest</span><h2 class="display">Growing should feel <em style="font-style:normal;color:var(--green)">easy.</em></h2><p>TinyHarvest is for people who want to grow something fresh without needing a backyard or a complicated setup.</p><div class="story__points"><div class="point"><div class="point__num">01</div><div><h3>Simple setup</h3><p>The kits focus on the pieces you need to get growing.</p></div></div><div class="point"><div class="point__num">02</div><div><h3>Fits into everyday life</h3><p>Designed for indoor spaces and small routines.</p></div></div><div class="point"><div class="point__num">03</div><div><h3>Fresh is the reward</h3><p>Harvest what you grew and put it straight on your plate.</p></div></div></div></div></div></section>
-<section class="how" id="how"><div class="wrap"><div class="how__head reveal"><span class="eyebrow">Three simple steps</span><h2 class="display">From seed<br>to harvest.</h2><p>Set up the kit, follow the guide and give the crop the care it needs. Most grows are ready in about 7 to 10 days.</p></div><div class="how__steps"><article class="step reveal"><div class="step__photo"><img src="assets/kit-small.png" alt="Preparing a TinyHarvest growing kit"></div><div class="step__body"><div class="step__number">01 · prepare</div><h3 class="display">Set it up.</h3><p>Prepare your growing space, add the medium and sow the seeds.</p></div></article><article class="step reveal delay-1"><div class="step__photo"><img src="assets/kit-medium.png" alt="Growing microgreens with TinyHarvest"></div><div class="step__body"><div class="step__number">02 · grow</div><h3 class="display">Let it happen.</h3><p>Follow the guide, keep the crop cared for and watch the greens appear.</p></div></article><article class="step reveal delay-2"><div class="step__photo"><img src="assets/kit-large.png" alt="Harvesting microgreens from a TinyHarvest kit"></div><div class="step__body"><div class="step__number">03 · harvest</div><h3 class="display">Cut and enjoy.</h3><p>When they are ready, harvest your microgreens and enjoy them fresh.</p></div></article></div></div></section>
-<section class="trust"><div class="wrap"><div class="trust__head reveal"><div><span class="eyebrow" style="color:var(--lime)">TinyHarvest, simply</span><h2 class="display">Good growing.<br>No fuss.</h2></div><p>We keep the product straightforward. The claims on this site are based on TinyHarvest's own product and packaging information.</p></div><div class="proof-grid"><article class="proof reveal"><span class="proof__mark">01 / NATURAL</span><p>100% natural, with a simple growing approach for the home.</p><small>TinyHarvest product claim.</small></article><article class="proof reveal delay-1"><span class="proof__mark">02 / PLASTIC-FREE</span><p>Plastic-free packaging, designed to avoid unnecessary plastic.</p><small>TinyHarvest packaging claim.</small></article><article class="proof reveal delay-2"><span class="proof__mark">03 / HOME GROWING</span><p>No garden required. Grow your microgreens indoors in the space you already have.</p><small>Core product use case.</small></article></div></div></section>
-<section class="faq" id="faq"><div class="wrap faq__grid"><div class="reveal"><span class="eyebrow">Questions</span><h2 class="display">Before<br>you grow.</h2><p class="faq__intro">A few practical answers about space, timing and the kits.</p></div><div class="faq-list reveal delay-1"><div class="faq-item open"><button class="faq-q">Do I need a garden?<span>+</span></button><div class="faq-a" style="max-height:140px"><p>No. TinyHarvest is designed for indoor growing and small spaces. A suitable spot with the right light and basic care is enough to get started.</p></div></div><div class="faq-item"><button class="faq-q">How long does it take?<span>+</span></button><div class="faq-a"><p>Most grows are designed around a 7 to 10 day window, depending on the variety and growing conditions.</p></div></div><div class="faq-item"><button class="faq-q">What comes in the kits?<span>+</span></button><div class="faq-a"><p>The collection includes a Seed Jar, Small Kit, Medium Kit and Large Kit. Each kit has its own combination of seeds, growing medium and equipment.</p></div></div><div class="faq-item"><button class="faq-q">Is the packaging plastic-free?<span>+</span></button><div class="faq-a"><p>Yes. TinyHarvest packaging is plastic-free.</p></div></div><div class="faq-item"><button class="faq-q">Where are delivery and returns explained?<span>+</span></button><div class="faq-a"><p>Those details should be provided clearly when the live store and checkout are connected, including delivery costs, timing, company details and applicable withdrawal or return information.</p></div></div></div></div></section>
-<footer class="footer"><div class="wrap footer__inner"><div class="footer__top"><div class="footer__brand"><div class="footer__brand-lockup"><svg class="footer__brand-mark" viewBox="0 0 42 42" role="img" aria-label="TinyHarvest"><line x1="21" y1="36" x2="21" y2="16" stroke="#80b864" stroke-width="2.3" stroke-linecap="round"/><path d="M21 25C21 25 12 20 10 12C16 11 23 16 21 25Z" fill="#80b864"/><path d="M21 18C21 18 29 13 31 6C24 5 19 11 21 18Z" fill="#80b864"/><ellipse cx="18" cy="35.5" rx="5.5" ry="3.2" fill="#6e5842"/><path d="M12.5 35C13.5 39 16 41 21 41C26 41 28.5 39 29.5 35Z" fill="#30483a"/></svg><span class="footer__brand-name">TinyHarvest</span></div><p>Fresh microgreens grown at home. A little growing space can go a long way.</p></div><div class="footer__links"><div class="footer__group"><h4>Explore</h4><a href="#kits">Kits</a><a href="#how">How it works</a><a href="#story">Our approach</a></div><div class="footer__group"><h4>Help</h4><a href="#faq">FAQ</a><a href="#top">Back to top ↑</a></div></div><div class="footer__plant-wrap"><svg class="footer-plant" viewBox="0 0 104 124" role="img" aria-label="Growing plant"><path class="plant-stem" d="M52 103 C52 82 52 62 53 44 C53 31 58 21 66 13"/><path class="plant-branch" d="M53 70 C43 64 35 59 27 53"/><path class="plant-branch" d="M53 54 C62 49 71 43 78 35"/><path class="plant-branch" d="M53 43 C47 35 44 28 44 21"/><path class="plant-leaf one" d="M27 53C18 44 8 44 4 50C10 59 20 61 27 53Z"/><path class="plant-leaf two" d="M78 35C85 25 95 23 100 29C96 39 87 42 78 35Z"/><path class="plant-leaf three" d="M66 13C76 5 87 7 92 13C84 20 74 20 66 13Z"/><path class="plant-leaf four" d="M44 21C35 14 26 15 23 21C30 28 38 28 44 21Z"/><path class="plant-new" d="M52 45C45 39 46 32 52 28C59 33 59 39 52 45Z"/><ellipse class="plant-soil" cx="52" cy="105" rx="25" ry="6.5"/><path class="plant-pot" d="M29 103C32 114 38 120 52 121C66 120 72 114 75 103Z"/></svg><span>Keep growing</span></div></div><div class="footer__bottom"><span>© 2026 TinyHarvest</span><span>Home growing kits for microgreens</span></div></div></footer>
-<div class="cart-overlay" data-cart-close aria-hidden="true"></div>
-<aside class="cart-drawer" id="cart" aria-hidden="true" aria-labelledby="cartTitle" role="dialog">
-<div class="cart-drawer__head"><div><p class="eyebrow">Your order</p><h2 id="cartTitle">Cart</h2><p data-cart-heading>Choose a kit and it will appear here.</p></div><button class="cart-close" type="button" data-cart-close aria-label="Close cart">×</button></div>
-<div class="cart-items" data-cart-items></div>
-<div class="cart-drawer__foot"><div class="cart-summary-line"><span>Subtotal</span><strong data-cart-subtotal>€0.00</strong></div><div class="cart-summary-line"><span>Total</span><strong data-cart-total>€0.00</strong></div><p class="cart-note" data-checkout-note>Secure payment can be connected here when the store is ready.</p><button class="btn cart-checkout" type="button" data-checkout>Continue to checkout</button><button class="btn cart-secondary" type="button" data-cart-close>Keep shopping</button></div>
+
+<a class="skip" href="#kits">Skip to the kits</a>
+<div class="cursor-light" aria-hidden="true" data-light></div>
+
+<header class="nav" data-nav>
+  <a class="nav__logo" href="#top" aria-label="TinyHarvest home"><img src="assets/middle-logo.png" alt="TinyHarvest" width="1750" height="527"></a>
+  <nav class="nav__links" id="navlinks" aria-label="Sections">
+    <a href="#kits">Kits</a>
+    <a href="#grow">How it grows</a>
+    <a href="#steps">Three steps</a>
+    <a href="#addons">Add-ons</a>
+    <a href="#faq">Questions</a>
+  </nav>
+  <button class="nav__menu" type="button" aria-expanded="false" aria-controls="navlinks" data-menu aria-label="Menu">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+  </button>
+  <button class="nav__cart" type="button" data-cart-open aria-label="Open cart">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.4 11.2a1 1 0 0 0 1 .8h8.9a1 1 0 0 0 1-.8L20 8H6.2"/><circle cx="9.5" cy="20" r="1.2"/><circle cx="16.5" cy="20" r="1.2"/></svg>
+    <b class="nav__count" data-cart-count>0</b>
+  </button>
+  <span class="nav__progress" data-progress aria-hidden="true"></span>
+</header>
+
+<main id="top">
+
+  <section class="hero glass" id="hero">
+    <div class="roof" aria-hidden="true"></div>
+    <div class="shaft shaft--1" aria-hidden="true"></div>
+    <div class="shaft shaft--2" aria-hidden="true"></div>
+    <canvas class="mist" data-mist aria-hidden="true"></canvas>
+    <div class="hero__inner">
+      <div class="hero__text">
+        <p class="hero__kicker" data-hero-kicker>Microgreens kits for the windowsill, from EUR 9.95</p>
+        <h1 data-hero-title><span>Sow</span> <span>tonight.</span><br><span>Eat</span> <span>next</span> <span>week.</span></h1>
+        <p class="lead" data-hero-lead>A tray of microgreens on any windowsill: organic seeds, coco coir, the tray and a guide you can follow with one hand. Snip them straight onto your plate 7 to 10 days after sowing.</p>
+        <div class="actions" data-hero-actions>
+          <a class="btn btn--magnet" href="#kits">Choose your kit</a>
+          <a class="btn btn--ghost btn--magnet" href="#grow">See the ten days</a>
+        </div>
+      </div>
+      <div class="hero__sprout" data-hero-sprout>
+        <div class="scene scene--sprout" data-sprout>
+          <canvas aria-hidden="true"></canvas>
+          <img class="scene__frame" data-src="assets/logo-icon.png" alt="The TinyHarvest sprout" width="600" height="600" hidden>
+        </div>
+        <p class="hero__note">Move your cursor. The sprout turns to the light.</p>
+      </div>
+    </div>
+    <nav class="hero__strip" aria-label="Kit prices" data-strip></nav>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="marquee__track" data-marquee>
+    <span>Organic, non-GMO seeds</span><span>Ready in 7 to 10 days</span><span>No garden, no experience</span><span>Plastic-free packaging</span><span>Grown on coco coir</span><span>Prices include VAT</span>
+  </div></div>
+
+  <section class="section kits" id="kits">
+    <div class="leaves" data-leaves aria-hidden="true"></div>
+    <div class="section__head">
+      <h2 data-split>Pick the tray that fits your sill.</h2>
+      <p class="lead">Four sizes, one promise: fresh microgreens in 7 to 10 days. Every kit ships with organic, non-GMO seeds and the guide. Prices include VAT.</p>
+    </div>
+    <div class="kits__row" data-kits></div>
+    <p class="kits__hint" aria-hidden="true">Swipe to see all four</p>
+  </section>
+
+  <section class="growth glass" id="grow">
+    <div class="roof roof--low" aria-hidden="true"></div>
+    <div class="growth__pin">
+      <div class="growth__text">
+        <h2>Ten days,<br>seed to plate.</h2>
+        <ol class="stages" data-stages></ol>
+        <p class="growth__hint">Scroll to grow the tray, or tap a day.</p>
+      </div>
+      <div class="growth__scene">
+        <div class="shaft shaft--3" aria-hidden="true"></div>
+        <div class="scene" data-scene="grow" data-progress="0">
+          <canvas aria-hidden="true"></canvas>
+          <img class="scene__frame" data-src="assets/growth/stage-0.png" alt="A tray of seeds on coco coir" width="1200" height="900" hidden>
+        </div>
+        <div class="growth__day" aria-hidden="true"><b data-day>0</b><span>day</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section steps paper" id="steps">
+    <div class="section__head">
+      <h2 data-split>Three steps. No green thumb required.</h2>
+      <p class="lead">The guide fits on one card. Follow it once and you will not need it for the second tray.</p>
+    </div>
+    <ol class="steps__list" data-steps>
+      <li class="step" data-reveal="left">
+        <svg class="step__icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 30h48l-4 22H12z"/><path d="M14 30c4-6 10-9 18-9s14 3 18 9"/><path d="M20 40h24M22 46h20"/></svg>
+        <h3>Fill the tray</h3>
+        <p>Tip the coco coir into the tray and level it. Mist until it is damp, not wet.</p>
+      </li>
+      <li class="step" data-reveal="left">
+        <svg class="step__icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M32 8c-4 8-4 14 0 20 4-6 4-12 0-20z"/><path d="M32 28v28"/><path d="M14 44c6 0 10 4 12 8M50 44c-6 0-10 4-12 8"/><circle cx="20" cy="30" r="2"/><circle cx="46" cy="34" r="2"/><circle cx="40" cy="20" r="2"/></svg>
+        <h3>Sow the seeds</h3>
+        <p>Scatter the seeds in one even layer, mist again, lid on. Keep them dark for the first days.</p>
+      </li>
+      <li class="step" data-reveal="left">
+        <svg class="step__icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 52h40"/><path d="M20 52c0-14 4-24 12-30 8 6 12 16 12 30"/><path d="M32 22v30M26 34l6 6 6-6"/><path d="M42 14l6-6M46 18l8-4"/></svg>
+        <h3>Watch and harvest</h3>
+        <p>Lid off, onto the sill. On day 7 to 10, snip just above the soil and eat them the same day.</p>
+      </li>
+    </ol>
+    <div class="days" data-days>
+      <p class="days__title">Your first ten days, day by day</p>
+      <div class="days__track">
+        <div class="days__fill" data-days-fill></div>
+        <svg class="days__sprout" data-days-sprout viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 36V18"/><path d="M20 22c-8 0-12-5-12-12 7 0 12 5 12 12z"/><path d="M20 18c8 0 12-5 12-12-7 0-12 5-12 12z"/></svg>
+        <ol class="days__ticks" data-days-ticks></ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="section addons paper" id="addons">
+    <div class="section__head">
+      <h2 data-split>Small extras. Bigger, faster trays.</h2>
+      <p class="lead">Air, light and food. Add any of them to a kit today, or pick them up when the first tray is done.</p>
+    </div>
+    <ul class="addons__grid" data-addons></ul>
+  </section>
+
+  <section class="section trust glass" id="why">
+    <div class="roof roof--low" aria-hidden="true"></div>
+    <p class="trust__line" data-split>Grown by you. Not shipped from far.</p>
+    <ul class="claims" data-claims></ul>
+  </section>
+
+  <section class="section faq paper" id="faq">
+    <div class="section__head">
+      <h2 data-split>Questions people ask before the first tray.</h2>
+    </div>
+    <div class="faq__list" data-faq></div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__top">
+    <div class="footer__brand">
+      <img class="footer__logo" src="assets/logo-icon.png" alt="TinyHarvest" width="2000" height="2000">
+      <p class="footer__tag">Microgreens kits for the home. Sow on the sill, eat from the tray, sow again.</p>
+      <ul class="footer__social" aria-label="Social">
+        <li><span class="social" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></span></li>
+        <li><span class="social" title="Pinterest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7a4 4 0 0 0-2 7.5M12.5 11l-2 9"/></svg></span></li>
+        <li><span class="social" title="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 10v7M8 7v.5M12 17v-4a2 2 0 0 1 4 0v4"/></svg></span></li>
+        <li><span class="social" title="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M14 8h2V5h-2a3 3 0 0 0-3 3v2H9v3h2v7h3v-7h2l1-3h-3V8z"/></svg></span></li>
+      </ul>
+    </div>
+    <form class="news" data-news>
+      <label for="news-email">Be first when checkout opens.</label>
+      <div class="news__row">
+        <input id="news-email" type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+        <button class="btn" type="submit">Subscribe</button>
+      </div>
+      <p class="news__note" data-news-note>One email the day the shop opens, then the odd tip and recipe. Unsubscribe any time.</p>
+    </form>
+    <nav class="footer__col" aria-label="Shop">
+      <h3>Shop</h3>
+      <a href="#kits">Seed Jar</a><a href="#kits">Small Kit</a><a href="#kits">Medium Kit</a><a href="#kits">Large Kit</a><a href="#addons">Add-ons</a>
+    </nav>
+    <nav class="footer__col" aria-label="Learn">
+      <h3>Learn</h3>
+      <a href="#grow">How it grows</a><a href="#steps">Three steps</a><a href="#why">Why TinyHarvest</a><a href="#faq">Questions</a>
+    </nav>
+    <div class="footer__col">
+      <h3>Contact</h3>
+      <a href="mailto:info@tinyharvest.eu">info@tinyharvest.eu</a>
+      <span>Prices include VAT</span>
+      <span>Checkout opens soon, carts stay saved</span>
+    </div>
+  </div>
+  <div class="footer__mid">
+    <svg class="seal" data-seal viewBox="0 0 160 160" aria-hidden="true">
+      <defs><path id="sealPath" d="M80 80m-58 0a58 58 0 1 1 116 0a58 58 0 1 1-116 0"/></defs>
+      <text class="seal__text"><textPath href="#sealPath" textLength="362" lengthAdjust="spacingAndGlyphs">WINDOWSILL GROWN · 7 TO 10 DAYS · 100% NATURAL · </textPath></text>
+      <g class="seal__mark" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M80 108V76"/><path d="M80 84c-14 0-22-9-22-22 13 0 22 9 22 22z"/><path d="M80 76c14 0 22-9 22-22-13 0-22 9-22 22z"/></g>
+    </svg>
+    <div class="sprouts" data-sprouts aria-hidden="true"></div>
+    <a class="totop" href="#top" data-totop>Back to top <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></a>
+  </div>
+  <p class="footer__word" aria-hidden="true" data-word>TinyHarvest</p>
+  <p class="footer__legal">TinyHarvest - tinyharvest.eu - microgreens kits for the home</p>
+</footer>
+
+<div class="cart-overlay" data-cart-close hidden></div>
+<aside class="cart" aria-label="Your cart" aria-hidden="true" data-lenis-prevent>
+  <div class="cart__head">
+    <h2>Your cart</h2>
+    <p data-cart-heading>Nothing in your tray yet.</p>
+    <button class="cart__close" type="button" data-cart-close aria-label="Close cart">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <div class="cart__items" data-cart-items></div>
+  <div class="cart__foot">
+    <div class="cart__row"><span>Subtotal</span><b data-cart-subtotal>EUR 0.00</b></div>
+    <button class="btn btn--full" type="button" data-checkout>Checkout</button>
+    <p class="cart__note" data-checkout-note>Checkout opens soon. Your cart stays saved on this device until it does.</p>
+  </div>
 </aside>
-<div class="cart-toast" data-cart-toast role="status" aria-live="polite"></div>
-<script>
-(()=>{
-const nav=document.getElementById('nav'),menu=document.getElementById('menu'),mobile=document.getElementById('mobileMenu');
-const onScroll=()=>nav.classList.toggle('scrolled',scrollY>60);onScroll();addEventListener('scroll',onScroll,{passive:true});
-const closeMobileMenu=()=>{mobile.classList.remove('open');nav.classList.remove('menu-open');menu.setAttribute('aria-expanded','false')};
-menu.addEventListener('click',()=>{const open=mobile.classList.toggle('open');nav.classList.toggle('menu-open',open);menu.setAttribute('aria-expanded',String(open))});
-mobile.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMobileMenu));
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target)}}),{threshold:.1,rootMargin:'0px 0px -35px'});document.querySelectorAll('.reveal').forEach(x=>io.observe(x));
-const shopConfig={
-currency:'EUR',
-locale:'en-NL',
-cartStorageKey:'tinyharvest.cart.v1',
-checkoutEndpoint:'',
-products:[
-{id:'seed-jar',stripePriceId:'price_seed_jar_replace_me',name:'Seed Jar',eye:'Start small',tag:'Seeds',image:'assets/kit-jar.png',alt:'TinyHarvest Seed Jar',priceCents:995,desc:'Just the seeds, your way. A jar of premium microgreen seeds for growing in a container you already have at home.',f1:'1 variety',f2:'Guide included',f3:'Home growing',f4:'7 to 10 days'},
-{id:'small-kit',stripePriceId:'price_small_kit_replace_me',name:'Small Kit',eye:'Your first kit',tag:'Small',image:'assets/kit-small.png',alt:'TinyHarvest Small Kit',priceCents:1995,desc:'A compact growing kit for getting your first crop started at home.',f1:'1 variety',f2:'Coco coir',f3:'Compact tray',f4:'7 to 10 days'},
-{id:'medium-kit',stripePriceId:'price_medium_kit_replace_me',name:'Medium Kit',eye:'More variety',tag:'Medium',image:'assets/kit-medium.png',alt:'TinyHarvest Medium Kit',priceCents:3495,desc:'A roomier setup with more variety for regular home growing.',f1:'2 varieties',f2:'Coco coir',f3:'Tray + lid',f4:'7 to 10 days'},
-{id:'large-kit',stripePriceId:'price_large_kit_replace_me',name:'Large Kit',eye:'The full setup',tag:'Large',image:'assets/kit-large.png',alt:'TinyHarvest Large Kit',priceCents:6495,desc:'The biggest TinyHarvest setup for growers who want more room and more variety.',f1:'3 varieties',f2:'2x growing medium',f3:'Large tray',f4:'7 to 10 days'}
-]};
-const ps=shopConfig.products;
-const byId=id=>document.getElementById(id);
-const money=cents=>new Intl.NumberFormat(shopConfig.locale,{style:'currency',currency:shopConfig.currency}).format(cents/100);
-let currentProduct=0;
-document.querySelectorAll('[data-product]').forEach(el=>el.addEventListener('click',()=>selectProduct(Number(el.dataset.product))));
-document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>{const item=q.parentElement,a=item.querySelector('.faq-a'),open=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(x=>{x.classList.remove('open');x.querySelector('.faq-a').style.maxHeight=null});if(!open){item.classList.add('open');a.style.maxHeight=a.scrollHeight+'px'}}));
-function selectProduct(i){currentProduct=i;const p=ps[i];byId('stageName').textContent=p.name;byId('stageEyebrow').textContent=p.eye;byId('stageTag').textContent=p.tag;byId('stagePrice').innerHTML=money(p.priceCents)+' <small>incl. VAT</small>';byId('stageDesc').textContent=p.desc;byId('fact1').textContent=p.f1;byId('fact2').textContent=p.f2;byId('fact3').textContent=p.f3;byId('fact4').textContent=p.f4;stageCta.textContent='Add to cart';stageCta.setAttribute('href','#cart');const img=byId('stageImage'),showImage=()=>{img.style.opacity='1';img.style.transform='scale(1) rotate(-2deg)'};img.style.opacity='0';img.style.transform='scale(.96) rotate(-5deg)';setTimeout(()=>{img.onload=showImage;img.src=p.image;img.alt=p.alt;if(img.complete)showImage()},120);document.querySelectorAll('[data-product]').forEach(el=>el.classList.toggle('active',Number(el.dataset.product)===i))}
-const stageCta=document.querySelector('.price-row .btn');
-const drawer=document.querySelector('.cart-drawer'),overlay=document.querySelector('.cart-overlay'),cartItems=document.querySelector('[data-cart-items]'),cartHeading=document.querySelector('[data-cart-heading]'),cartSubtotal=document.querySelector('[data-cart-subtotal]'),cartTotal=document.querySelector('[data-cart-total]'),checkoutBtn=document.querySelector('[data-checkout]'),checkoutNote=document.querySelector('[data-checkout-note]'),toast=document.querySelector('[data-cart-toast]');
-let cart=loadCart();
-function loadCart(){try{const parsed=JSON.parse(localStorage.getItem(shopConfig.cartStorageKey)||'[]');if(!Array.isArray(parsed))return[];return parsed.map(item=>({productId:String(item.productId),quantity:Math.min(99,Math.max(1,Number(item.quantity)||1))})).filter(item=>ps.some(p=>p.id===item.productId))}catch{return[]}}
-function saveCart(){localStorage.setItem(shopConfig.cartStorageKey,JSON.stringify(cart))}
-function cartCount(){return cart.reduce((sum,item)=>sum+item.quantity,0)}
-function cartSubtotalCents(){return cart.reduce((sum,item)=>{const product=ps.find(p=>p.id===item.productId);return sum+(product?product.priceCents*item.quantity:0)},0)}
-function showToast(message){toast.textContent=message;toast.classList.add('show');clearTimeout(showToast.timer);showToast.timer=setTimeout(()=>toast.classList.remove('show'),2300)}
-function openCart(){drawer.classList.add('open');overlay.classList.add('open');drawer.setAttribute('aria-hidden','false');overlay.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';drawer.querySelector('.cart-close').focus({preventScroll:true})}
-function closeCart(){drawer.classList.remove('open');overlay.classList.remove('open');drawer.setAttribute('aria-hidden','true');overlay.setAttribute('aria-hidden','true');document.body.style.overflow=''}
-function addToCart(productId,quantity=1){const existing=cart.find(item=>item.productId===productId);if(existing){existing.quantity=Math.min(99,existing.quantity+quantity)}else{cart.push({productId,quantity})}saveCart();renderCart();const product=ps.find(p=>p.id===productId);showToast(`${product.name} added to cart`);openCart()}
-function setQuantity(productId,quantity){const next=Math.max(0,Math.min(99,quantity));if(next===0){cart=cart.filter(item=>item.productId!==productId)}else{const line=cart.find(item=>item.productId===productId);if(line)line.quantity=next}saveCart();renderCart()}
-function checkoutPayload(){return{currency:shopConfig.currency,items:cart.map(item=>{const product=ps.find(p=>p.id===item.productId);return{productId:product.id,priceId:product.stripePriceId,quantity:item.quantity,unitAmount:product.priceCents}})}}
-async function beginCheckout(){if(!cart.length)return;const payload=checkoutPayload();if(!shopConfig.checkoutEndpoint){window.dispatchEvent(new CustomEvent('tinyharvest:checkout-ready',{detail:payload}));checkoutNote.textContent='Secure checkout is ready to connect. Your cart is saved on this device.';showToast('Checkout is ready to connect');return}checkoutBtn.disabled=true;checkoutBtn.textContent='Opening checkout...';try{const res=await fetch(shopConfig.checkoutEndpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});if(!res.ok)throw new Error('Checkout could not start');const data=await res.json();if(data.url){window.location.href=data.url;return}throw new Error('Checkout URL missing')}catch(err){checkoutNote.textContent='Checkout could not open. Please try again in a moment.';showToast(err.message||'Checkout could not open')}finally{checkoutBtn.disabled=false;checkoutBtn.textContent='Continue to checkout'}}
-function renderCart(){document.querySelectorAll('[data-cart-count]').forEach(el=>el.textContent=cartCount());cartHeading.textContent=cart.length?`${cartCount()} item${cartCount()===1?'':'s'} selected`:'Choose a kit and it will appear here.';cartSubtotal.textContent=money(cartSubtotalCents());cartTotal.textContent=money(cartSubtotalCents());checkoutBtn.disabled=!cart.length;checkoutNote.textContent=shopConfig.checkoutEndpoint?'Shipping and payment continue in the secure checkout.':'Secure checkout is ready to connect. Your cart is saved on this device.';if(!cart.length){cartItems.innerHTML='<div class="cart-empty"><div><strong>Your cart is empty</strong><p>Pick one of the kits above to start an order.</p></div></div>';return}cartItems.innerHTML=cart.map(item=>{const product=ps.find(p=>p.id===item.productId);const lineTotal=product.priceCents*item.quantity;return`<article class="cart-line" data-cart-line="${product.id}"><img class="cart-line__image" src="${product.image}" alt="${product.alt}"><div><div class="cart-line__top"><div class="cart-line__name">${product.name}</div><div class="cart-line__price">${money(lineTotal)}</div></div><p class="cart-line__desc">${money(product.priceCents)} each</p><div class="cart-line__controls"><div class="qty" aria-label="Quantity for ${product.name}"><button type="button" data-qty="-1" aria-label="Decrease quantity">-</button><span>${item.quantity}</span><button type="button" data-qty="1" aria-label="Increase quantity">+</button></div><button class="cart-remove" type="button" data-remove>Remove</button></div></div></article>`}).join('')}
-stageCta.addEventListener('click',e=>{e.preventDefault();addToCart(ps[currentProduct].id)});
-document.querySelectorAll('[data-cart-open]').forEach(btn=>btn.addEventListener('click',e=>{e.preventDefault();closeMobileMenu();openCart()}));
-document.querySelectorAll('[data-cart-close]').forEach(btn=>btn.addEventListener('click',closeCart));
-cartItems.addEventListener('click',e=>{const line=e.target.closest('[data-cart-line]');if(!line)return;const productId=line.dataset.cartLine;if(e.target.closest('[data-remove]')){setQuantity(productId,0);return}const qtyBtn=e.target.closest('[data-qty]');if(qtyBtn){const current=cart.find(item=>item.productId===productId)?.quantity||1;setQuantity(productId,current+Number(qtyBtn.dataset.qty))}});
-checkoutBtn.addEventListener('click',beginCheckout);
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&drawer.classList.contains('open'))closeCart()});
-window.TinyHarvestShop={config:shopConfig,getCart:()=>cart.slice(),addToCart,openCart,closeCart,beginCheckout};
-selectProduct(0);
-renderCart();
-})();
-</script>
+<div class="toast" role="status" aria-live="polite" data-toast></div>
+<span class="fly" data-fly aria-hidden="true"></span>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
+<script src="data.js?v=5"></script>
+<script src="site.js?v=5"></script>
 </body>
 </html>
