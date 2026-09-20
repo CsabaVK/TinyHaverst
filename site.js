@@ -152,7 +152,13 @@ render();
 
 /* ---------- Nav, newsletter, cursor light ---------- */
 const nav = $('[data-nav]');
-addEventListener('scroll', () => nav.classList.toggle('is-scrolled', scrollY > 8), { passive: true });
+let lastY = 0;
+addEventListener('scroll', () => {
+  const y = scrollY; nav.classList.toggle('is-scrolled', y > 8);
+  // phones: nav slides away while scrolling down, comes back on the first scroll up
+  if (matchMedia('(max-width: 900px)').matches && !nav.classList.contains('is-open')) nav.classList.toggle('is-hidden', y > lastY && y > 120);
+  lastY = y;
+}, { passive: true });
 $('[data-menu]').addEventListener('click', e => { const open = nav.classList.toggle('is-open'); e.currentTarget.setAttribute('aria-expanded', open); });
 $$('.nav__links a').forEach(a => a.addEventListener('click', () => nav.classList.remove('is-open')));
 $('[data-news]').addEventListener('submit', e => { e.preventDefault(); $('[data-news-note]').textContent = `Sign-up is not connected yet. Email ${D.email} and we add you by hand.`; });
